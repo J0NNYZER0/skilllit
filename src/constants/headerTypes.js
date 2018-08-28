@@ -1,3 +1,5 @@
+import * as server from './serverTypes';
+
 export const HEADERS = {
   JSON: {
     GET: () => ({
@@ -5,7 +7,7 @@ export const HEADERS = {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
-        'Origin': HOST
+        'Origin': server.HOST
       },
       credentials: 'include',
     }),
@@ -14,7 +16,7 @@ export const HEADERS = {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
-        'Origin': HOST
+        'Origin': server.HOST
       },
       body: JSON.stringify(data)
     }),
@@ -27,7 +29,7 @@ export const HEADERS = {
     GET: {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'x-www-form-urlencoded',
-      'Origin': HOST
+      'Origin': server.HOST
     }
   }
 };

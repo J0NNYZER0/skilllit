@@ -13,7 +13,7 @@ class Signup extends React.Component {
     const { contact } = this.props;
 
     return (
-      <section className="contact">
+      <section className="signin">
         <h1>Sign In</h1>
         <SigninForm contact={contact} />
       </section>

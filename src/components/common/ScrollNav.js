@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, Element } from 'react-scroll';
+import { Link, IndexLink } from 'react-router';
+import ScrollLink from './ScrollLink';
+import { Element } from 'react-scroll';
 
 class ScrollNav extends React.Component {
 
@@ -22,7 +24,6 @@ class ScrollNav extends React.Component {
   }
 
   toggleMenu() {
-    console.log('toggle menu')
     this.setState({toggle: false});
   }
 
@@ -36,6 +37,8 @@ class ScrollNav extends React.Component {
   render() {
 
     const { site, pathname } = this.props;
+
+    console.log('pathname', pathname)
 
     return (
       <nav className="scroll_nav">
@@ -52,25 +55,13 @@ class ScrollNav extends React.Component {
             </div>
           </div>
         </div>
-        {<div className={(this.state.toggle) ?
-          'menu show' : 'menu'}>
-          {pathname !== '/' &&
-          <Link to="/">Home</Link>}
-          <Link activeClass="active" to="experience" spy={true} smooth={true} offset={-250} duration={500} onClick={this.toggleMenu}>
-            Experience
-          </Link>
-          <Link activeClass="active" to="skillset" spy={true} smooth={true} offset={-250} duration={500} onClick={this.toggleMenu}>
-            Skillset
-          </Link>
-          <Link activeClass="active" to="education" spy={true} smooth={true} offset={-250} duration={500} onClick={this.toggleMenu}>
-            Education
-          </Link>
-          <Link activeClass="active" to="resume" spy={true} smooth={true} offset={-250} duration={500} onClick={this.toggleMenu}>
-            Resume
-          </Link>
-          <Link activeClass="active" to="contact" spy={true} smooth={true} offset={-250} duration={500} onClick={this.toggleMenu}>
-            Contact
-          </Link>
+        {<div className={(this.state.toggle) ? 'menu show' : 'menu'}>
+          {pathname !== '/' && <IndexLink to="/">Home</IndexLink>}
+          <ScrollLink scrollLink={{ to:'experience', offset: -250, onClick: this.toggleMenu, text: 'Experience' }} />
+          <ScrollLink scrollLink={{ to:'skillset', offset: -250, onClick: this.toggleMenu, text: 'Skillset' }} />
+          <ScrollLink scrollLink={{ to:'education', offset: -250, onClick: this.toggleMenu, text: 'Education' }} />
+          <ScrollLink scrollLink={{ to:'resume', offset: -250, onClick: this.toggleMenu, text: 'Resume' }} />
+          <ScrollLink scrollLink={{ to:'contact', offset: -250, onClick: this.toggleMenu, text: 'Contact' }} />
           <Link to="signin">Sign In</Link>
         </div>}
       </nav>);

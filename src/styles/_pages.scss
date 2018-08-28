@@ -169,6 +169,14 @@ section.skillsets {
   border-top: 0;
 }
 
+section.not_found {
+  p {
+    text-align: center;
+  }
+  a {
+    color: #000;
+  }
+}
 @media only screen  and (min-width : 320px) and (max-width : 700px) {
   h1 {
     text-align: center;

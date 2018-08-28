@@ -2,7 +2,7 @@
   "section": "top",
   "profile_pic": "https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit_logo.svg",
   "selected_profile_pic": "https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit_logo_selected.svg",
-  "talk_bubble": "Made with \uD83D\uDDA4 by me. The UI is <b>Reactjs<\/b>. The API is <b>Nodejs<\/b>. The DB is <b>Mysql<\/b>. The PaAS is <b>Heroku<\/b>. The CDN is <b>AWS<\/b>. The code is on <b>git<\/b>.",
+  "talk_bubble": "Hi, I'm Skilllit. <a href='\/signup'>Sign up<\/a>. Input your experience, skillset and education. <b>Then Bam! You get a site like this.<\/b>",
   "title": "Show off <br> your skillls",
   "tagline": "Represent. Cook things up. The right way."
 }]

@@ -1,7 +1,6 @@
 [{
   "section": "top",
-  "profile_pic": "https://s3.us-east-2.amazonaws.com/jonortiz.me/me.png",
-  "selected_profile_pic": "https://s3.us-east-2.amazonaws.com/jonortiz.me/me2.png",
-  "title": "Full Stack Engineer",
-  "tagline": "Pushing &nbsp;<b>UI<\/b>s &nbsp;<b>API<\/b>s and&nbsp; <b>DB<\/b>s to the edge of technology.<br \/>\r\n  Empowering people to manage, protect and understand data."
+  "profile_pic": "https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit_logo.svg",
+  "title": "Show off <br> your skillls",
+  "tagline": "Represent. Cook things up. The right way."
 }]

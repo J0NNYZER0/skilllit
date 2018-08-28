@@ -26,7 +26,7 @@ class Footer extends React.Component {
         <div className="menu__social">
           {social_media.map((el, idx) => {
             return <a key={idx} href={el.url} target="_blank">
-              <span style={{ backgroundImage: el.image }} />
+              <span style={{ backgroundImage: "url(" + el.image + ")" }} />
             </a>
           })}
         </div>

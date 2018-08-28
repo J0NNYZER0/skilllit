@@ -1,5 +1,5 @@
 section.home {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #000;
 
    > div > div {
     flex: 1;
@@ -11,10 +11,11 @@ section.home {
     width: 250px;
     height: 250px;
     display: block;
-    border-radius: 50%;
+    //border-radius: 50%;
     background-size: 250px;
     background-position: 50% 70%;
-    box-shadow: 0 0 60px rgba(0, 0, 0, .6);
+    //box-shadow: 0 0 60px rgba(0, 0, 0, .6);
+    background-repeat: no-repeat;
     margin: 0px auto 30px auto;
     cursor: pointer;
   }
@@ -84,7 +85,7 @@ section.education {
 }
 
 a.download-resume {
-  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/white/download.svg);
+  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/black/download.svg);
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
@@ -122,16 +123,6 @@ section.experience {
     margin-bottom: 1.5em;
     text-align: left;
     list-style-type: square;
-  }
-  a.download-resume {
-    display: block;
-    width: 75px;
-    height: 75px;
-    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/white/download.svg);
-    background-size: 75px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    margin: 0 auto;
   }
 }
 .skillsets {
@@ -171,7 +162,7 @@ section.contact {
   min-height: calc(100vh - 101px);
   align-items: center;
   justify-content: center;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #000;
 }
 
 section.skillsets {

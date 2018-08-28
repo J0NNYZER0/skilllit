@@ -5,12 +5,12 @@
     }
 
     40% {
-        transform: translateY(100px) scale(.5);
+        transform: translateY(100px) scale(1.5);
         opacity: 0
     }
 
     60% {
-        transform: translateY(-50px) scale(.95);
+        transform: translateY(-50px) scale(.5);
         opacity: 0
     }
 
@@ -22,7 +22,8 @@
 
 .down_animation {
   display: block;
-  animation: moving_downward_and_fading_in_and_out 2s linear infinite;
+  animation: moving_downward_and_fading_in_and_out 1.5s linear infinite;
+  cursor: pointer;
 }
 
 /***********THINGS TO ANIMATE***********/
@@ -31,10 +32,10 @@
   position: relative;
   display: block;
   width: 50px;
-  height: 50px;
+  height: 100px;
   margin: 0 auto;
   top: 50px;
-  background-image: url('https://s3.us-east-2.amazonaws.com/ui-icons/white/down-arrow.svg');
+  background-image: url('https://s3.us-east-2.amazonaws.com/ui-icons/black/down-arrow.svg');
   background-size: 50px;
   background-position: center;
   background-repeat: no-repeat;

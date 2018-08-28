@@ -62,9 +62,7 @@ class Home extends React.Component {
       return [
         <section key="home" className="home">
           {home.map((section,idx) => {
-            let profilePic = (this.state.toggle) ?
-              section.profile_pic :
-              section.selected_profile_pic;
+            let profilePic = section.profile_pic
 
             return <div key={idx}>
               <div>
@@ -82,7 +80,7 @@ class Home extends React.Component {
                   The code is on <b>git</b>.
                 </p>
               </div>
-              <h1>{section.title}</h1>
+              <h1 dangerouslySetInnerHTML={{__html: section.title}} />
               <p dangerouslySetInnerHTML={{__html: section.tagline}} />
               <Link className="down_animation" activeClass="active" to="experience"
                 spy={true} smooth={true}

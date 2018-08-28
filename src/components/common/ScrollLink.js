@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, Element } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const ScrollLink = ({scrollLink}) => {
 

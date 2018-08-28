@@ -1,21 +1,21 @@
 'use strict'
 
-const Hapi = require('hapi'),
-  Server = new Hapi.Server(),
-  Path = require('path'),
+const Path = require('path'),
+Hapi = require('hapi'),
+  Server = new Hapi.Server({
+      host: '0.0.0.0',
+      port: process.env.PORT || 6000,
+      state: { ignoreErrors: true },
+      routes: {
+          files: { relativeTo: Path.join(__dirname, '../../dist') },
+          cors: {
+            origin: ['*'],
+            exposedHeaders: ['Authorization']
+          }
+      }
+    }),
   Inert = require('inert'),
-  CreateDate = () => {
-    let today = new Date(),
-    year = today.getFullYear(),
-    month = today.getMonth(),
-    day = today.getDate(),
-    hour = today.getHours(),
-    minute = today.getMinutes(),
-    second = today.getSeconds(),
-    date = new Date(Date.UTC(year, month, day, hour, minute, second)).toString()
-
-    return date
-  },
+  Utility = require('./utility'),
   FileHandler = (request, reply) => {
     reply.file(Path.join(__dirname, '../../dist/index.html'))
   },
@@ -70,19 +70,6 @@ const Hapi = require('hapi'),
     ]
   }
 
-Server.connection({
-    host: '0.0.0.0',
-    port: process.env.PORT || 5000,
-    state: { ignoreErrors: true },
-    routes: {
-        files: { relativeTo: Path.join(__dirname, '../../dist') },
-        cors: {
-          origin: ['*'],
-          exposedHeaders: ['Authorization']
-        }
-    }
-})
-
 Server.register([Inert], (err) => {
   if (err) throw err
 
@@ -101,9 +88,18 @@ Server.register([Inert], (err) => {
 	)
 })
 
-Server.start((err) => {
-    if (err) throw err
+// Start the server
+async function Start() {
 
-    console.log('Dub dub dub dot Jon Ortiz dot me is running @', Server.info.uri, 'on', CreateDate())
+    try {
+        await Server.start()
+    }
+    catch (err) {
+        console.log(err)
+        process.exit(1)
+    }
 
-})
+    console.log('Dub dub dub dot Jon Ortiz dot me is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
+}
+
+Start()

@@ -62,6 +62,10 @@ const Hapi = require('hapi'),
       {
         method: 'GET',
         path: '/contact'
+      },
+      {
+        method: 'GET',
+        path: '/signin'
       }
     ]
   }

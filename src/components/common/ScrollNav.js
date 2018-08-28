@@ -71,6 +71,7 @@ class ScrollNav extends React.Component {
           <Link activeClass="active" to="contact" spy={true} smooth={true} offset={-250} duration={500} onClick={this.toggleMenu}>
             Contact
           </Link>
+          <Link to="signin">Sign In</Link>
         </div>}
       </nav>);
     }

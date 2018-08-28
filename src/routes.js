@@ -8,6 +8,7 @@ import Skillset from './components/pages/Skillset';
 import Education from './components/pages/Education';
 import Resume from './components/pages/Resume';
 import Contact from './components/pages/Contact';
+import Signin from './components/pages/Signin';
 import NotFoundPage from './components/NotFoundPage';
 
 export default (
@@ -18,6 +19,7 @@ export default (
     <Route path="experience" component={Experience}/>
     <Route path="resume" component={Resume}/>
     <Route path="skillset" component={Skillset}/>
+    <Route path="signin" component={Signin}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>
 );

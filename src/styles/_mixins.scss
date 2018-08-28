@@ -1,0 +1,23 @@
+@mixin parallaxImage($a, $b, $c, $d, $e, $f, $g, $h) {
+  margin-top: 101px;
+  margin-bottom: 101px;
+  background-image: url($a);
+  background-size: $b;
+  background-position: $c;
+  background-repeat: no-repeat;
+  width: $d;
+  min-height: $e;
+  position: absolute;
+  z-index: $f;
+  top: $g;
+  opacity: $h;
+}
+@mixin parallaxText($a, $b, $c, $d, $e) {
+  margin-top: 101px;
+  margin-bottom: 101px;
+  width: $a;
+  min-height: $b;
+  z-index: $c;
+  top: $d;
+  opacity: $e;
+}

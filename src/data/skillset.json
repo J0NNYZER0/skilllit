@@ -1,0 +1,51 @@
+[
+  {
+    "title": "UI",
+    "items": [
+      "React",
+      "Redux",
+      "Webpack",
+      "Browsersync",
+      "ESlint",
+      "Jest",
+      "Enzyme",
+      "HTML5",
+      "Sass",
+      "SocketIO",
+      "Electron",
+      "ReactNative"
+    ]
+  },
+  {
+    "title": "API",
+    "items": [
+      "Nodejs",
+      "Hapijs",
+      "AuthJWT",
+      "AuthCookie",
+      "Catbox",
+      "Boom",
+      "Handlebars",
+      "Vision",
+      "Lab",
+      "Code",
+      "Swagger",
+      "Lodash",
+      "Rxjs",
+      "AWS",
+      "Heroku"
+    ]
+  },
+  {
+    "title": "DB",
+    "items": [
+      "MySQL",
+      "Redis",
+      "MongoDB",
+      "Cassandra",
+      "Kafka",
+      "GraphQL",
+      "ElasticSearch"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+.preloader {
+	width: calc(100% - 250px);
+  height: calc(100% - 80px);
+  position: absolute;
+  top: 0;
+	right: 0;
+	z-index: 10;
+	background: $evilAlpha;
+}
+.spinner {
+  width: 100px;
+  margin: 25% 50%;
+	font-size: 5em;
+}
+.preloader__image {
+	height: 100px;
+	width: 100px;
+  margin: 20% calc(50% - 40px);
+	display: block;
+	background: transparent url('/assets/preloader.svg') 50% 10% / 100px 100px no-repeat;
+}
+.modal__preloader {
+	height: 100%;
+	width: 100%;
+  position: fixed;
+	background: $evilAlpha;
+	z-index: 10;
+	display: flex;
+	flex: 1;
+}
+body:has(div.modal__preloader) {
+	position: fixed;
+}
+.modal__spinner {
+  width: 100%;
+  margin: auto;
+	font-size: 5em;
+}

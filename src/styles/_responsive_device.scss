@@ -1,0 +1,111 @@
+/*iPhone 6, 7, & 8 in landscape*/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  .layout {
+    min-height: calc(100vh - 180px);
+  }
+  .logo {
+    min-height: 200px;
+    font-size: 6em;
+  }
+  .icon__menu {
+    width: 90px;
+    height: 90px;
+    background-size: 80px;
+  }
+  .icon__menu.show {
+    background-size: 60px;
+  }
+  .menu > a {
+    padding: 30px 0;
+    font-size: 5em;
+  }
+  footer {
+    min-height: 200px;
+    flex-direction: column;
+  }
+  footer div.menu__social {
+    margin-top: 30px;
+  }
+  .menu__social span {
+    height: 80px;
+    width: 80px;
+    background-size: 80px;
+  }
+  .menu__social > a {
+    margin-right: 30px;
+  }
+  div.love_message {
+    bottom: 250px;
+  }
+  div.love_message:after {
+    left: calc(50% - 40px);
+    bottom: -37px;
+    border-width: 40px;
+  }
+  footer div.site_love {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .site_love span {
+    height: 50px;
+    background-size: 50px;
+    width: 50px;
+  }
+  footer div.company_info {
+    font-size: 4em;
+    margin-bottom: 30px;
+  }
+  span.copyright {
+    margin-right: auto;
+  }
+  section.home  > div {
+    min-height: calc(100vh - 776px);
+  }
+  section.home span.profile_picture {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    background-size: 250px;
+    background-position: 50% 70%;
+  }
+  p {
+    font-size: 3em;
+    line-height: 1.5em;
+    width: calc(100% - 250px);
+  }
+  #nav-icon {
+    width: 100px;
+    height: 85px;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+  }
+  #nav-icon span {
+    height: 10px;
+    border-radius: 10px;
+  }
+  #nav-icon span:nth-child(1) {
+    top: 0px;
+  }
+  #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
+    top: 30px;
+  }
+  #nav-icon span:nth-child(4) {
+    top: 60px;
+  }
+  #nav-icon.open span:nth-child(1) {
+    top: 30px;
+  }
+  #nav-icon.open span:nth-child(4) {
+    top: 30px;
+  }
+}
+
+/*iPhone X in portrait & landscape*/
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+
+}

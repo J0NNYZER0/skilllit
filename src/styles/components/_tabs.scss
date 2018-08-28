@@ -1,0 +1,96 @@
+.tab__component--wrapper {
+  margin-top: 25px;
+}
+.tab__contents {
+  margin-top: 20px;
+}
+.tab__section--header {
+  display: flex;
+}
+.tab__section--header > h2 {
+  flex: 1;
+  text-align: left;
+  font-variant: small-caps;
+}
+.tab__section--header div {
+  align-self: center;
+}
+.tab__contents > div {
+  display: none;
+}
+.tab__contents > div.active {
+  display: block;
+}
+.tab__buttons {
+  display: flex;
+  font-variant: small-caps;
+}
+.tab__buttons > li {
+  width: 40px;
+  background-color: #999;
+  color: #fff;
+  border-bottom: 0px;
+  padding: 15px 10px;
+  font-family: 'NeutrafaceTextBold';
+  font-size: 1.25em;
+  margin-left: 2px;
+  text-align: center;
+  box-shadow: 0 0 18px 0 rgba(0, 0, 6, 0.66);
+}
+.tab__buttons > li:active.tab__active.text,
+.tab__buttons > li.tab__active.text,
+.tab__buttons > li.text {
+  width: auto;
+  background: transparent;
+  color: #000;
+  box-shadow: none;
+}
+
+.tab__buttons > li:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.tab__buttons > li:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+li#_profile {
+  background-image: url(/assets/default_user_icon-lt-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+}
+li#_password {
+  background-image: url(/assets/icon-lock-lt-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+}
+li#_settings {
+  background-image: url(/assets/icon-gear-lt-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+}
+li#_password {
+  background-image: url(/assets/icon-lock-lt-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+}
+li#_shop {
+  background-image: url(/assets/icon-shop-lt-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+}
+li#_products {
+  background-image: url(/assets/icon-product-lt-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 50% 50%;
+}
+.tab__buttons > li.tab__active {
+  background-color: #666;
+}

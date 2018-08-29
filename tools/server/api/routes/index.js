@@ -1,17 +1,14 @@
-const Routes = {
+'use strict'
+
+module.exports = {
   Account: [
     {
       method: 'POST',
       path: '/login',
-      config: {
-        handler: (request, reply) => {
-          reply('Not yet implemented')
-        }
+      handler: (request, h) => {
+        
+        h.response('Not yet implemented')
       }
     }
   ]
-}
-
-module.exports = {
-  Routes: Routes
 }

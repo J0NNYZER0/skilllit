@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Starter kit for creating apps with React and Redux",
   "engines": {
+    "node": ">=8.9.0",
     "npm": ">=3"
   },
   "scripts": {
@@ -79,6 +80,7 @@
     "moment": "2.21.0",
     "mysql2": "1.4.2",
     "node-sass": "4.5.2",
+    "nodemailer": "4.6.8",
     "npm-run-all": "3.1.2",
     "object-assign": "4.1.0",
     "opn-cli": "3.1.0",

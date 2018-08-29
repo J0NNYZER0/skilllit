@@ -18,6 +18,7 @@ const Path = require('path'),
   FileHandler = (request, h) => {
     return h.file(Path.join(__dirname, '../../dist/index.html'))
   },
+  ApiRoutes = require('./api/routes'),
   Routes = {
     Base: [
       // /{files*}
@@ -82,7 +83,8 @@ const start = async () => {
             .map(r => {
               r.handler = FileHandler
               return r
-            })
+            }),
+            ApiRoutes.Account
           ).map(r => {
             r.config = { auth: false }
             return r

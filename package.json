@@ -70,7 +70,7 @@
     "html-webpack-plugin": "2.24.1",
     "http-proxy-middleware": "0.17.4",
     "identity-obj-proxy": "3.0.0",
-    "inert": "4.2.0",
+    "inert": "5.1.0",
     "jest": "18.1.0",
     "json-loader": "0.5.4",
     "jsonwebtoken": "7.4.1",

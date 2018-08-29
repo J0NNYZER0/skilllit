@@ -1,8 +1,8 @@
 'use strict'
 
 const Path = require('path'),
-Hapi = require('hapi'),
-  Server = new Hapi.Server({
+  Hapi = require('hapi'),
+  Server = new Hapi.server({
       host: '0.0.0.0',
       port: process.env.PORT || 5000,
       state: { ignoreErrors: true },
@@ -14,10 +14,9 @@ Hapi = require('hapi'),
           }
       }
     }),
-  Inert = require('inert'),
   Utility = require('./utility'),
-  FileHandler = (request, reply) => {
-    reply.file(Path.join(__dirname, '../../dist/index.html'))
+  FileHandler = (request, h) => {
+    return h.file(Path.join(__dirname, '../../dist/index.html'))
   },
   Routes = {
     Base: [
@@ -70,28 +69,26 @@ Hapi = require('hapi'),
     ]
   }
 
-Server.register([Inert], (err) => {
-  if (err) throw err
-
-	Server.route(
-    [].concat(
-      Routes.Base,
-      Routes.Static
-      .map(r => {
-        r.handler = FileHandler
-        return r
-      })
-    ).map(r => {
-      r.config = { auth: false }
-      return r
-    })
-	)
-})
-
 // Start the server
-async function Start() {
+const start = async () => {
 
     try {
+        await Server.register(require('inert'))
+
+        Server.route(
+          [].concat(
+            Routes.Base,
+            Routes.Static
+            .map(r => {
+              r.handler = FileHandler
+              return r
+            })
+          ).map(r => {
+            r.config = { auth: false }
+            return r
+          })
+        )
+
         await Server.start()
     }
     catch (err) {
@@ -99,7 +96,7 @@ async function Start() {
         process.exit(1)
     }
 
-    console.log('Dub dub dub dot Jon Ortiz dot me is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
+    console.log('dub dub dub dot jon ortiz dot me is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
 }
 
-Start()
+start()

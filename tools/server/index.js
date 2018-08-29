@@ -4,7 +4,7 @@ const Path = require('path'),
 Hapi = require('hapi'),
   Server = new Hapi.Server({
       host: '0.0.0.0',
-      port: process.env.PORT || 6000,
+      port: process.env.PORT || 5000,
       state: { ignoreErrors: true },
       routes: {
           files: { relativeTo: Path.join(__dirname, '../../dist') },

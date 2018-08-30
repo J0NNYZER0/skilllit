@@ -14,7 +14,7 @@ const Path = require('path'),
           }
       }
     }),
-  Utility = require('./utility'),
+  Utility = require('./utilities'),
   FileHandler = (request, h) => {
     return h.file(Path.join(__dirname, '../../dist/index.html'))
   },
@@ -85,7 +85,7 @@ const start = async () => {
             }),
             ApiRoutes.Account,
             ApiRoutes.Contact,
-            ApiRoutes.Test
+            ApiRoutes.Hello
           ).map(r => {
             r.config = { auth: false }
             return r

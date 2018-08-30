@@ -43,23 +43,22 @@ class Job extends React.Component {
   }
 
   render() {
-    const { idx, experience } = this.props;
+    const { idx, experience } = this.props,
+      {from, to, title, company, city, state, projects, responsibilities } = experience;
 
     return (
       <div className="job">
         <div>
           <div className="job_date">
-            <h4>{experience.from} {experience.to && "- " + experience.to}</h4>
+            <h4>{to ? `${from} - ${to}` : `${from}`}</h4>
           </div>
         </div>
         <div className="job_header">
           <div className="job_title">
-            <h3>{experience.title}</h3>
-            <h3>&nbsp;&nbsp;@&nbsp;&nbsp;</h3>
-            <h3>{experience.company}</h3>
+            <h3>{`${title} @ ${company}`}</h3>
           </div>
           <div className="job_location">
-            <h3>{experience.city}, {experience.state}</h3>
+            <h3>{`${city}, ${state}`}</h3>
           </div>
         </div>
         <div className="button_wrapper">
@@ -69,11 +68,11 @@ class Job extends React.Component {
         <div className="project_details">
           <h4>Projects</h4>
           <ul id={'a_' + idx}>
-            {experience.projects.map((el, i) => <li key={i}>{el}</li>)}
+            {projects.map((project, i) => <li key={i}>{project}</li>)}
           </ul>
           <h4>Skills</h4>
           <ul id={'b_' + idx}>
-            {experience.responsibilities.map((el, i) => <li key={i}>{el}</li>)}
+            {responsibilities.map((responsility, i) => <li key={i}>{responsility}</li>)}
           </ul>
         </div>
       </div>

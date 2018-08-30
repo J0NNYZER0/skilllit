@@ -78,6 +78,7 @@
     "jwt-decode": "2.2.0",
     "mockdate": "2.0.1",
     "moment": "2.21.0",
+    "mysql": "2.16.0",
     "mysql2": "1.4.2",
     "node-sass": "4.5.2",
     "nodemailer": "4.6.8",

@@ -38,8 +38,6 @@ class ScrollNav extends React.Component {
 
     const { site, pathname } = this.props;
 
-    console.log('pathname', pathname)
-
     return (
       <nav className="scroll_nav">
         <Element name="top" />

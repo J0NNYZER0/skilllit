@@ -65,10 +65,11 @@ class Home extends React.Component {
 
       return [
         <section key="home" className="home">
-          {home.map((section,idx) => {
+          {home.map(({title, profile_pic, selected_profile_pic, tagline},idx) => {
+
             let profilePic = (this.state.toggle) ?
-              section.selected_profile_pic :
-              section.profile_pic;
+              `${selected_profile_pic}` :
+              `${profile_pic}`;
 
             return <div key={idx}>
               <div>
@@ -77,8 +78,8 @@ class Home extends React.Component {
                   style={{ backgroundImage: "url(" + profilePic + ")" }} />
               </div>
               {this.state.toggle && <TalkBubble home={home} />}
-              <h1 dangerouslySetInnerHTML={{__html: section.title}} />
-              <p dangerouslySetInnerHTML={{__html: section.tagline}} />
+              <h1 dangerouslySetInnerHTML={{__html: `${title}`}} />
+              <p dangerouslySetInnerHTML={{__html: `${tagline}`}} />
               <Link className="down_animation" activeClass="active" to="experience"
                 spy={true} smooth={true}
                 offset={0} duration={500}

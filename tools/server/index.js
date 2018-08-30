@@ -4,7 +4,7 @@ const Path = require('path'),
   Hapi = require('hapi'),
   Server = new Hapi.server({
       host: '0.0.0.0',
-      port: process.env.PORT || 5000,
+      port: process.env.PORT || 7000,
       state: { ignoreErrors: true },
       routes: {
           files: { relativeTo: Path.join(__dirname, '../../dist') },
@@ -79,12 +79,13 @@ const start = async () => {
         Server.route(
           [].concat(
             Routes.Base,
-            Routes.Static
-            .map(r => {
+            Routes.Static.map(r => {
               r.handler = FileHandler
               return r
             }),
-            ApiRoutes.Account
+            ApiRoutes.Account,
+            ApiRoutes.Contact,
+            ApiRoutes.Test
           ).map(r => {
             r.config = { auth: false }
             return r
@@ -98,7 +99,7 @@ const start = async () => {
         process.exit(1)
     }
 
-    console.log('dub dub dub dot jon ortiz dot me is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
+    console.log('Server for skilllit is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
 }
 
 start()

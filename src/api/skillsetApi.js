@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-fetch';
-import * as endpoints from '../constants/endpoints';
+import * as endpoint from '../constants/endpoint';
 
 class Api {
   static load() {
     return new Promise((resolve, reject) => {
-      const url = `${endpoints.SKILLSET.LOAD}`;
+      const url = `${endpoint.SKILLSET.LOAD}`;
       fetch(url, { credentials: 'include' }).then((response) => {
         if (response.status >= 400) return reject(response.status);
           return response.json();

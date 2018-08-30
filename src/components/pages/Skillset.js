@@ -15,11 +15,11 @@ class Skillset extends React.Component {
     return (
       <section className="skillsets">
         <h1>Skillset</h1>
-        {skillset.map((skill, i) => {
-          return <div key={i}>
-            <h2>{skill.title}</h2>
+        {skillset.map(({category, skills}, idx) => {
+          return <div key={idx}>
+            <h2>{`${category}`}</h2>
             {<ul className="tagcloud">
-              {skill.items.map((item, ii) => <li key={ii}>{item}</li>)}
+              {skills.map((skill, idx) => <li key={idx}>{skill}</li>)}
             </ul>}
           </div>
           }

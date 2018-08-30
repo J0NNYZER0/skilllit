@@ -1,4 +1,4 @@
-import * as server from './serverTypes';
+import * as server from './server';
 
 export const HEADERS = {
   JSON: {

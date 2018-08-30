@@ -3,11 +3,33 @@
 module.exports = {
   Account: [
     {
-      method: 'POST',
+      method: 'GET',
       path: '/login',
       handler: (request, h) => {
-        
-        h.response('Not yet implemented')
+
+        return h.response('Not yet implemented')
+      }
+    }
+  ],
+  Contact: [
+    {
+      method: 'POST',
+      path: '/contact/insert',
+      handler: (request, h) => {
+
+        console.log('payloadx', request.payload)
+
+        return h.response('Not yet implemented')
+      }
+    }
+  ],
+  Test: [
+    {
+      method: 'GET',
+      path: '/hello',
+      handler: (request, h) => {
+
+        return h.response('Hello')
       }
     }
   ]

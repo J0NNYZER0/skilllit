@@ -1,3 +1,4 @@
+export const API = '/api'
 
 export const CONTACT = {
   DELETE: '/contact/delete',

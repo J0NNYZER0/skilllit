@@ -6,21 +6,21 @@ module.exports = {
   Account: [
     {
       method: 'GET',
-      path: '/login',
+      path: '/api/login',
       handler: Handlers.Account.Login
     }
   ],
   Contact: [
     {
       method: 'POST',
-      path: '/contact/insert',
+      path: '/api/contact/insert',
       handler: Handlers.Contact.Insert
     }
   ],
   Hello: [
     {
       method: 'GET',
-      path: '/hello',
+      path: '/api/hello',
       handler: Handlers.Hello
     }
   ]

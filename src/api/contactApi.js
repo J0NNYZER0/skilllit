@@ -5,7 +5,7 @@ import * as endpoint from '../constants/endpoint';
 class Api {
   static load() {
     return new Promise((resolve, reject) => {
-      const url = `${server.API}${endpoint.CONTACT.LOAD}`;
+      const url = `${endpoint.API} ${endpoint.CONTACT.LOAD}`;
       fetch(url, { credentials: 'include' }).then((response) => {
         if (response.status >= 400) return reject(response.status);
           return response.json();
@@ -18,10 +18,10 @@ class Api {
 
   static insert(data) {
     return new Promise((resolve, reject) => {
-      const url = `${server.API}${endpoint.CONTACT.INSERT}`;
+      const url = `${endpoint.API} ${endpoint.CONTACT.INSERT}`;
       fetch(url, {
         //credentials: 'include',
-        mode: 'same-origin',
+        //mode: 'same-origin',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',

@@ -1,4 +1,5 @@
 'use strict'
+
 const DbQuery = require('../dbs/queries'),
   Bounce = require('bounce')
 
@@ -11,7 +12,9 @@ module.exports = {
   },
   Contact: {
     Insert: async (request, h) => {
-      console.log('handler')
+
+      console.log('Handler - Contact Insert')
+
       try {
         await DbQuery.Mysql(
           '../api/sql/insert_contact_message.sql',
@@ -20,12 +23,14 @@ module.exports = {
         return h.response({status: 200})
 
       } catch(err) {
-        console.log('err', err)
+
         Bounce.rethrow(err, 'system')
       }
     }
   },
   Hello: async (request, h) => {
+
+    console.log('Handler - Hello')
 
     let data = null
 

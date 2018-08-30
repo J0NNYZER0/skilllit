@@ -1,24 +1,47 @@
 'use strict'
-
-const DbConnections = require('../dbs/connections')
+const DbQuery = require('../dbs/queries'),
+  Bounce = require('bounce')
 
 module.exports = {
   Account: {
-    Login: (request, h) => {
+    Login: async (request, h) => {
 
       return h.response('Not yet implemented')
     }
   },
   Contact: {
-    Insert: (request, h) => {
+    Insert: async (request, h) => {
 
-      console.log('payloadx', request.payload)
+      try {
+        await DbQuery.Mysql(
+          '../api/sql/insert_contact_message.sql',
+          request.payload)
 
-      return h.response('Not yet implemented')
+        return h.response({status: 200})
+
+      } catch(err) {
+        console.log('err', err)
+        Bounce.rethrow(err, 'system')
+      }
     }
   },
-  Hello: (request, h) => {
+  Hello: async (request, h) => {
 
-    return h.response('hello')
+    let data = null
+
+    try {
+
+      data = await DbQuery.Mysql(
+        '../api/sql/select_login.sql',
+        11)
+
+      return h.response({data: data})
+
+    } catch(err) {
+
+      Bounce.rethrow(err, 'system')
+    }
+
+    return data
   }
 }

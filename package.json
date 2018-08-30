@@ -29,7 +29,7 @@
     "test:watch": "npm run test -- --watch",
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
-    "api": "source ~/envs/skilllit/envars && nodemon tools/server/index.js",
+    "api": "source ~/envs/skilllit/envars && node tools/server/index.js",
     "prod": "node tools/server/index.js"
   },
   "author": "Jon Ortiz, originally from Cory House",
@@ -67,7 +67,6 @@
     "guid": "0.0.12",
     "handlebars": "4.0.10",
     "hapi": "17.5.4",
-    "hapi-auth-jwt2": "7.3.0",
     "html-webpack-plugin": "2.24.1",
     "http-proxy-middleware": "0.17.4",
     "identity-obj-proxy": "3.0.0",

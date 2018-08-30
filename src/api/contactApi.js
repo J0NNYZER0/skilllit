@@ -29,14 +29,8 @@ class Api {
         method: 'POST',
         body: JSON.stringify(data)
       })
-      .then((response) => {
-
-        if (response.status >= 400) return reject(response.status);
-          return response.json();
-      })
-      .then(data => {
-        resolve(data.data ? data.data : data);
-      })
+      .then((response) => response.json())
+      .catch(err => reject(err))
     });
   }
 }

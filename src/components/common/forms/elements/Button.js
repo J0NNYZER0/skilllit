@@ -18,7 +18,7 @@ class FormButton extends Component {
 
     for (let i = 0; i < elements.length - 1; i++)
       data[elements[i].name] = elements[i].value
-
+    console.log('callback')
     callback(data);
   }
 

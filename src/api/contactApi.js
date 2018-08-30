@@ -21,7 +21,7 @@ class Api {
       const url = `${server.API}${endpoint.CONTACT.INSERT}`;
       fetch(url, {
         //credentials: 'include',
-        credentials: 'same-origin',
+        mode: 'same-origin',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',

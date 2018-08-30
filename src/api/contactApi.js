@@ -20,7 +20,7 @@ class Api {
     return new Promise((resolve, reject) => {
       const url = `${server.API}${endpoint.CONTACT.INSERT}`;
       fetch(url, {
-        //credentials: 'include',
+        credentials: 'include',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',

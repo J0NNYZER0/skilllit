@@ -22,13 +22,6 @@ export default {
     publicPath: '/',
     filename: 'bundle.js'
   },
-  devServer: {
-    proxy: {
-      '/api': {
-          target: 'http://localhost:5000'
-        }
-    }
-  },
   plugins: [
     new HardSourceWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),

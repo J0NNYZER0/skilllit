@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux';
-import { routerReducer} from 'react-router-redux';
 import contactReducer from './contactReducer';
 import educationReducer from './educationReducer';
 import experienceReducer from './experienceReducer';
@@ -9,8 +8,11 @@ import resumeReducer from './resumeReducer';
 import siteReducer from './siteReducer';
 import skillsetReducer from './skillsetReducer';
 import socialMediaReducer from './socialMediaReducer';
+import fuelSavings from './fuelSavingsReducer';
+import { routerReducer } from 'react-router-redux';
+
 const rootReducer = combineReducers({
-  routing: routerReducer,
+  fuelSavings,
   contact: contactReducer,
   education: educationReducer,
   experience: experienceReducer,
@@ -19,7 +21,8 @@ const rootReducer = combineReducers({
   resume: resumeReducer,
   site: siteReducer,
   skillset: skillsetReducer,
-  social_media: socialMediaReducer
+  social_media: socialMediaReducer,
+  routing: routerReducer
 });
 
 export default rootReducer;

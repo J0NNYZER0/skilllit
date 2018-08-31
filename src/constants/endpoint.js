@@ -1,4 +1,5 @@
 export const API = '/api'
+const VERSION = '/v1'
 
 export const CONTACT = {
   DELETE: '/contact/delete',

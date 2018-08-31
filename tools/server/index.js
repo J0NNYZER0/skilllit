@@ -16,6 +16,7 @@ const Path = require('path'),
     }),
   Utility = require('./utilities'),
   FileHandler = (request, h) => {
+
     return h.file(Path.join(__dirname, '../../dist/index.html'))
   },
   ApiRoutes = require('./api/routes'),

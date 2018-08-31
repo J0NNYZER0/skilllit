@@ -23,9 +23,7 @@ class Api {
         //credentials: 'include',
         //mode: 'same-origin',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Origin': server.HOST
+          'Accept': 'application/json'
         },
         method: 'POST',
         body: JSON.stringify(data)

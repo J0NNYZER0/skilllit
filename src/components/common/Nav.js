@@ -1,5 +1,7 @@
+import { NavLink } from "react-router-dom";
+
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
+//import { Link, IndexLink } from 'react-router';
 import ScrollNav from './ScrollNav';
 
 class Nav extends React.Component {
@@ -36,7 +38,7 @@ class Nav extends React.Component {
       return (
         <nav>
           <div className="logo">
-            <IndexLink to="/">{site.title}</IndexLink>
+            <NavLink exact to="/">{site.title + 's'}</NavLink>
             <div className="menu_wrapper">
               <div onClick={this.toggle} id="nav-icon" className={(this.state.toggle) ?
                 'open' : '' }>
@@ -50,12 +52,12 @@ class Nav extends React.Component {
           {<div className={(this.state.toggle) ?
             'menu show' : 'menu'}>
             {pathname !== '/' &&
-            <IndexLink to="/">Home</IndexLink>}
-            <Link to="/experience">Experience</Link>
-            <Link to="/skillset">Skillset</Link>
-            <Link to="/education">Education</Link>
-            <Link to="/resume">Resume</Link>
-            <Link to="/contact">Contact</Link>
+            <NavLink exact to="/">Home</NavLink>}
+            <NavLink to="/experience">Experience</NavLink>
+            <NavLink to="/skillset">Skillset</NavLink>
+            <NavLink to="/education">Education</NavLink>
+            <NavLink to="/resume">Resume</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
           </div>}
         </nav>);
     } else {

@@ -9,16 +9,23 @@ import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-//import proxyMiddleWare from 'http-proxy-middleware';
 import config from '../webpack.config.dev';
+
+console.log('===============================')
+console.log('===============================')
+console.log('===============================')
+console.log('config', config)
+console.log('===============================')
+console.log('===============================')
+console.log('===============================')
 
 const bundler = webpack(config);
 
 // Run Browsersync and use middleware for Hot Module Replacement
 browserSync({
-  port: 5000,
+  port: 3000,
   ui: {
-    port: 5001
+    port: 3001
   },
   server: {
     baseDir: 'src',
@@ -29,9 +36,8 @@ browserSync({
       webpackDevMiddleware(bundler, {
         // Dev middleware can't access config, so we provide publicPath
         publicPath: config.output.publicPath,
-
         // These settings suppress noisy webpack output so only errors are displayed to the console.
-        noInfo: false,
+        noInfo: true,
         quiet: false,
         stats: {
           assets: false,
@@ -44,12 +50,11 @@ browserSync({
         },
 
         // for other settings see
-        // http://webpack.github.io/docs/webpack-dev-middleware.html
+        // https://webpack.js.org/guides/development/#using-webpack-dev-middleware
       }),
 
       // bundler should be the same as above
       webpackHotMiddleware(bundler)
-      //proxyMiddleWare('/', { target: 'http://localhost:5000'})
     ]
   },
 

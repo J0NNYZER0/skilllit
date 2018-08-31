@@ -1,35 +1,33 @@
-import 'babel-polyfill';
 import {createStore, compose, applyMiddleware} from 'redux';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
+import createHistory from 'history/createBrowserHistory';
+// 'routerMiddleware': the new way of storing route changes with redux middleware since rrV4.
+import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
-import createSagaMiddleware from 'redux-saga';
-import rootSaga from '../sagas';
-
-const sagaMiddleWare = createSagaMiddleware();
+export const history = createHistory();
 
 function configureStoreProd(initialState) {
+  const reactRouterMiddleware = routerMiddleware(history);
   const middlewares = [
-    thunk, promise, sagaMiddleWare
+    // Add other middleware on this line...
+
+    // thunk middleware can also accept an extra argument to be passed to each thunk action
+    // https://github.com/reduxjs/redux-thunk#injecting-a-custom-argument
+    thunk,
+    promise,
+    reactRouterMiddleware,
   ];
 
-  /*const store = createStore(rootReducer, initialState, compose(
-    applyMiddleware(...middlewares)
-    )
-  );*/
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
-  const store = createStore(rootReducer, initialState, composeEnhancers(
+  return createStore(rootReducer, initialState, compose(
     applyMiddleware(...middlewares)
     )
   );
-
-  sagaMiddleWare.run(rootSaga);
-
-  return store;
 }
 
 function configureStoreDev(initialState) {
+  const reactRouterMiddleware = routerMiddleware(history);
   const middlewares = [
     // Add other middleware on this line...
 
@@ -37,8 +35,10 @@ function configureStoreDev(initialState) {
     reduxImmutableStateInvariant(),
 
     // thunk middleware can also accept an extra argument to be passed to each thunk action
-    // https://github.com/gaearon/redux-thunk#injecting-a-custom-argument
-    thunk, promise, sagaMiddleWare
+    // https://github.com/reduxjs/redux-thunk#injecting-a-custom-argument
+    thunk,
+    promise,
+    reactRouterMiddleware,
   ];
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // add support for Redux dev tools
@@ -46,8 +46,6 @@ function configureStoreDev(initialState) {
     applyMiddleware(...middlewares)
     )
   );
-
-  sagaMiddleWare.run(rootSaga);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

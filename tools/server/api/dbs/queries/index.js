@@ -6,9 +6,10 @@ const Mysql = require('mysql'),
   FormatSql = (sql, values) => {
 
     if (values) {
-      if (typeof values === 'object')
-        values = Object.values(values)
-      sql = Mysql.format(sql, values)
+      let parsed = JSON.parse(values)
+      if (typeof parsed === 'object')
+        parsed = Object.values(parsed)
+      sql = Mysql.format(sql, parsed)
     }
 
     return sql
@@ -23,7 +24,7 @@ module.exports = {
       const sql = FormatSql(ReadSqlFile(pathToSqlFile), values)
 
       return connection.query(sql, (error, results) => {
-        // When done with the connection, release it.
+        console.log('results', results)// When done with the connection, release it.
         connection.release()
 
         if (error) reject(error)

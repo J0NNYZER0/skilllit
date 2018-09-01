@@ -9,14 +9,8 @@
       experimentalObjectRestSpread: true
     }
   },
-  plugins: ["react", "jsx-a11y", "import"],
-  env: {
-    es6: true,
-    browser: true,
-    node: true,
-    jest: true
-  },
+  plugins: ["react"],
   rules: {
-    "react/prop-types": [0]
+    
   }
 }

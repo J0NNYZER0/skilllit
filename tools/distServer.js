@@ -23,5 +23,6 @@ browserSync({
     'src/*.html'
   ],
 
-  middleware: [historyApiFallback()]
+  middleware: [historyApiFallback()],
+  open: false
 });

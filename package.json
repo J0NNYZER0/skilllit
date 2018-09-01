@@ -29,7 +29,7 @@
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
     "dev": "concurrently \"npm run api\" \"npm run start\"",
     "api": "source ~/envs/skilllit/envars && nodemon tools/server/index.js",
-    "prod": "npm run build && node tools/server/index.js"
+    "prod": "node tools/server/index.js"
   },
   "author": "Cory House",
   "license": "MIT",

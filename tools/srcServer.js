@@ -11,14 +11,6 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from '../webpack.config.dev';
 
-console.log('===============================')
-console.log('===============================')
-console.log('===============================')
-console.log('config', config)
-console.log('===============================')
-console.log('===============================')
-console.log('===============================')
-
 const bundler = webpack(config);
 
 // Run Browsersync and use middleware for Hot Module Replacement

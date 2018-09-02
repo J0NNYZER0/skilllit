@@ -13,8 +13,6 @@ module.exports = {
   Contact: {
     Insert: async (request, h) => {
 
-      console.log('Handler - Contact Insert')
-
       try {
         await DbQuery.Mysql(
           '../api/sql/insert_contact_message.sql',
@@ -29,8 +27,6 @@ module.exports = {
     }
   },
   Hello: async (request, h) => {
-
-    console.log('Handler - Hello')
 
     let data = null
 

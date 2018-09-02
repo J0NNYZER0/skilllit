@@ -3,21 +3,15 @@ import React, {Component} from 'react';
 class TextInput extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: ''
-    }
-
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    this.setState({
-        value: e.target.value
-    })
+    this.props.onChange({ [e.target.name]: e.target.value })
   }
 
   render() {
-    const { autocomplete, name, placeholder, type } = this.props;
+    const { autocomplete, name, placeholder, type, value } = this.props;
 
     return (
       <input
@@ -26,7 +20,7 @@ class TextInput extends Component {
         onChange={this.handleChange}
         placeholder={placeholder}
         type={type}
-        value={this.state.value} />)
+        value={value} />)
   }
 }
 

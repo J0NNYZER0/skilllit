@@ -24,7 +24,7 @@ module.exports = {
       const sql = FormatSql(ReadSqlFile(pathToSqlFile), values)
 
       return connection.query(sql, (error, results) => {
-        console.log('results', results)// When done with the connection, release it.
+        // When done with the connection, release it.
         connection.release()
 
         if (error) reject(error)

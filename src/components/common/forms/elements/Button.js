@@ -7,14 +7,13 @@ class FormButton extends Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleClear = this.handleClear.bind(this);
   }
 
   handleClick(e) {
 
     e.preventDefault();
 
-    const { callback, formId, fetch } = this.props;
+    const { callback, formId } = this.props;
 
     let elements = [...document.getElementById(formId).elements],
       data = {}
@@ -28,16 +27,15 @@ class FormButton extends Component {
 
   render() {
 
-    const { title } = this.props;
+    const { buttonTitle } = this.props;
 
     return (
-      <button onClick={this.handleClick} className="button">{title}</button>
+      <button onClick={this.handleClick} className="button">{buttonTitle}</button>
     );
   }
 }
 
 FormButton.propTypes = {
-
   fetch: PropTypes.object.isRequired
 };
 

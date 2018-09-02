@@ -1,7 +1,5 @@
-import { NavLink } from "react-router-dom";
-
+import { NavLink } from 'react-router-dom';
 import React from 'react';
-//import { Link, IndexLink } from 'react-router';
 import ScrollNav from './ScrollNav';
 
 class Nav extends React.Component {

@@ -3,22 +3,15 @@ import React, {Component} from 'react';
 class TextAreaInput extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: ''
-    }
-    
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-
-    this.setState({
-        value: e.target.value
-    })
+    this.props.onChange({ [e.target.name]: e.target.value })
   }
 
   render() {
-    const { autocomplete, cols, name, placeholder, rows } = this.props;
+    const { autocomplete, cols, name, placeholder, rows, value } = this.props;
 
     return (
       <textarea
@@ -28,7 +21,7 @@ class TextAreaInput extends Component {
         onChange={this.handleChange}
         placeholder={placeholder}
         rows={rows}
-        value={this.state.value} />
+        value={value} />
     )
   }
 }

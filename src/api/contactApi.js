@@ -26,7 +26,7 @@ class Api {
         method: 'POST',
         body: JSON.stringify(data)
       })
-      .then((response) => response.json())
+      .then((response) => resolve(response.json()))
       .catch(err => reject(err))
     });
   }

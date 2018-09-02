@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 class FormButton extends Component {
   constructor(props) {
@@ -18,18 +20,29 @@ class FormButton extends Component {
 
     for (let i = 0; i < elements.length - 1; i++)
       data[elements[i].name] = elements[i].value
-    console.log('callback')
-    callback(data);
+
+    callback(data)
+
   }
 
   render() {
 
-    const { title } = this.props;
+    const { buttonTitle } = this.props;
 
     return (
-      <button onClick={this.handleClick} className="button">{title}</button>
+      <button onClick={this.handleClick} className="button">{buttonTitle}</button>
     );
   }
 }
 
-export default FormButton;
+FormButton.propTypes = {
+  fetch: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    fetch: state.fetch
+  };
+}
+
+export default connect(mapStateToProps)(FormButton);

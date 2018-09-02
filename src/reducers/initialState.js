@@ -2,6 +2,10 @@ export default {
   contact: [],
   education: [],
   experience: [],
+  fetch: {
+    in_progress: null,
+    status: null
+  },
   home: [],
   messages: [],
   resume: [],

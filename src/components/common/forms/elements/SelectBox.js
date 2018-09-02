@@ -3,31 +3,26 @@ import React, {Component} from 'react';
 class SelectBox extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: ''
-    }
-
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-
-    this.setState({
-        value: e.target.value
-    })
+    this.props.onChange({ [e.target.name]: e.target.value })
   }
 
   render() {
-    const { name, options, placeholder } = this.props;
+    const { name, options, placeholder, selected, value } = this.props;
+
+    console.log('selected', selected)
     return (
       <select
-        className={(this.state.value === '') ? '' : 'selected'}
+        className={selected !== '' ? 'selected' : ''}
         name={name}
         onChange={this.handleChange}
-        value={this.state.value}>
+        value={value}>
         <option key={-1} className="select__default" value="" className="label">{placeholder}</option>
         {options.map(
-          ({name, value},i) => <option key={i} value={value} className="label">{name}</option>
+          ({name, val},i) => <option key={i} value={val} className="label">{name}</option>
         )}
       </select>
     )

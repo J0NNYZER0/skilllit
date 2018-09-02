@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import ContactForm from '../common/forms/Contact';
+import ContactForm from '../common/forms/contact/InputGroup';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -10,25 +9,13 @@ class Contact extends React.Component {
 
   render() {
 
-    const { contact } = this.props;
-
     return (
       <section className="contact">
         <h1>Contact</h1>
-        <ContactForm contact={contact} />
+        <ContactForm />
       </section>
     );
   }
 }
 
-Contact.propTypes = {
-  contact: PropTypes.array.isRequired
-};
-
-function mapStateToProps(state) {
-  return {
-    contact: state.contact
-  };
-}
-
-export default connect(mapStateToProps)(Contact);
+export default Contact;

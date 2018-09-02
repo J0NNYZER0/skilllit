@@ -1,7 +1,12 @@
 import * as types from '../constants/actionTypes';
+import * as fetchTypes from '../constants/fetchTypes';
 import api from '../api/contactApi';
 import mockApi from '../api/mock/contactApi';
 import {beginAjaxCall} from './ajaxStatusActions';
+
+export function fetchSuccess(status) {
+  return { type: fetchTypes.FETCH.SUCCESS, status };
+}
 
 export function loadSuccess(data) {
   return { type: types.CONTACT.LOAD, data };
@@ -28,15 +33,15 @@ export function load() {
   };
 }
 
-export function insert(data) {
+export const insert = data => {
 
-  return function (dispatch) {
+  return dispatch => {
 
     dispatch(beginAjaxCall());
 
     return api.insert(data).then(response => {
 
-      dispatch(loadSuccess(response));
+      dispatch(fetchSuccess(response));
 
     }).catch(error => {
 

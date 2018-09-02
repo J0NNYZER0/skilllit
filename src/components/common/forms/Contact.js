@@ -3,25 +3,23 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as contactActions from '../../../actions/contactActions.js';
+import Form from './elements/Form';
 import SelectBox from './elements/SelectBox';
 import TextAreaInput from './elements/TextAreaInput';
 import TextInput from './elements/TextInput';
-import FormButton from './elements/Button';
 
 class ContactForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      formId: "contact"
-    }
   }
-
 
   render() {
 
     return (
-      <form id={this.state.formId} className="form__login">
+      <Form formId="contact"
+        callback={this.props.actions.insert}
+        buttonTitle="Send me a message">
         <TextInput
           autocomplete="off"
           name="email"
@@ -45,8 +43,7 @@ class ContactForm extends Component {
           placeholder="Comments"
           ref="comments"
           rows="3" />
-          <FormButton callback={this.props.actions.insert} formId={this.state.formId} title={'Send me a message'} />
-      </form>
+      </Form>
     );
   }
 }

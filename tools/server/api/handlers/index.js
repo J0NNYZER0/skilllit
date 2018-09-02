@@ -20,7 +20,7 @@ module.exports = {
           '../api/sql/insert_contact_message.sql',
           request.payload)
 
-        return h.response({status: 200})
+        return h.response({ status: 200 })
 
       } catch(err) {
 

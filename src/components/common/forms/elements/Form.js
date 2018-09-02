@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-class FormButton extends Component {
+class Form extends Component {
   constructor(props) {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
-    this.handleClear = this.handleClear.bind(this);
   }
 
   handleClick(e) {
@@ -28,23 +27,25 @@ class FormButton extends Component {
 
   render() {
 
-    const { title } = this.props;
+    const { formId, buttonTitle } = this.props;
 
     return (
-      <button onClick={this.handleClick} className="button">{title}</button>
+      <form id={formId} className="form__login">
+        {this.props.children}
+        <button onClick={this.handleClick} className="button">{buttonTitle}</button>
+      </form>
     );
   }
 }
 
-FormButton.propTypes = {
-
+Form.propTypes = {
   fetch: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
     fetch: state.fetch
   };
 }
 
-export default connect(mapStateToProps)(FormButton);
+export default connect(mapStateToProps)(Form);

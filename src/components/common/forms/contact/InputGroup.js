@@ -2,9 +2,13 @@ import React from 'react';
 import SelectBox from '../elements/SelectBox';
 import TextAreaInput from '../elements/TextAreaInput';
 import TextInput from '../elements/TextInput';
-import formWrapper from '../elements/FormWrapper';
+import FormHOC from '../elements/FormHOC';
 import * as contactActions from '../../../../actions/contactActions.js';
-
+const initialState = {
+  email: '',
+  reason: '',
+  comments: ''
+}
 class InputGroup extends React.Component {
 
   constructor(props) {
@@ -13,7 +17,7 @@ class InputGroup extends React.Component {
 
   render() {
 
-    const { formState, handleChange } = this.props;
+    const { handleChange, initialState } = this.props;
 
     return [
       <TextInput key="contact_email_input"
@@ -22,7 +26,8 @@ class InputGroup extends React.Component {
         onChange={handleChange}
         placeholder="Email"
         ref="email"
-        type="text" />,
+        type="text"
+        value={initialState.email} />,
       <SelectBox key="contact_reason_input"
         name="reason"
         onChange={handleChange}
@@ -34,7 +39,8 @@ class InputGroup extends React.Component {
         ]}
         placeholder="Reason"
         ref="reason"
-        selected={formState.reason} />,
+        selected={initialState.reason}
+        value={initialState.reason} />,
       <TextAreaInput key="contact_comments_input"
         autocomplete="off"
         cols="50"
@@ -42,11 +48,19 @@ class InputGroup extends React.Component {
         onChange={handleChange}
         placeholder="Comments"
         ref="comments"
-        rows="3" />
+        rows="3"
+        value={initialState.comments} />
     ];
   }
 }
+const callback = contactActions.insert,
+  formId = 'contactForm'
 
-const ContactInputGroup = formWrapper(InputGroup, contactActions);
+//FormHOC take 4 arguments - InputGroup, callback, intitialState, formId
+// initialState is passed into the FormHOC
+// initialState is passed back to InputGroup as the initialState propTypes
+// InputGroup initialState prop value is set to FormHOC's this.state
+
+const ContactInputGroup = FormHOC(initialState, InputGroup, callback, formId);
 
 export default ContactInputGroup;

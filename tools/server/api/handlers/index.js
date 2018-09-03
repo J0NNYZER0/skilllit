@@ -11,12 +11,16 @@ module.exports = {
       try {
 
         const ip = request.info.remoteAddress,
-          token = await Security.Token(ip),
-          payload = JSON.parse(request.payload)
+          payload = JSON.parse(request.payload),
+          encoded = await Security.Token.Encode(payload.email, ip),
+          decoded = await Security.Token.Decode(encoded)
 
+          console.log('encoded', encoded)
+          console.log('decoded', decoded)
+        
         await DbQuery.Mysql(
           '../api/sql/insert_login.sql',
-          { ...payload, ...token })
+          { ...payload, ...encoded })
 
         return h.response({ status: 200 })
 

@@ -28,14 +28,17 @@
     "open:cover": "npm run test:cover && opn ./coverage/lcov-report/index.html",
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
     "dev": "concurrently \"npm run api\" \"npm run start\"",
-    "api": "source ~/envs/skilllit/envars && nodemon tools/server/index.js",
+    "api": "source ~/envs/skilllit/env && nodemon tools/server/index.js",
     "prod": "node tools/server/index.js"
   },
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "catbox": "10.0.2",
+    "catbox-memory": "3.1.2",
     "hapi": "17.5.4",
     "inert": "5.1.0",
+    "jsonwebtoken": "8.3.0",
     "moment": "2.21.0",
     "mysql": "2.16.0",
     "object-assign": "4.1.1",

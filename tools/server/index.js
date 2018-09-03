@@ -2,18 +2,32 @@
 
 const Path = require('path'),
   Hapi = require('hapi'),
+  Catbox = require('catbox'),
+  Connection = {
+    host: '0.0.0.0',
+    port: process.env.PORT || 5000
+  },
   Server = new Hapi.server({
-      host: '0.0.0.0',
-      port: process.env.PORT || 5000,
-      state: { ignoreErrors: true },
-      routes: {
-          files: { relativeTo: Path.join(__dirname, '../../dist') },
-          cors: {
-            origin: ['*'],
-            exposedHeaders: ['Authorization']
-          }
-      }
-    }),
+    cache: [
+      {
+				name: 'account',
+				engine: require('catbox-memory'),
+				host: Connection.host,
+				port: Connection.port,
+				partition: 'session'
+			}
+    ],
+    host: Connection.host,
+    port: Connection.port,
+    state: { ignoreErrors: true },
+    routes: {
+      files: { relativeTo: Path.join(__dirname, '../../dist') },
+        cors: {
+          origin: ['*'],
+          exposedHeaders: ['Authorization']
+        }
+    }
+  }),
   Utility = require('./utilities'),
   FileHandler = (request, h) => {
 

@@ -1,12 +1,33 @@
 'use strict'
 
-const Token = (ip) => new Promise((resolve, reject) => {
+const JsonWebToken = require('jsonwebtoken')
 
-  console.log('ip', ip)
+const Encode = (email,ip) => new Promise((resolve, reject) => {
 
-  setTimeout(() => resolve({token: 'a random token'}), 1000)
+  JsonWebToken.sign({
+      data: { email: email, ip: ip }
+    },
+    `${process.env.SECURITY_TOKEN_SECRET}`,
+    (err, token) => {
+      if (err) reject(err)
+      else resolve({token: token})
+    })
+})
+
+const Decode = (token) => new Promise((resolve, reject) => {
+
+  JsonWebToken.verify(
+    token.token,
+    `${process.env.SECURITY_TOKEN_SECRET}`,
+    (err, decoded) => {
+      if (err) reject(err)
+      else resolve(decoded)
+    })
 })
 
 module.exports = {
-  Token: Token
+  Token: {
+    Encode: Encode,
+    Decode: Decode
+  }
 }

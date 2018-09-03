@@ -13,7 +13,6 @@ class SelectBox extends Component {
   render() {
     const { name, options, placeholder, selected, value } = this.props;
 
-    console.log('selected', selected)
     return (
       <select
         className={selected !== '' ? 'selected' : ''}

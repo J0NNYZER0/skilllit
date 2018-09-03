@@ -13,7 +13,7 @@ import Skillset from './pages/Skillset';
 import Education from './pages/Education';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
-import Signin from './pages/Signin';
+import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Footer from './common/Footer';
 
@@ -37,12 +37,12 @@ class App extends React.Component {
         <main className="scrollable">
           <Switch>
             <Route exact path="/" component={Home}/>
-            <Route path="contact" component={Contact}/>
-            <Route path="education" component={Education}/>
-            <Route path="experience" component={Experience}/>
-            <Route path="resume" component={Resume}/>
-            <Route path="skillset" component={Skillset}/>
-            <Route path="signin" component={Signin}/>
+            <Route path="/contact" component={Contact}/>
+            <Route path="/education" component={Education}/>
+            <Route path="/experience" component={Experience}/>
+            <Route path="/resume" component={Resume}/>
+            <Route path="/skillset" component={Skillset}/>
+            <Route path="/login" component={Login}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer site={site} social_media={social_media}  />

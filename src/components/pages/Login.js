@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import SigninForm from '../common/forms/Signin';
+import LoginForm from '../common/forms/login/InputGroup';
 
-class Signup extends React.Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -14,14 +14,14 @@ class Signup extends React.Component {
 
     return (
       <section className="signin">
-        <h1>Sign In</h1>
-        <SigninForm contact={contact} />
+        <h1>Log In</h1>
+        <LoginForm contact={contact} />
       </section>
     );
   }
 }
 
-Signup.propTypes = {
+Login.propTypes = {
   contact: PropTypes.array.isRequired
 };
 
@@ -31,4 +31,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Signup);
+export default connect(mapStateToProps)(Login);

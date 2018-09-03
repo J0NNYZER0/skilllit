@@ -49,7 +49,7 @@ class InputGroup extends React.Component {
     ];
   }
 }
-const callback = contactActions.insert,
+const actions = contactActions.insert,
   initialState = {
     email: '',
     reason: '',
@@ -63,6 +63,6 @@ const callback = contactActions.insert,
 // initialState is passed back to InputGroup as the initialState propTypes
 // InputGroup initialState prop value is set to FormHOC's this.state
 
-const ContactInputGroup = FormHOC(InputGroup, initialState, callback, formId, buttonTitle);
+const ContactInputGroup = FormHOC(InputGroup, initialState, actions, formId, buttonTitle);
 
 export default ContactInputGroup;

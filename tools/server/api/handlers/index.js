@@ -1,13 +1,29 @@
 'use strict'
 
 const DbQuery = require('../dbs/queries'),
-  Bounce = require('bounce')
+  Bounce = require('bounce'),
+  Security = require('../../security')
 
 module.exports = {
   Account: {
     Login: async (request, h) => {
 
-      return h.response('Not yet implemented')
+      try {
+
+        const ip = request.info.remoteAddress,
+          token = await Security.Token(ip),
+          payload = JSON.parse(request.payload)
+
+        await DbQuery.Mysql(
+          '../api/sql/insert_login.sql',
+          { ...payload, ...token })
+
+        return h.response({ status: 200 })
+
+      } catch(err) {
+
+        Bounce.rethrow(err, 'system')
+       }
     }
   },
   Contact: {
@@ -16,7 +32,7 @@ module.exports = {
       try {
         await DbQuery.Mysql(
           '../api/sql/insert_contact_message.sql',
-          request.payload)
+          JSON.parse(request.payload))
 
         return h.response({ status: 200 })
 

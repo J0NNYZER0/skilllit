@@ -1,4 +1,5 @@
 export default {
+  account: [],
   contact: [],
   education: [],
   experience: [],

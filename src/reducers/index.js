@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import accountReducer from './accountReducer';
 import contactReducer from './contactReducer';
 import educationReducer from './educationReducer';
 import experienceReducer from './experienceReducer';
@@ -14,6 +15,7 @@ import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
   fuelSavings,
+  account: accountReducer,
   contact: contactReducer,
   education: educationReducer,
   experience: experienceReducer,

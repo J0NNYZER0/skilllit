@@ -20,7 +20,6 @@
     "remove-dist": "rimraf ./dist",
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && npm run open:dist",
-    "build-heroku": "babel-node tools/build.js",
     "test": "jest",
     "test:CI": "babel-node tools/testCi.js",
     "test:cover": "npm run test -- --coverage ",
@@ -30,7 +29,7 @@
     "analyze-bundle": "babel-node ./tools/analyzeBundle.js",
     "dev": "concurrently \"npm run api\" \"npm run start\"",
     "api": "source ~/envs/skilllit/envars && nodemon tools/server/index.js",
-    "prod": "npm run build-heroku && node tools/server/index.js"
+    "prod": "node tools/server/index.js"
   },
   "author": "Cory House",
   "license": "MIT",

@@ -1,6 +1,14 @@
 export const API = '/api'
 const VERSION = '/v1'
 
+export const ACCOUNT = {
+  DELETE: '/account/delete',
+  DETAIL: '/account',
+  EDIT: '/account/edit',
+  LOGIN: '/account/login',
+  LOGOUT: '/account/logout'
+}
+
 export const CONTACT = {
   DELETE: '/contact/delete',
   DETAIL: '/contact/detail',

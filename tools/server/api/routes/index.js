@@ -5,8 +5,8 @@ const Handlers = require('../handlers')
 module.exports = {
   Account: [
     {
-      method: 'GET',
-      path: '/api/login',
+      method: 'POST',
+      path: '/api/account/login',
       handler: Handlers.Account.Login
     }
   ],

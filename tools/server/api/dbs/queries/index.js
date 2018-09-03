@@ -6,10 +6,10 @@ const Mysql = require('mysql'),
   FormatSql = (sql, values) => {
 
     if (values) {
-      let parsed = JSON.parse(values)
-      if (typeof parsed === 'object')
-        parsed = Object.values(parsed)
-      sql = Mysql.format(sql, parsed)
+      if (typeof values === 'object') {
+        values = Object.values(values)
+      }
+      sql = Mysql.format(sql, values)
     }
 
     return sql

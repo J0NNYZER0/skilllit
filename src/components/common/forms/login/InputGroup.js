@@ -1,9 +1,7 @@
 import React from 'react';
-import SelectBox from '../elements/SelectBox';
-import TextAreaInput from '../elements/TextAreaInput';
 import TextInput from '../elements/TextInput';
 import FormHOC from '../elements/FormHOC';
-import * as contactActions from '../../../../actions/contactActions.js';
+import * as accountActions from '../../../../actions/accountActions.js';
 
 class InputGroup extends React.Component {
 
@@ -27,7 +25,7 @@ class InputGroup extends React.Component {
     ];
   }
 }
-const callback = contactActions.insert,
+const actions = accountActions.login,
   initialState = {
     email: ''
   },
@@ -39,6 +37,6 @@ const callback = contactActions.insert,
 // initialState is passed back to InputGroup as the initialState propTypes
 // InputGroup initialState prop value is set to FormHOC's this.state
 
-const LoginInputGroup = FormHOC(InputGroup, initialState, callback, formId, buttonTitle);
+const LoginInputGroup = FormHOC(InputGroup, initialState, actions, formId, buttonTitle);
 
 export default LoginInputGroup;

@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import FormButton from './Button';
 
-const FormHOC = (InputGroup, initialState, callback, formId, buttonTitle) => {
+const FormHOC = (InputGroup, initialState, actions, formId, buttonTitle) => {
   class HOC extends React.Component {
 
     constructor(props) {
@@ -62,7 +62,7 @@ const FormHOC = (InputGroup, initialState, callback, formId, buttonTitle) => {
   mapDispatchToProps = dispatch => {
 
     return {
-      callback: bindActionCreators(callback, dispatch)
+      callback: bindActionCreators(actions, dispatch)
     };
   }
 

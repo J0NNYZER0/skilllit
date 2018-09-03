@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import FormButton from './Button';
 
-const FormHOC = (initialState, InputGroup, callback, formId) => {
+const FormHOC = (InputGroup, initialState, callback, formId, buttonTitle) => {
   class HOC extends React.Component {
 
     constructor(props) {
@@ -48,7 +48,7 @@ const FormHOC = (initialState, InputGroup, callback, formId) => {
           <InputGroup handleChange={this.handleChange} initialState={inputGroupState} />
           <FormButton
             callback={this.handleClick}
-            buttonTitle="Send me a message" />
+            buttonTitle={buttonTitle} />
         </form>
       );
     }

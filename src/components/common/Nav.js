@@ -56,6 +56,7 @@ class Nav extends React.Component {
             <NavLink to="/education">Education</NavLink>
             <NavLink to="/resume">Resume</NavLink>
             <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/login">Log In</NavLink>
           </div>}
         </nav>);
     } else {

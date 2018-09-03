@@ -4,11 +4,7 @@ import TextAreaInput from '../elements/TextAreaInput';
 import TextInput from '../elements/TextInput';
 import FormHOC from '../elements/FormHOC';
 import * as contactActions from '../../../../actions/contactActions.js';
-const initialState = {
-  email: '',
-  reason: '',
-  comments: ''
-}
+
 class InputGroup extends React.Component {
 
   constructor(props) {
@@ -54,13 +50,19 @@ class InputGroup extends React.Component {
   }
 }
 const callback = contactActions.insert,
-  formId = 'contactForm'
+  initialState = {
+    email: '',
+    reason: '',
+    comments: ''
+  },
+  formId = 'contactForm',
+  buttonTitle = "Send me a message"
 
-//FormHOC take 4 arguments - InputGroup, callback, intitialState, formId
+//FormHOC requires 5 arguments - InputGroup, initialState, callback, formId, buttonTitle
 // initialState is passed into the FormHOC
 // initialState is passed back to InputGroup as the initialState propTypes
 // InputGroup initialState prop value is set to FormHOC's this.state
 
-const ContactInputGroup = FormHOC(initialState, InputGroup, callback, formId);
+const ContactInputGroup = FormHOC(InputGroup, initialState, callback, formId, buttonTitle);
 
 export default ContactInputGroup;

@@ -1,9 +1,5 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import Home from '../pages/Home';
-import Signin from '../pages/Signin';
-import NotFound from '../pages/NotFound';
-
 import ScrollLink from './ScrollLink';
 import { Element } from 'react-scroll';
 

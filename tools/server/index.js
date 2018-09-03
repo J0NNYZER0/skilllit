@@ -66,7 +66,7 @@ const Path = require('path'),
       },
       {
         method: 'GET',
-        path: '/signin'
+        path: '/login'
       }
     ]
   }

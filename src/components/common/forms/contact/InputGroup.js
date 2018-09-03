@@ -58,7 +58,7 @@ const callback = contactActions.insert,
   formId = 'contactForm',
   buttonTitle = "Send me a message"
 
-//FormHOC take 4 arguments - InputGroup, callback, intitialState, formId
+//FormHOC requires 5 arguments - InputGroup, initialState, callback, formId, buttonTitle
 // initialState is passed into the FormHOC
 // initialState is passed back to InputGroup as the initialState propTypes
 // InputGroup initialState prop value is set to FormHOC's this.state

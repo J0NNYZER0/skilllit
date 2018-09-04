@@ -45,11 +45,16 @@ const SendEmail = (mailOptions) => new Promise((resolve, reject) => {
 })
 
 const EmailProcessor = async (email, token) => {
-  const parsedEmail = await ParseEmail(email, token),
-    mailOptions = await MailOptions(email, token, parsedEmail),
-    sentEmail = await SendEmail(mailOptions)
+  try {
+    const parsedEmail = await ParseEmail(email, token),
+      mailOptions = await MailOptions(email, token, parsedEmail),
+      sentEmail = await SendEmail(mailOptions)
 
     return sentEmail
+  } catch(err) {
+
+    Bounce.rethrow(err, 'system')
+  }
 }
 
 module.exports = {

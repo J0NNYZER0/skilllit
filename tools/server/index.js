@@ -80,7 +80,7 @@ const Path = require('path'),
       },
       {
         method: 'GET',
-        path: '/login'
+        path: '/log'
       }
     ]
   }
@@ -90,7 +90,26 @@ const start = async () => {
 
   try {
 
-    await Server.register([require('inert'), require('./cache')])
+    await Server.register([require('inert')])
+
+    const add = async (a, b) => {
+      console.log('add function')
+      return Number(a) + Number(b)
+    }
+
+    Server.app.cache = {
+      account: Server.cache({
+        cache: 'account',
+        expiresIn: 10 * 1000,
+        segment: 'accountLogin',
+        generateFunc: async (id) => {
+          console.log('generateFunc')
+
+          return await add(id.a, id.b)
+        },
+        generateTimeout: 2000
+      })
+    }
 
     Server.route(
       [].concat(
@@ -101,7 +120,7 @@ const start = async () => {
         }),
         ApiRoutes.Account,
         ApiRoutes.Contact,
-        ApiRoutes.Hello
+        ApiRoutes.Lab
       ).map(r => {
         r.config = { auth: false }
         return r

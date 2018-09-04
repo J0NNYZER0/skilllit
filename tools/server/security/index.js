@@ -11,7 +11,7 @@ const Encode = (email,ip) => new Promise((resolve, reject) => {
     (err, token) => {
       if (err) reject(err)
       else resolve({token: token})
-    })
+  })
 })
 
 const Decode = (token) => new Promise((resolve, reject) => {

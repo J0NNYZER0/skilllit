@@ -17,11 +17,22 @@ module.exports = {
       handler: Handlers.Contact.Insert
     }
   ],
-  Hello: [
+  Lab: [
     {
       method: 'GET',
-      path: '/api/hello',
+      path: '/hello',
       handler: Handlers.Hello
+    },
+    {
+      method: 'GET',
+      path: '/add/{a}/{b}',
+      handler: async (request, h) => {
+
+        const { a, b } = request.params,
+          id = `${a}:${b}`
+
+        return await request.server.app.cache.account.get({ id, a, b })
+      }
     }
   ]
 }

@@ -2,7 +2,8 @@
 
 const DbQuery = require('../dbs/queries'),
   Bounce = require('bounce'),
-  Security = require('../../security')
+  Security = require('../../security'),
+  Email = require('../../email')
 
 module.exports = {
   Account: {
@@ -13,11 +14,9 @@ module.exports = {
         const ip = request.info.remoteAddress,
           payload = JSON.parse(request.payload),
           encoded = await Security.Token.Encode(payload.email, ip),
-          decoded = await Security.Token.Decode(encoded)
+          decoded = await Security.Token.Decode(encoded),
+          email = await Email.EmailProcessor(payload.email, encoded)
 
-          console.log('encoded', encoded)
-          console.log('decoded', decoded)
-        
         await DbQuery.Mysql(
           '../api/sql/insert_login.sql',
           { ...payload, ...encoded })

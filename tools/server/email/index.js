@@ -1,14 +1,15 @@
 'use strict'
 
-const Fs = require('fs'),
+const Bounce = require('bounce'),
+  Fs = require('fs'),
 	Path = require('path'),
 	Nodemailer = require('nodemailer')
 
 const Transporter = () => Nodemailer.createTransport({
 	service: process.env.SMTP_SERVICE,
 	auth: {
-			user: process.env.SMTP_UN,
-			pass: process.env.SMTP_PW
+			user: process.env.SMTP_AUTH_USER,
+			pass: process.env.SMTP_AUTH_PASS
 	}
 })
 
@@ -31,6 +32,17 @@ const MailOptions = (email, token, parsedEmail) => new Promise(resolve => resolv
 }))
 
 const SendEmail = (mailOptions) => new Promise((resolve, reject) => {
+
+  Transporter().verify((error, success) => {
+     if (error) {
+       console.log('verify')
+       console.log('verify')
+      console.log('verify')
+      console.log(error)
+     } else {
+      console.log('Server is ready to take our messages')
+     }
+  })
 
   Transporter().sendMail(mailOptions, (error, info) => {
     if (error) {

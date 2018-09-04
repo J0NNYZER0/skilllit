@@ -14,7 +14,7 @@ const Path = require('path'),
 				engine: require('catbox-memory'),
 				host: Connection.host,
 				port: Connection.port,
-				partition: 'session'
+				partition: 'account'
 			}
     ],
     host: Connection.host,
@@ -88,33 +88,34 @@ const Path = require('path'),
 // Start the server
 const start = async () => {
 
-    try {
-        await Server.register(require('inert'))
+  try {
 
-        Server.route(
-          [].concat(
-            Routes.Base,
-            Routes.Static.map(r => {
-              r.handler = FileHandler
-              return r
-            }),
-            ApiRoutes.Account,
-            ApiRoutes.Contact,
-            ApiRoutes.Hello
-          ).map(r => {
-            r.config = { auth: false }
-            return r
-          })
-        )
+    await Server.register([require('inert'), require('./cache')])
 
-        await Server.start()
-    }
-    catch (err) {
-        console.log(err)
-        process.exit(1)
-    }
+    Server.route(
+      [].concat(
+        Routes.Base,
+        Routes.Static.map(r => {
+          r.handler = FileHandler
+          return r
+        }),
+        ApiRoutes.Account,
+        ApiRoutes.Contact,
+        ApiRoutes.Hello
+      ).map(r => {
+        r.config = { auth: false }
+        return r
+      })
+    )
 
-    console.log('Server for skilllit is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
+    await Server.start()
+  }
+  catch (err) {
+    console.log(err)
+    process.exit(1)
+  }
+
+  console.log('Server for skilllit is running @', Server.info.uri, 'on', Utility.CreateTimestamp())
 }
 
 start()

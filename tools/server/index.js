@@ -80,7 +80,7 @@ const Path = require('path'),
       },
       {
         method: 'GET',
-        path: '/log'
+        path: '/login'
       }
     ]
   }

@@ -31,16 +31,12 @@ const MailOptions = (email, token, parsedEmail) => new Promise(resolve => resolv
 }))
 
 const SendEmail = (mailOptions) => new Promise((resolve, reject) => {
-  Nodemailer.createTestAccount((err, account) => {
 
-    if (err) reject(err)
-
-    Transporter().sendMail(mailOptions, (error, info) => {
-      if (error) {
-        reject(error)
-      }
-      resolve('Message sent: %s', info.messageId)
-    })
+  Transporter().sendMail(mailOptions, (error, info) => {
+    if (error) {
+      reject(error)
+    }
+    resolve('Message sent: %s', info.messageId)
   })
 })
 

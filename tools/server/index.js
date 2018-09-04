@@ -56,6 +56,10 @@ const Path = require('path'),
       },
       {
         method: 'GET',
+        path: '/error'
+      },
+      {
+        method: 'GET',
         path: '/home'
       },
       {
@@ -110,6 +114,26 @@ const start = async () => {
         generateTimeout: 2000
       })
     }
+
+    const preResponse = (request, h) => {
+
+      const response = request.response
+      if (!response.isBoom) {
+          return h.continue
+      }
+
+      const statusCode = response.output.statusCode
+
+      switch(statusCode) {
+        case 404:
+        return h.redirect('/error')
+
+        default:
+        return h.continue
+      }
+    }
+
+    Server.ext('onPreResponse', preResponse)
 
     Server.route(
       [].concat(

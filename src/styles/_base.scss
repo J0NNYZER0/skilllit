@@ -95,9 +95,18 @@ main {
   flex-direction: column;
 }
 section {
-  margin: 30px;
+  margin: 60px;
   flex: 1;
   position: relative;
+}
+main.scrollable .contact {
+  margin-bottom: 0;
+}
+main.scrollable .contact form {
+  margin: 0;
+}
+section.last_section {
+  margin-top: 0;
 }
 
 main > section > div,

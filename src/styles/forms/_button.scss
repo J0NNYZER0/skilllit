@@ -29,10 +29,11 @@ button.button:hover {
   background-color: #333;
 }
 a.button {
+	width: calc(100% - 30px);
 	display: inline-block;
-	width: calc(100% - 40px);
 	text-align: center;
-	color: #000;
+	color: #FFF;
+	margin: auto;
 }
 button.button__small {
 	border: none;

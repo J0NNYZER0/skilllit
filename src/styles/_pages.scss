@@ -96,7 +96,7 @@ section.experience {
   border-bottom: 1px solid #ccc;
 
   .job {
-    width: calc(100% - 140px);
+    width: 100%;
     margin: 0 auto;
   }
   .job_header {
@@ -132,7 +132,7 @@ section.experience {
   ul.tagcloud {
     display: inline-block;
     list-style-type: none;
-    margin: auto 30px;
+    margin: auto;
   }
   ul.tagcloud li {
     list-style: none;
@@ -151,6 +151,14 @@ section.experience {
   ul.tagcloud li:nth-of-type(5n - 3) {
     font-size: 2.25em;
   }
+}
+
+section.notfound,
+section.signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 section.skillsets,

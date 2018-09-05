@@ -18,7 +18,7 @@ module.exports = {
           email = await Email.EmailProcessor(payload.email, encoded)
 
         await DbQuery.Mysql(
-          '../api/sql/insert_login.sql',
+          '../api/sql/insert/login.sql',
           { ...payload, ...encoded })
 
         return h.response({ status: 200 })
@@ -34,7 +34,7 @@ module.exports = {
 
       try {
         await DbQuery.Mysql(
-          '../api/sql/insert_contact_message.sql',
+          '../api/sql/insert/contact_message.sql',
           JSON.parse(request.payload))
 
         return h.response({ status: 200 })
@@ -52,7 +52,7 @@ module.exports = {
     try {
 
       data = await DbQuery.Mysql(
-        '../api/sql/select_login.sql',
+        '../api/sql/insert/login.sql',
         11)
 
       return h.response({data: data})

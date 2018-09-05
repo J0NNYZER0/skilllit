@@ -85,6 +85,10 @@ const Path = require('path'),
       {
         method: 'GET',
         path: '/login'
+      },
+      {
+        method: 'GET',
+        path: '/me'
       }
     ]
   }

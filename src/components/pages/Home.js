@@ -19,7 +19,7 @@ class Home extends React.Component {
     this.state = {
       toggle: false
     }
-    this.toggle = this.toggle.bind(this, this.state.toggle);
+
     this.closeProfileMessage = this.closeProfileMessage.bind(this);
   }
 
@@ -32,12 +32,6 @@ class Home extends React.Component {
   componentWillUnmount() {
 
     document.removeEventListener('click', this.closeProfileMessage);
-  }
-
-  toggle() {
-
-    let toggleState = this.state.toggle === true ? false : true;
-    this.setState({toggle: toggleState});
   }
 
   closeProfileMessage(e) {

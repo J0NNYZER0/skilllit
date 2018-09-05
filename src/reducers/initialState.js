@@ -9,6 +9,18 @@ export default {
   },
   home: [],
   messages: [],
+  profile: {
+    account: [],
+    contact: [],
+    education: [],
+    experience: [],
+    home: [],
+    messages: [],
+    resume: [],
+    site: {},
+    skillset: [],
+    social_media: []
+  },
   resume: [],
   site: {},
   skillset: [],

@@ -54,6 +54,15 @@ export const MESSAGE = {
   UPDATE: '/message/update'
 }
 
+export const PROFILE = {
+  DELETE: '/profile/delete',
+  DETAIL: '/profile/detail',
+  INSERT: '/profile/insert',
+  LIST: '/profile/list',
+  LOAD: '/profile',
+  UPDATE: '/profile/update'
+}
+
 export const RESUME = {
   DELETE: '/resume/delete',
   DETAIL: '/resume/detail',

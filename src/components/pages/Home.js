@@ -99,7 +99,7 @@ class Home extends React.Component {
         <Resume key="resume" />,
         <Element key="contact_anchor" name="contact" />,
         <Contact key="contact" />,
-        <section className="last_section">
+        <section key="back_to_top_section" className="last_section">
           <BackToTop key="back_to_top" />
         </section>
       ];

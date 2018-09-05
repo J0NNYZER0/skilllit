@@ -1,4 +1,7 @@
 [{
   "level": "undergrad",
-  "degree": "BFA, Graphic Design 3.84<br \/>Montserrat College of Art"
+  "degree": "BFA",
+  "focus": "Graphic Design",
+  "gpa": "3.84",
+  "school": "Montserrat College of Art"
 }]

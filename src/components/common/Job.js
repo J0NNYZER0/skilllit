@@ -44,7 +44,7 @@ class Job extends React.Component {
 
   render() {
     const { idx, experience } = this.props,
-      {from, to, title, company, city, state, projects, responsibilities } = experience;
+      {from, to, title, company, city, state, projects, skills } = experience;
 
     return (
       <div className="job">
@@ -72,7 +72,7 @@ class Job extends React.Component {
           </ul>
           <h4>Skills</h4>
           <ul id={'b_' + idx}>
-            {responsibilities.map((responsility, i) => <li key={i}>{responsility}</li>)}
+            {skills.map((responsility, i) => <li key={i}>{responsility}</li>)}
           </ul>
         </div>
       </div>

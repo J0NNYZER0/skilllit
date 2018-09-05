@@ -11,7 +11,7 @@
       "CMS/HR tools for employees and trainers enabling the scheduling, reserving  and content creation of classes",
       "Manager/employee review process tool to give leadership insight into the review process and allow employees to manage their career development within Apple Inc."
     ],
-    "responsibilities": [
+    "skills": [
       "Manage code, infrastructure and data",
       "Mentor 1 to 3 junior developers / interns",
       "Communicate to customers, partners and leadership globally",
@@ -42,7 +42,7 @@
     "projects": [
       "Retail site and various internal sales tools"
     ],
-    "responsibilities": [
+    "skills": [
       "Manage code, infrastructure, qa, releases, etc.",
       "Communicate to marketing and business partners"
     ]
@@ -58,7 +58,7 @@
       "Entire retail site - navigation, home page, product search, sort and filter, product refinement, product list, product detail, payment, checkout, customer account, product support, chat, gamification",
       "Various internal production support tools"
     ],
-    "responsibilities": [
+    "skills": [
       "Manage code, infrastructure and data for mobile web, android and ios",
       "Communicate to business partners",
       "Work with QA partners to manage testing",
@@ -81,7 +81,7 @@
     "projects": [
       "Retail sites for various big brands - VANS, URBAN OUTFITTERS, MLB, Office Depot, Panera Bread, The North Face, Timberland etc."
     ],
-    "responsibilities": [
+    "skills": [
       "Manage design, full stack code and infrastructure"
     ]
   }

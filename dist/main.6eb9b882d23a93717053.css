@@ -778,9 +778,18 @@ main {
   flex-direction: column; }
 
 section {
-  margin: 30px;
+  margin: 60px;
   flex: 1;
   position: relative; }
+
+main.scrollable .contact {
+  margin-bottom: 0; }
+
+main.scrollable .contact form {
+  margin: 0; }
+
+section.last_section {
+  margin-top: 0; }
 
 main > section > div,
 main > div > section > div {
@@ -922,7 +931,6 @@ nav > div {
   right: 50%; }
 
 .back_to_top {
-  margin: 20px;
   padding: 10px 0;
   text-align: center;
   font-family: 'NeutrafaceDisplayTitling';
@@ -1057,7 +1065,7 @@ a.download-resume {
 section.experience {
   border-bottom: 1px solid #ccc; }
   section.experience .job {
-    width: calc(100% - 140px);
+    width: 100%;
     margin: 0 auto; }
   section.experience .job_header {
     width: 100%;
@@ -1086,7 +1094,7 @@ section.experience {
 .skillsets ul.tagcloud {
   display: inline-block;
   list-style-type: none;
-  margin: auto 30px; }
+  margin: auto; }
 
 .skillsets ul.tagcloud li {
   list-style: none;
@@ -1104,6 +1112,13 @@ section.experience {
 
 .skillsets ul.tagcloud li:nth-of-type(5n - 3) {
   font-size: 2.25em; }
+
+section.notfound,
+section.signin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
 section.skillsets,
 section.education,
@@ -1268,8 +1283,8 @@ ul.form__input--two > li {
   flex: 1; }
 
 form {
-  width: calc(100% - 60px);
-  margin: 0 auto; }
+  width: 100%;
+  margin: auto; }
 
 form.form__myproduct {
   margin-bottom: 30px; }
@@ -1700,10 +1715,11 @@ button.button:hover {
   background-color: #333; }
 
 a.button {
+  width: calc(100% - 30px);
   display: inline-block;
-  width: calc(100% - 40px);
   text-align: center;
-  color: #000; }
+  color: #FFF;
+  margin: auto; }
 
 button.button__small {
   border: none;
@@ -1935,4 +1951,4 @@ li#_products {
   font-weight: bold;
   text-decoration: underline; }
 
-/*# sourceMappingURL=main.0de427fe03298792b7f6.css.map*/
+/*# sourceMappingURL=main.6eb9b882d23a93717053.css.map*/

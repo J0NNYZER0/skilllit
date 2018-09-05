@@ -1188,9 +1188,9 @@ section.not_found a {
   h1 {
     text-align: center; }
   section.home span.profile_picture {
-    width: 150px;
+    width: 200px;
     height: 150px;
-    background-size: 150px;
+    background-size: 200px;
     background-position: 50% 70%; }
   .love_message.show {
     top: 150px; }
@@ -1995,4 +1995,4 @@ li#_products {
   font-weight: bold;
   text-decoration: underline; }
 
-/*# sourceMappingURL=main.cbaff3e641e6c20eee95.css.map*/
+/*# sourceMappingURL=main.4bcbafcebb847cc66f1a.css.map*/

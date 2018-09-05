@@ -1,4 +1,4 @@
 [{
   "call_to_action": "Please download the PDF version of my resume",
-  "link_to_pdf": "https://s3.us-east-2.amazonaws.com/jonortiz.me/resume/jon-ortiz-2018.pdf"
+  "link": "https://s3.us-east-2.amazonaws.com/jonortiz.me/resume/jon-ortiz-2018.pdf"
 }]

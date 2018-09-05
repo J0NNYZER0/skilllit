@@ -15,10 +15,10 @@ class Resume extends React.Component {
     return (
       <section className="resume">
         <h1>Resume</h1>
-        {resume.map(({call_to_action, link_to_pdf}) => {
+        {resume.map(({call_to_action, link}) => {
           return <div key="resume" className="download_container">
             <p dangerouslySetInnerHTML={{__html: `${call_to_action}`}} />
-            <a className="download-resume" target="_blank" href={`${link_to_pdf}`} />
+            <a className="download-resume" target="_blank" href={`${link}`} />
           </div>
         })}
       </section>

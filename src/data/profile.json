@@ -1,0 +1,207 @@
+{
+  "id": "12345678910",
+  "account": [{
+    "email": "jon.ortiz@me.com",
+    "username": "Jon"
+  }],
+  "contact": [{
+    "email": "jon.ortiz@me.com"
+  }],
+  "education": [{
+    "level": "undergrad",
+    "degree": "BFA",
+    "focus": "Graphic Design",
+    "gpa": "3.84",
+    "school": "Montserrat College of Art"
+  }],
+  "experience": [{
+      "from": "2014",
+      "to": "2018",
+      "title": "Team Lead",
+      "company": "Apple, Inc.",
+      "city": "Cupertino",
+      "state": "CA",
+      "projects": [
+        "Forensic tools giving visibility into fraud vectors across multiple segments of Apple - retail, applepay, network activity, expense reporting Dev-ops tool enabling engineers to create APIs",
+        "Manufacturing tools giving insight into yield count / parametric data",
+        "CMS/HR tools for employees and trainers enabling the scheduling, reserving  and content creation of classes",
+        "Manager/employee review process tool to give leadership insight into the review process and allow employees to manage their career development within Apple Inc."
+      ],
+      "skills": [
+        "Manage code, infrastructure and data",
+        "Mentor 1 to 3 junior developers / interns",
+        "Communicate to customers, partners and leadership globally",
+        "Ensure quality with testing and QA",
+        "Manage git repos, build process and continuous integration",
+        "Manage migration process across development environments",
+        "Design high level architectural diagrams and spec docs",
+        "Gather requirements and define project scopes",
+        "Review all pull requests",
+        "Submit and manage information security reviews",
+        "Manage 2 week sprint cycles with agile principles and tools",
+        "Manage documentation for any tribal knowledge",
+        "Organize and lead various presentations, meetings and demos",
+        "Organize and lead technical/behavior interviews",
+        "Create partnerships across teams for help and support",
+        "Manage integration of external APIs",
+        "Manage dev-ops and no-ops support and integration",
+        "Continuously manage expectations with leadership"
+      ]
+    },
+    {
+      "from": "2014",
+      "to": "",
+      "title": "Solution Architect",
+      "company": "Lazydays RV",
+      "city": "Brandon",
+      "state": "FL",
+      "projects": [
+        "Retail site and various internal sales tools"
+      ],
+      "skills": [
+        "Manage code, infrastructure, qa, releases, etc.",
+        "Communicate to marketing and business partners"
+      ]
+    },
+    {
+      "from": "2011",
+      "to": "2014",
+      "title": "Sr Software Engineer",
+      "company": "HSN, Inc.",
+      "city": "St. Pete",
+      "state": "FL",
+      "projects": [
+        "Entire retail site - navigation, home page, product search, sort and filter, product refinement, product list, product detail, payment, checkout, customer account, product support, chat, gamification",
+        "Various internal production support tools"
+      ],
+      "skills": [
+        "Manage code, infrastructure and data for mobile web, android and ios",
+        "Communicate to business partners",
+        "Work with QA partners to manage testing",
+        "Manage database stored procedures",
+        "Manage code repos, build processes and CI",
+        "Manage code releases across development environment",
+        "Gather requirements and define project scopes",
+        "Review all code submissions",
+        "Continuously manage expectations with leadership",
+        "Move development from waterfall to agile"
+      ]
+    },
+    {
+      "from": "2009",
+      "to": "2011",
+      "title": "Mobile Engineer",
+      "company": "Madmobile",
+      "city": "Tampa",
+      "state": "FL",
+      "projects": [
+        "Retail sites for various big brands - VANS, URBAN OUTFITTERS, MLB, Office Depot, Panera Bread, The North Face, Timberland etc."
+      ],
+      "skills": [
+        "Manage design, full stack code and infrastructure"
+      ]
+    }
+  ],
+  "home": [{
+    "section": "top",
+    "profile_pic": "https://s3.us-east-2.amazonaws.com/jonortiz.me/me2.png",
+    "selected_profile_pic": "https://s3.us-east-2.amazonaws.com/jonortiz.me/me.png",
+    "talk_bubble": "Hi, I'm Jon, the author of Skilllit. I hope you enjoy your experience here.",
+    "title": "Full Stack Engineer",
+    "tagline": "Pushing &nbsp;<b>UI<\/b>s &nbsp;<b>API<\/b>s and&nbsp; <b>DB<\/b>s to the edge of technology.<br \/>\r\n  Empowering people to manage, protect and understand data."
+  }],
+  "messages": [],
+  "resume": [{
+    "call_to_action": "Please download the PDF version of my resume",
+    "link": "https://s3.us-east-2.amazonaws.com/jonortiz.me/resume/jon-ortiz-2018.pdf"
+  }],
+  "site": {
+    "title": "Jon Ortiz",
+    "is_scrollable": true
+  },
+  "skillset": [
+    {
+      "category": "UI",
+      "skills": [
+        "React",
+        "Redux",
+        "Webpack",
+        "Browsersync",
+        "ESlint",
+        "Jest",
+        "Enzyme",
+        "HTML5",
+        "Sass",
+        "SocketIO",
+        "Electron",
+        "ReactNative"
+      ]
+    },
+    {
+      "category": "API",
+      "skills": [
+        "Nodejs",
+        "Hapijs",
+        "AuthJWT",
+        "AuthCookie",
+        "Catbox",
+        "Boom",
+        "Handlebars",
+        "Vision",
+        "Lab",
+        "Code",
+        "Swagger",
+        "Lodash",
+        "Rxjs",
+        "AWS",
+        "Heroku"
+      ]
+    },
+    {
+      "category": "DB",
+      "skills": [
+        "MySQL",
+        "Redis",
+        "MongoDB",
+        "Cassandra",
+        "Kafka",
+        "GraphQL",
+        "ElasticSearch"
+      ]
+    }
+  ],
+  "social_media": [
+    {
+      "url": "https://github.com/J0NNYZER0",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/github.svg"
+    },
+    {
+      "url": "https://dribbble.com/J0NNYZER0",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/dribbble.svg"
+    },
+    {
+      "url": "https://www.linkedin.com/in/jon-ortiz-57214a31/",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/linkedin.svg"
+    },
+    {
+      "url": "https://medium.com/@J0NNYZER0",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/medium.svg"
+    },
+    {
+      "url": "https://www.facebook.com/mindctrlindustries/",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/facebook.svg"
+    },
+    {
+      "url": "https://www.instagram.com/jon__ortiz/",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/instagram.svg"
+    },
+    {
+      "url": "https://twitter.com/J0NNYZER0",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/twitter.svg"
+    },
+    {
+      "url": "https://mind-ctrl-industries.tumblr.com",
+      "image": "https://s3.us-east-2.amazonaws.com/ui-icons/yellow/tumblr.svg"
+    }
+  ]
+}

@@ -61,6 +61,7 @@ class ScrollNav extends React.Component {
           <ScrollLink scrollLink={{ to:'resume', offset: -250, onClick: this.toggleMenu, text: 'Resume' }} />
           <ScrollLink scrollLink={{ to:'contact', offset: -250, onClick: this.toggleMenu, text: 'Contact' }} />
           <NavLink to="/login">Log In</NavLink>
+          <NavLink to="/me">Me</NavLink>
         </div>}
       </nav>);
     }

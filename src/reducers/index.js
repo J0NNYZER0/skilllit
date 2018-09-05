@@ -6,6 +6,7 @@ import experienceReducer from './experienceReducer';
 import fetchReducer from './fetchReducer';
 import homeReducer from './homeReducer';
 import messageReducer from './messageReducer';
+import profileReducer from './profileReducer';
 import resumeReducer from './resumeReducer';
 import siteReducer from './siteReducer';
 import skillsetReducer from './skillsetReducer';
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   fetch: fetchReducer,
   home: homeReducer,
   messages: messageReducer,
+  profile: profileReducer,
   resume: resumeReducer,
   site: siteReducer,
   skillset: skillsetReducer,

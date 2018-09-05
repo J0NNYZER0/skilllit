@@ -14,6 +14,7 @@ import Education from './pages/Education';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
+import Me from './pages/Profile';
 import NotFound from './pages/NotFound';
 import Footer from './common/Footer';
 
@@ -43,6 +44,7 @@ class App extends React.Component {
             <Route path="/resume" component={Resume}/>
             <Route path="/skillset" component={Skillset}/>
             <Route path="/login" component={Login}/>
+            <Route path="/me" component={Me}/>
             <Route component={NotFound}/>
           </Switch>
           <Footer site={site} social_media={social_media}  />
@@ -53,7 +55,6 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  children: PropTypes.element,
   location: PropTypes.object,
   site: PropTypes.object.isRequired,
   pathname: PropTypes.string,

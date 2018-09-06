@@ -7,6 +7,7 @@ import Education from './Education';
 import Resume from './Resume';
 import Contact from './Contact';
 import { Link, Element } from 'react-scroll';
+import SiteLogo from '../common/SiteLogo';
 import TalkBubble from '../common/TalkBubble';
 import BackToTop from '../common/BackToTop';
 
@@ -19,36 +20,10 @@ class Home extends React.Component {
     this.state = {
       toggle: false
     }
-
-    this.closeProfileMessage = this.closeProfileMessage.bind(this);
   }
 
+  toggleSiteLogo() {
 
-  componentDidMount() {
-
-    document.addEventListener('click', this.closeProfileMessage);
-  }
-
-  componentWillUnmount() {
-
-    document.removeEventListener('click', this.closeProfileMessage);
-  }
-
-  closeProfileMessage(e) {
-
-    let toggleState;
-
-    if (e.target.closest('.love_message') ||
-      (e.target.className === 'profile_picture' &&
-      this.state.toggle === false)) {
-
-      toggleState = true;
-    } else {
-
-      toggleState = false;
-    }
-
-    this.setState({toggle: toggleState});
   }
 
   render() {
@@ -59,19 +34,11 @@ class Home extends React.Component {
 
       return [
         <section key="home" className="home">
-          {home.map(({title, profile_pic, selected_profile_pic, tagline},idx) => {
-
-            let profilePic = (this.state.toggle) ?
-              `${selected_profile_pic}` :
-              `${profile_pic}`;
+          {home.map(({title, logo, selected_logo, tagline, talk_bubble},idx) => {
 
             return <div key={idx}>
-              <div>
-                <span
-                  className="profile_picture"
-                  style={{ backgroundImage: "url(" + profilePic + ")" }} />
-              </div>
-              {this.state.toggle && <TalkBubble home={home} />}
+              <SiteLogo logo={logo} selected_logo={selected_logo} />
+              <TalkBubble talk_bubble={talk_bubble} el="site_logo" />
               <h1 dangerouslySetInnerHTML={{__html: `${title}`}} />
               <p dangerouslySetInnerHTML={{__html: `${tagline}`}} />
               <Link className="down_animation" activeClass="active" to="experience"
@@ -100,20 +67,13 @@ class Home extends React.Component {
     } else {
       return [
         <section key="home" className="home">
-          {home.map((section,idx) => {
-            let profilePic = (this.state.toggle) ?
-              section.profile_pic :
-              section.selected_profile_pic;
+          {home.map(({title, logo, selected_logo, tagline, talk_bubble},idx) => {
 
             return <div key={idx}>
-              <div>
-                <span
-                  className="profile_picture"
-                  style={{ backgroundImage: "url(" + profilePic + ")" }} />
-              </div>
-              {this.state.toggle && <TalkBubble home={home} />}
-              <h1>{section.title}</h1>
-              <p dangerouslySetInnerHTML={{__html: section.tagline}} />
+              <SiteLogo logo={logo} selected_logo={selected_logo} />
+              <TalkBubble talk_bubble={talk_bubble} el="site_logo" />
+              <h1 dangerouslySetInnerHTML={{__html: `${title}`}} />
+              <p dangerouslySetInnerHTML={{__html: `${tagline}`}} />
             </div>
           })}
         </section>

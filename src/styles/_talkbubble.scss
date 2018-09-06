@@ -1,5 +1,40 @@
-.love_message > p > a {
+
+div.talk_bubble {
+  display: none;
+  margin: 0 auto;
+  position: absolute;
   color: #000;
-  font-weight: bold;
+  background-color: #fff;
+  z-index: 12;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5);
+  top: 200px;
+}
+div.talk_bubble p {
+  margin: 10px;
+  text-align: left;
+}
+.talk_bubble p a {
+  color: #000;
   text-decoration: underline;
+}
+div.talk_bubble.show {
+  display: block;
+}
+div.talk_bubble:after {
+  content: "";
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px ;
+  -moz-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  top: -10px;
+  left: calc(50% - 10px);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #FFF #FFF transparent;
+}
+
+@media only screen  and (min-width : 1224px) {
+  .talk_bubble.show {
+    top: 250px;
+  }
 }

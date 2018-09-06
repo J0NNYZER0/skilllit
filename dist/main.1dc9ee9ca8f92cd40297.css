@@ -1,47 +1,14 @@
-section.profile .profile_picture {
-  border-radius: 50%;
-  background-size: 250px;
+section.profile span.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0px auto 30px auto;
+  display: block;
+  background-size: 150px;
   background-position: 50% 70%;
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6); }
-
-section.profile div.site_love a {
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
   cursor: pointer; }
-
-section.profile div.love_message {
-  display: none;
-  width: calc(100% - 60px);
-  max-width: 600px;
-  margin: 0 auto;
-  position: absolute;
-  color: #000;
-  background-color: #fff;
-  z-index: 12;
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5); }
-
-section.profile div.love_message p {
-  margin: 10px;
-  text-align: left; }
-
-section.profile div.love_message.show {
-  display: block; }
-
-section.profile div.love_message:after {
-  content: "";
-  position: absolute;
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px;
-  -moz-transform: rotate(225deg);
-  -webkit-transform: rotate(225deg);
-  top: -10px;
-  left: calc(50% - 10px);
-  border-width: 10px;
-  border-style: solid;
-  border-color: transparent #FFF #FFF transparent; }
-
-section.profile .site_love span {
-  height: 20px;
-  cursor: pointer;
-  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/heart.svg);
-  background-size: 20px; }
 @font-face {
   font-family: 'NeutrafaceDisplayTitling';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot");
@@ -1020,8 +987,6 @@ span.copyright {
   footer div.menu__social {
     margin-left: 30px;
     margin-top: 0px; }
-  div.love_message:after {
-    left: calc(50% - -115px); }
   footer div.company_info {
     text-align: center;
     display: flex;
@@ -1040,7 +1005,7 @@ section.home {
     flex: 1;
     display: flex;
     align-items: center; }
-  section.home span.profile_picture {
+  section.home span.site_logo {
     width: 250px;
     height: 250px;
     display: block;
@@ -1049,41 +1014,8 @@ section.home {
     background-repeat: no-repeat;
     margin: 0px auto 30px auto;
     cursor: pointer; }
-  section.home div.site_love a {
-    cursor: pointer; }
-  section.home div.love_message {
-    display: none;
-    width: calc(100% - 60px);
-    max-width: 600px;
-    margin: 0 auto;
-    position: absolute;
-    color: #000;
-    background-color: #fff;
-    z-index: 12;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5); }
-  section.home div.love_message p {
-    margin: 10px;
-    text-align: left; }
-  section.home div.love_message.show {
-    display: block; }
-  section.home div.love_message:after {
-    content: "";
-    position: absolute;
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px;
-    -moz-transform: rotate(225deg);
-    -webkit-transform: rotate(225deg);
-    top: -10px;
-    left: calc(50% - 10px);
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #FFF #FFF transparent; }
-  section.home .site_love span {
-    height: 20px;
-    cursor: pointer;
-    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/heart.svg);
-    background-size: 20px; }
   section.home h1 {
-    font-size: 11vw;
+    font-size: 10vw;
     text-align: center;
     flex: 1;
     justify-content: center;
@@ -1187,13 +1119,11 @@ section.not_found a {
 @media only screen and (min-width: 320px) and (max-width: 700px) {
   h1 {
     text-align: center; }
-  section.home span.profile_picture {
-    width: 200px;
-    height: 150px;
-    background-size: 200px;
+  section.home span.site_logo {
+    width: 250px;
+    height: 180px;
+    background-size: 250px;
     background-position: 50% 70%; }
-  .love_message.show {
-    top: 150px; }
   .experience .job .job_header {
     flex-direction: column; }
   .experience .job .job_title {
@@ -1222,11 +1152,8 @@ section.not_found a {
     display: none; } }
 
 @media only screen and (min-width: 701px) and (max-width: 1224px) {
-  section.home span.profile_picture {
-    width: 150px;
-    height: 150px;
-    background-size: 150px;
-    background-position: 50% 70%; } }
+  section.home span.site_logo {
+    height: 180px; } }
 
 @media only screen and (min-width: 320px) and (max-width: 1224px) {
   section.home {
@@ -1943,13 +1870,6 @@ li#_products {
     left: calc(50% - 40px);
     bottom: -37px;
     border-width: 40px; }
-  footer div.site_love {
-    margin-top: 30px;
-    margin-bottom: 30px; }
-  .site_love span {
-    height: 50px;
-    background-size: 50px;
-    width: 50px; }
   footer div.company_info {
     font-size: 4em;
     margin-bottom: 30px; }
@@ -1990,9 +1910,41 @@ li#_products {
 .scrollable h1 {
   text-align: center; }
 
-.love_message > p > a {
+div.talk_bubble {
+  display: none;
+  margin: 0 auto;
+  position: absolute;
   color: #000;
-  font-weight: bold;
+  background-color: #fff;
+  z-index: 12;
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5);
+  top: 200px; }
+
+div.talk_bubble p {
+  margin: 10px;
+  text-align: left; }
+
+.talk_bubble p a {
+  color: #000;
   text-decoration: underline; }
 
-/*# sourceMappingURL=main.4bcbafcebb847cc66f1a.css.map*/
+div.talk_bubble.show {
+  display: block; }
+
+div.talk_bubble:after {
+  content: "";
+  position: absolute;
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px;
+  -moz-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  top: -10px;
+  left: calc(50% - 10px);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #FFF #FFF transparent; }
+
+@media only screen and (min-width: 1224px) {
+  .talk_bubble.show {
+    top: 250px; } }
+
+/*# sourceMappingURL=main.1dc9ee9ca8f92cd40297.css.map*/

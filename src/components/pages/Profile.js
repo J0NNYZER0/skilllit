@@ -1,40 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { Link, Element } from 'react-scroll';
-import Avatar from '../common/Avatar';
-import TalkBubble from '../common/TalkBubble';
+import EditIcon from '../common/EditIcon';
+import HomeSection from '../common/profile/HomeSection';
+import HomeForm from '../common/forms/profile/home/InputGroup'
 import '../../styles/_profile.scss';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      toggle: false
+      edit: null
     }
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle(edit) {
+
+    edit = (!this.state.edit &&
+      this.state.edit !== edit) ?
+      edit : null;
+
+    this.setState({ edit: edit });
+
   }
 
   render() {
 
-    const { profile } = this.props;
+    const { profile } = this.props,
+      { edit } = this.state
+
+    console.log('profile', profile.home[0])
+
+    const profile_section = profile.home[0] && <HomeSection home={profile.home[0]} />,
+      profile_form = (profile.home && profile.home[0]) && <HomeForm />
 
     return (
       <section className="home profile">
-          {profile.home.map(({title, profile_pic, selected_profile_pic, tagline, talk_bubble},idx) => {
-
-            return <div key={idx}>
-              <Avatar profile_pic={profile_pic} selected_profile_pic={selected_profile_pic} />
-              <TalkBubble talk_bubble={talk_bubble} el="avatar" />
-              <h1 dangerouslySetInnerHTML={{__html: `${title}`}} />
-              <p dangerouslySetInnerHTML={{__html: `${tagline}`}} />
-              <Link className="down_animation" activeClass="active" to="experience"
-                spy={true} smooth={true}
-                offset={0} duration={500}
-                onSetActive={this.handleSetActive}>
-                <span className="down_arrow" />
-              </Link>
-            </div>
-          })}
+        <EditIcon callback={this.toggle} edit="home" />
+        {edit && edit === 'home' ?
+          profile_form : profile_section}
       </section>
     );
   }

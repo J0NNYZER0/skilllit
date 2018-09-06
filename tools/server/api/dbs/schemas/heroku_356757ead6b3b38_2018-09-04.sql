@@ -119,8 +119,8 @@ DROP TABLE IF EXISTS `home`;
 CREATE TABLE `home` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `section` tinytext,
-  `profile_pic` text,
-  `selected_profile_pic` text,
+  `avatar` text,
+  `selected_avatar` text,
   `talk_bubble` text,
   `title` tinytext,
   `tagline` tinytext,

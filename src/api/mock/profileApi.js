@@ -7,7 +7,6 @@ class Api {
     return new Promise((resolve) => {
 
       setTimeout(() => {
-        console.log('profile', data)
         resolve(data);
       }, delay);
     });

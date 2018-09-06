@@ -9,6 +9,10 @@ section.profile span.avatar {
   border-radius: 50%;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
   cursor: pointer; }
+
+section.profile #homeForm {
+  position: absolute;
+  top: 100px; }
 @font-face {
   font-family: 'NeutrafaceDisplayTitling';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot");
@@ -1947,4 +1951,17 @@ div.talk_bubble:after {
   .talk_bubble.show {
     top: 250px; } }
 
-/*# sourceMappingURL=main.1dc9ee9ca8f92cd40297.css.map*/
+section.profile span.icon {
+  width: 75px;
+  height: 75px;
+  margin: 0px;
+  display: block;
+  background-size: 75px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer; }
+
+/*# sourceMappingURL=main.f67eccbf029017f901ec.css.map*/

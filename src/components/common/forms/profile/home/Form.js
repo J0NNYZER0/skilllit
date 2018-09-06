@@ -25,7 +25,6 @@ class HomeForm extends React.Component {
       newState = { ...home, ...value };
 
     this.setState({ ...home, ...value })
-    console.log('newState', this.state)
   }
 
   handleClick(e) {

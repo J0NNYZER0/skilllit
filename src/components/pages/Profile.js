@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import EditIcon from '../common/EditIcon';
 import HomeSection from '../common/profile/HomeSection';
-import HomeForm from '../common/forms/profile/home/InputGroup'
+import HomeForm from '../common/forms/profile/home/Form'
 import '../../styles/_profile.scss';
 
 class Profile extends React.Component {
@@ -32,7 +32,7 @@ class Profile extends React.Component {
       { edit } = this.state
 
     const profile_section = profile.home[0] && <HomeSection home={profile.home[0]} />,
-      profile_form = profile.home[0] && <HomeForm />
+      profile_form = profile.home[0] && <HomeForm home={profile.home[0]} />
 
     return (
       <section className="home profile">

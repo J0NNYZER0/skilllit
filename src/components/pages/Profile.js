@@ -31,10 +31,8 @@ class Profile extends React.Component {
     const { profile } = this.props,
       { edit } = this.state
 
-    console.log('profile', profile.home[0])
-
     const profile_section = profile.home[0] && <HomeSection home={profile.home[0]} />,
-      profile_form = (profile.home && profile.home[0]) && <HomeForm />
+      profile_form = profile.home[0] && <HomeForm />
 
     return (
       <section className="home profile">

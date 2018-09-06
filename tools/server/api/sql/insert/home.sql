@@ -1,8 +1,8 @@
 
 INSERT INTO `home`
 (`section`,
-`profile_pic`,
-`selected_profile_pic`,
+`avatar`,
+`selected_avatar`,
 `talk_bubble`,
 `title`,
 `tagline`,

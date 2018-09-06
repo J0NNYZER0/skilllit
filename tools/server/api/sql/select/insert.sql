@@ -40,8 +40,8 @@ FROM `experience`;
 
 SELECT `home`.`id`,
     `home`.`section`,
-    `home`.`profile_pic`,
-    `home`.`selected_profile_pic`,
+    `home`.`avatar`,
+    `home`.`selected_avatar`,
     `home`.`talk_bubble`,
     `home`.`title`,
     `home`.`tagline`,

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { Link, Element } from 'react-scroll';
+import Avatar from '../common/Avatar';
 import TalkBubble from '../common/TalkBubble';
 import '../../styles/_profile.scss';
 
@@ -11,57 +12,19 @@ class Profile extends React.Component {
     this.state = {
       toggle: false
     }
-
-    this.closeProfileMessage = this.closeProfileMessage.bind(this);
-  }
-
-
-  componentDidMount() {
-    document.addEventListener('click', this.closeProfileMessage);
-  }
-
-  componentWillUnmount() {
-
-    document.removeEventListener('click', this.closeProfileMessage);
-  }
-
-  closeProfileMessage(e) {
-
-    let toggleState;
-
-    if (e.target.closest('.love_message') ||
-      (e.target.className === 'profile_picture' &&
-      this.state.toggle === false)) {
-      console.log('toggle', toggleState)
-      toggleState = true;
-    } else {
-
-      toggleState = false;
-    }
-
-    this.setState({toggle: toggleState});
   }
 
   render() {
 
     const { profile } = this.props;
 
-    //console.log('profile', this.state.toggle)
-
     return (
       <section className="home profile">
-          {profile.home.map(({title, profile_pic, selected_profile_pic, tagline},idx) => {
-
-            let profilePic = (this.state.toggle) ?
-              `${selected_profile_pic}` :
-              `${profile_pic}`;
+          {profile.home.map(({title, profile_pic, selected_profile_pic, tagline, talk_bubble},idx) => {
 
             return <div key={idx}>
-              <div>
-                <span className="profile_picture"
-                  style={{ backgroundImage: "url(" + profilePic + ")" }} />
-              </div>
-              {this.state.toggle && <TalkBubble home={profile.home} />}
+              <Avatar profile_pic={profile_pic} selected_profile_pic={selected_profile_pic} />
+              <TalkBubble talk_bubble={talk_bubble} el="avatar" />
               <h1 dangerouslySetInnerHTML={{__html: `${title}`}} />
               <p dangerouslySetInnerHTML={{__html: `${tagline}`}} />
               <Link className="down_animation" activeClass="active" to="experience"

@@ -1,8 +1,8 @@
 [{
   "section": "top",
-  "profile_pic": "https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit.svg",
-  "selected_profile_pic": "https://s3.us-east-2.amazonaws.com/skilllit.com/mister_skilllit.svg",
-  "talk_bubble": "Hi, I'm Skilllit. <a href='\/signup'>Sign up<\/a>. Input your experience, skillset and education. <b>Then Bam! You get a site like this.<\/b>",
+  "logo": "https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit.svg",
+  "selected_logo": "https://s3.us-east-2.amazonaws.com/skilllit.com/mister_skilllit.svg",
+  "talk_bubble": "<b>Hi, I'm Skilllit.<\/b> A site for eggheads with experience, skills and education in tech. <b><a href='\/login'>Login<\/a></b> and create a profile that sizzles.",
   "title": "Show off <br> your skillls",
   "tagline": "Represent. Cook things up. The right way."
 }]

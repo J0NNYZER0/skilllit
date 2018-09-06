@@ -1,48 +1,15 @@
 section.profile {
-  .profile_picture {
-    border-radius: 50%;
-    background-size: 250px;
-    background-position: 50% 70%;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
-  }
-  div.site_love a {
-    cursor: pointer;
-  }
-  div.love_message {
-    display: none;
-    width: calc(100% - 60px);
-    max-width: 600px;
-    margin: 0 auto;
-    position: absolute;
-    //left: 30px;
-    color: #000;
-    background-color: #fff;
-    z-index: 12;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5);
-  }
-  div.love_message p {
-    margin: 10px;
-    text-align: left;
-  }
-  div.love_message.show {
+
+  span.avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0px auto 30px auto;
     display: block;
-  }
-  div.love_message:after {
-    content: "";
-    position: absolute;
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px ;
-    -moz-transform: rotate(225deg);
-    -webkit-transform: rotate(225deg);
-    top: -10px;
-    left: calc(50% - 10px);
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #FFF #FFF transparent;
-  }
-  .site_love span {
-    height: 20px;
+    background-size: 150px;
+    background-position: 50% 70%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
     cursor: pointer;
-    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/heart.svg);
-    background-size: 20px;
   }
 }

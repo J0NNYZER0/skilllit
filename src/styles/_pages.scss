@@ -7,7 +7,7 @@ section.home {
     align-items: center;
 
   }
-  span.profile_picture {
+  span.site_logo {
     width: 250px;
     height: 250px;
     display: block;
@@ -19,49 +19,8 @@ section.home {
     margin: 0px auto 30px auto;
     cursor: pointer;
   }
-
-  div.site_love a {
-    cursor: pointer;
-  }
-  div.love_message {
-    display: none;
-    width: calc(100% - 60px);
-    max-width: 600px;
-    margin: 0 auto;
-    position: absolute;
-    //left: 30px;
-    color: #000;
-    background-color: #fff;
-    z-index: 12;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5);
-  }
-  div.love_message p {
-    margin: 10px;
-    text-align: left;
-  }
-  div.love_message.show {
-    display: block;
-  }
-  div.love_message:after {
-    content: "";
-    position: absolute;
-    box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 2px ;
-    -moz-transform: rotate(225deg);
-    -webkit-transform: rotate(225deg);
-    top: -10px;
-    left: calc(50% - 10px);
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #FFF #FFF transparent;
-  }
-  .site_love span {
-    height: 20px;
-    cursor: pointer;
-    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/heart.svg);
-    background-size: 20px;
-  }
   h1 {
-    font-size: 11vw;
+    font-size: 10vw;
     text-align: center;
     flex: 1;
     justify-content: center;
@@ -190,15 +149,12 @@ section.not_found {
     text-align: center;
   }
   section.home {
-    span.profile_picture {
-      width: 200px;
-      height: 150px;
-      background-size: 200px;
+    span.site_logo {
+      width: 250px;
+      height: 180px;
+      background-size: 250px;
       background-position: 50% 70%;
     }
-  }
-  .love_message.show {
-    top: 150px;
   }
   .experience {
     .job {
@@ -247,11 +203,8 @@ section.not_found {
 
 @media only screen  and (min-width : 701px) and (max-width : 1224px) {
   section.home {
-    span.profile_picture {
-      width: 150px;
-      height: 150px;
-      background-size: 150px;
-      background-position: 50% 70%;
+    span.site_logo {
+      height: 180px;
     }
   }
 }

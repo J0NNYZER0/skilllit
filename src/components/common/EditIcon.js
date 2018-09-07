@@ -6,25 +6,20 @@ class EditIcon extends React.Component {
 
     super(props);
 
-    this.state = {
-      toggle: false
-    }
     this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
-    const { callback, edit } = this.props;
+    const { callback, form_to_edit } = this.props;
 
-    let toggleState = this.state.toggle === true ? false : true;
-
-    this.setState({toggle: toggleState});
-
-    callback(edit)
+    callback(form_to_edit)
   }
 
   render() {
 
-    let editIcon = (this.state.toggle) ?
+    const { edit } = this.props;
+
+    let editIcon = (edit) ?
       `https://s3.us-east-2.amazonaws.com/ui-icons/black/x-circle.svg` :
       `https://s3.us-east-2.amazonaws.com/ui-icons/black/edit.svg`
 

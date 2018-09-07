@@ -23,7 +23,6 @@ class Profile extends React.Component {
       edit : null;
 
     this.setState({ edit: edit });
-
   }
 
   render() {
@@ -32,11 +31,11 @@ class Profile extends React.Component {
       { edit } = this.state
 
     const profile_section = profile.home[0] && <HomeSection home={profile.home[0]} />,
-      profile_form = profile.home[0] && <HomeForm home={profile.home[0]} />
+      profile_form = profile.home[0] && <HomeForm home={profile.home[0]} toggle={this.toggle} />
 
     return (
       <section className="home profile">
-        <EditIcon callback={this.toggle} edit="home" />
+        <EditIcon callback={this.toggle} edit={this.state.edit} form_to_edit="home" />
         {edit && edit === 'home' ?
           profile_form : profile_section}
       </section>

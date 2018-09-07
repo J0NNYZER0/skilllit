@@ -1,16 +1,14 @@
-.profile {
-  min-height: 100%; }
-  .profile span.avatar {
-    width: 150px;
-    height: 150px;
-    margin: 0px auto 30px auto;
-    display: block;
-    background-size: 150px;
-    background-position: 50% 70%;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
-    cursor: pointer; }
+.profile span.avatar {
+  width: 150px;
+  height: 150px;
+  margin: 0px auto 30px auto;
+  display: block;
+  background-size: 150px;
+  background-position: 50% 70%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  cursor: pointer; }
 @font-face {
   font-family: 'NeutrafaceDisplayTitling';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot");
@@ -1963,4 +1961,4 @@ section.profile span.icon {
   top: 20px;
   cursor: pointer; }
 
-/*# sourceMappingURL=main.ad5d642abc6c36c331e4.css.map*/
+/*# sourceMappingURL=main.38ed23ee7ea707417d66.css.map*/

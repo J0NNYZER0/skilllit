@@ -23,10 +23,9 @@ class ProfileHome extends React.Component {
   render() {
 
     const { home } = this.props,
-      { edit } = this.state
-
-    const section = home && <HomeSection home={home} />,
-      form = home && <HomeForm home={home} toggle={this.toggle} />
+      { edit } = this.state,
+      section = home && <HomeSection home={home} />,
+      form = home && <HomeForm home={home} toggle={this.toggle} />;
 
     return (
       <section className="home profile">

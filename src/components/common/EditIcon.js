@@ -10,9 +10,9 @@ class EditIcon extends React.Component {
   }
 
   toggle() {
-    const { callback, form_to_edit } = this.props;
+    const { callback } = this.props;
 
-    callback(form_to_edit)
+    callback()
   }
 
   render() {
@@ -20,8 +20,8 @@ class EditIcon extends React.Component {
     const { edit } = this.props;
 
     let editIcon = (edit) ?
-      `https://s3.us-east-2.amazonaws.com/ui-icons/black/x-circle.svg` :
-      `https://s3.us-east-2.amazonaws.com/ui-icons/black/edit.svg`
+      `https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle.svg` :
+      `https://s3.us-east-2.amazonaws.com/ui-icons/grey/edit.svg`
 
     return (
       <span onClick={this.toggle}

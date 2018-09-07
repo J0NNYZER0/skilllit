@@ -16,90 +16,49 @@
     "school": "Montserrat College of Art"
   }],
   "experience": [{
+      "id": 1,
       "from": "2014",
       "to": "2018",
-      "title": "Team Lead",
-      "company": "Apple, Inc.",
+      "title": "Your Title",
+      "company": "Company X, Inc.",
       "city": "Cupertino",
       "state": "CA",
+      "account_id": 1,
       "projects": [
-        "Forensic tools giving visibility into fraud vectors across multiple segments of Apple - retail, applepay, network activity, expense reporting Dev-ops tool enabling engineers to create APIs",
-        "Manufacturing tools giving insight into yield count / parametric data",
-        "CMS/HR tools for employees and trainers enabling the scheduling, reserving  and content creation of classes",
-        "Manager/employee review process tool to give leadership insight into the review process and allow employees to manage their career development within Apple Inc."
+        "Project 1",
+        "Project 2",
+        "Project 3"
       ],
       "skills": [
-        "Manage code, infrastructure and data",
-        "Mentor 1 to 3 junior developers / interns",
-        "Communicate to customers, partners and leadership globally",
-        "Ensure quality with testing and QA",
-        "Manage git repos, build process and continuous integration",
-        "Manage migration process across development environments",
-        "Design high level architectural diagrams and spec docs",
-        "Gather requirements and define project scopes",
-        "Review all pull requests",
-        "Submit and manage information security reviews",
-        "Manage 2 week sprint cycles with agile principles and tools",
-        "Manage documentation for any tribal knowledge",
-        "Organize and lead various presentations, meetings and demos",
-        "Organize and lead technical/behavior interviews",
-        "Create partnerships across teams for help and support",
-        "Manage integration of external APIs",
-        "Manage dev-ops and no-ops support and integration",
-        "Continuously manage expectations with leadership"
+        "Skill 1",
+        "Skill 2",
+        "Skill 3",
+        "Skill 4",
+        "Skill 5",
+        "Skill 6"
       ]
     },
     {
-      "from": "2014",
-      "to": "",
-      "title": "Solution Architect",
-      "company": "Lazydays RV",
-      "city": "Brandon",
-      "state": "FL",
-      "projects": [
-        "Retail site and various internal sales tools"
-      ],
-      "skills": [
-        "Manage code, infrastructure, qa, releases, etc.",
-        "Communicate to marketing and business partners"
-      ]
-    },
-    {
-      "from": "2011",
+      "id": 2,
+      "from": "2010",
       "to": "2014",
-      "title": "Sr Software Engineer",
-      "company": "HSN, Inc.",
-      "city": "St. Pete",
-      "state": "FL",
+      "title": "Your Title",
+      "company": "Company Y, Inc.",
+      "city": "Cupertino",
+      "state": "CA",
+      "account_id": 1,
       "projects": [
-        "Entire retail site - navigation, home page, product search, sort and filter, product refinement, product list, product detail, payment, checkout, customer account, product support, chat, gamification",
-        "Various internal production support tools"
+        "Project 1",
+        "Project 2",
+        "Project 3"
       ],
       "skills": [
-        "Manage code, infrastructure and data for mobile web, android and ios",
-        "Communicate to business partners",
-        "Work with QA partners to manage testing",
-        "Manage database stored procedures",
-        "Manage code repos, build processes and CI",
-        "Manage code releases across development environment",
-        "Gather requirements and define project scopes",
-        "Review all code submissions",
-        "Continuously manage expectations with leadership",
-        "Move development from waterfall to agile"
-      ]
-    },
-    {
-      "from": "2009",
-      "to": "2011",
-      "title": "Mobile Engineer",
-      "company": "Madmobile",
-      "city": "Tampa",
-      "state": "FL",
-      "projects": [
-        "Retail sites for various big brands - VANS, URBAN OUTFITTERS, MLB, Office Depot, Panera Bread, The North Face, Timberland etc."
-      ],
-      "skills": [
-        "Manage design, full stack code and infrastructure"
+        "Skill 1",
+        "Skill 2",
+        "Skill 3",
+        "Skill 4",
+        "Skill 5",
+        "Skill 6"
       ]
     }
   ],

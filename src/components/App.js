@@ -14,7 +14,7 @@ import Education from './pages/Education';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
-import Me from './pages/Profile';
+import Me from './pages/profile/Index';
 import NotFound from './pages/NotFound';
 import Footer from './common/Footer';
 

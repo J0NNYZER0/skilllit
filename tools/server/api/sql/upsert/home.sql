@@ -9,9 +9,9 @@ INSERT INTO `home`
 VALUES
   (?,?,?,?,?,?)
 ON DUPLICATE KEY UPDATE
-  avatar=VALUES(avatar),
-  selected_avatar=VALUES(selected_avatar),
-  talk_bubble=VALUES(talk_bubble),
-  title=VALUES(title),
-  tagline=VALUES(tagline),
-  account_id=VALUES(account_id);
+  `avatar`=VALUES(`avatar`),
+  `selected_avatar`=VALUES(`selected_avatar`),
+  `talk_bubble`=VALUES(`talk_bubble`),
+  `title`=VALUES(`title`),
+  `tagline`=VALUES(`tagline`),
+  `account_id`=VALUES(`account_id`);

@@ -1958,9 +1958,9 @@ section.profile span.icon {
   background-size: 50px;
   background-position: 50%;
   background-repeat: no-repeat;
-  position: absolute;
-  right: 0;
-  top: -50px;
+  position: relative;
+  left: calc(100% - 60px);
+  top: 20px;
   cursor: pointer; }
 
-/*# sourceMappingURL=main.38bd9c49ea4ce7263326.css.map*/
+/*# sourceMappingURL=main.ad5d642abc6c36c331e4.css.map*/

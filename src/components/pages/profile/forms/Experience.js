@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import HiddenInput from '../../elements/HiddenInput';
-import TextInput from '../../elements/TextInput';
-import FormButton from '../../elements/Button';
-import * as profileActions from '../../../../../actions/profileActions.js';
+import HiddenInput from '../../../common/forms/elements/HiddenInput';
+import TextInput from '../../../common/forms/elements/TextInput';
+import FormButton from '../../../common/forms/elements/Button';
+import * as profileActions from '../../../../actions/profileActions.js';
 
-const formId = 'homeForm',
+const formId = 'experienceForm',
   buttonTitle = 'Update';
 
 class HomeForm extends React.Component {
@@ -15,14 +15,14 @@ class HomeForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = props.home
+    this.state = props.experience
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(value) {
-    const { home, toggle } = this.state,
+    const { experience } = this.state,
       newState = { ...home, ...value };
 
     this.setState({ ...home, ...value });
@@ -30,8 +30,6 @@ class HomeForm extends React.Component {
 
   handleClick(e) {
     const { callback, toggle } = this.props;
-
-    console.log('callback', callback)
 
     e.preventDefault();
 
@@ -42,44 +40,33 @@ class HomeForm extends React.Component {
       data[elements[i].name] = elements[i].value;
 
     callback.homeUpsert(data);
-    toggle('home');
+    toggle('experience');
   }
 
   render() {
 
-    const { handleChange, home } = this.props;
+    const { idx, handleChange, experience } = this.props;
 
     return (
-      <form id={formId} className="form__login">
-        <TextInput key="profile_avatar_input"
-          autocomplete="off"
-          name="avatar"
+      <form key={idx} id={formId} className="form__login">
+        <HiddenInput name="id" value={this.state.id} />
+        <TextInput autocomplete="off"
+          name="from"
           onChange={this.handleChange}
-          placeholder="Avatar"
-          ref="avatar"
+          placeholder="From"
+          ref="from"
           type="text"
-          value={this.state.avatar}
-          label_name="avatar" />
-        <TextInput key="profile_selected_avatar_input"
-          autocomplete="off"
+          value={this.state.from}
+          label_name="from" />
+        <TextInput autocomplete="off"
           name="selected_avatar"
           onChange={this.handleChange}
-          placeholder="Selected Avatar"
-          ref="selected_avatar"
+          placeholder="To"
+          ref="to"
           type="text"
-          value={this.state.selected_avatar}
-          label_name="selected avatar" />
-        <TextInput key="profile_talk_bubble_input"
-          autocomplete="off"
-          name="talk_bubble"
-          onChange={this.handleChange}
-          placeholder="Talk Bubble"
-          ref="talk_bubble"
-          type="text"
-          value={this.state.talk_bubble}
-          label_name="talk bubble" />
-        <TextInput key="profile_title_input"
-          autocomplete="off"
+          value={this.state.to}
+          label_name="to" />
+        <TextInput autocomplete="off"
           name="title"
           onChange={this.handleChange}
           placeholder="Title"
@@ -87,15 +74,30 @@ class HomeForm extends React.Component {
           type="text"
           value={this.state.title}
           label_name="title" />
-        <TextInput key="profile_tagline_input"
-          autocomplete="off"
-          name="tagline"
+        <TextInput autocomplete="off"
+          name="company"
           onChange={this.handleChange}
-          placeholder="Tagline"
-          ref="tagline"
+          placeholder="Company"
+          ref="company"
           type="text"
-          value={this.state.tagline}
-          label_name="tagline" />
+          value={this.state.company}
+          label_name="company" />
+        <TextInput autocomplete="off"
+          name="city"
+          onChange={this.handleChange}
+          placeholder="City"
+          ref="city"
+          type="text"
+          value={this.state.city}
+          label_name="city" />
+        <TextInput autocomplete="off"
+          name="state"
+          onChange={this.handleChange}
+          placeholder="State"
+          ref="state"
+          type="text"
+          value={this.state.state}
+          label_name="state" />
         <HiddenInput name="account_id" value={this.state.account_id} />
         <FormButton
           callback={this.handleClick}

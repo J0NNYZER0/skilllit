@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, Element } from 'react-scroll';
-import Avatar from '../Avatar';
-import TalkBubble from '../TalkBubble';
+import Avatar from '../../../common/Avatar';
+import TalkBubble from '../../../common/TalkBubble';
 
-class HomeSection extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -29,4 +29,4 @@ class HomeSection extends React.Component {
   }
 }
 
-export default HomeSection;
+export default Home;

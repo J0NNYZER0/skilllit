@@ -107,6 +107,40 @@ module.exports = {
           Bounce.rethrow(err, 'system')
         }
       }
+    },
+    Experience: {
+      Select: async (request, h) => {
+
+        try {
+          const params = request.params
+
+          const data = await DbQuery.Mysql(
+            '../api/sql/select/experience.sql',
+            params)
+
+          return h.response({ status: 200, data: data })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      },
+      Upsert: async (request, h) => {
+
+        try {
+          const payload = JSON.parse(request.payload)
+
+          await DbQuery.Mysql(
+            '../api/sql/upsert/experience.sql',
+            payload)
+
+          return h.response({ status: 200 })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      }
     }
   }
 }

@@ -31,7 +31,7 @@ class ProfileExperience extends React.Component {
         <h1>Experience</h1>
         {experience.map((el, idx) => {
 
-        if (edit)
+        if (!edit)
           return [
             <EditIcon key={'edit' + idx} callback={this.toggle} edit={this.state.edit} />,
             <ExperienceSection key={'section', idx} experience={el} />

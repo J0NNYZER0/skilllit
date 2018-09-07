@@ -6,6 +6,7 @@ const Mysql = require('mysql'),
   FormatSql = (sql, values) => {
 
     if (values) {
+
       if (typeof values === 'object') {
         values = Object.values(values)
       }

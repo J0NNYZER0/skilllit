@@ -45,23 +45,68 @@ module.exports = {
       }
     }
   },
-  Hello: async (request, h) => {
+  Lab: {
+    Add: async (request, h) => {
 
-    let data = null
+      const { a, b } = request.params,
+        id = `${a}:${b}`
 
-    try {
+      return await request.server.app.cache.account.get({ id, a, b })
+    },
+    Hello: async (request, h) => {
 
-      data = await DbQuery.Mysql(
-        '../api/sql/insert/login.sql',
-        11)
+      let data = null
 
-      return h.response({data: data})
+      try {
 
-    } catch(err) {
+        data = await DbQuery.Mysql(
+          '../api/sql/insert/login.sql',
+          11)
 
-      Bounce.rethrow(err, 'system')
+        return h.response({data: data})
+
+      } catch(err) {
+
+        Bounce.rethrow(err, 'system')
+      }
+
+      return data
     }
+  },
+  Profile: {
+    Home: {
+      Select: async (request, h) => {
 
-    return data
+        try {
+          const params = request.params
+
+          const data = await DbQuery.Mysql(
+            '../api/sql/select/home.sql',
+            params)
+
+          return h.response({ status: 200, data: data })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      },
+      Upsert: async (request, h) => {
+
+        try {
+          const payload = JSON.parse(request.payload)
+
+          await DbQuery.Mysql(
+            '../api/sql/upsert/home.sql',
+            payload)
+
+          return h.response({ status: 200 })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      }
+    }
   }
 }

@@ -31,6 +31,7 @@ store.dispatch(resume.load());
 store.dispatch(site.load());
 store.dispatch(skillset.load());
 store.dispatch(socialmedia.load());
+store.dispatch(profile.homeLoad(1));
 
 render(
   <AppContainer>

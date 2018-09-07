@@ -41,8 +41,7 @@ export const HOME = {
   DETAIL: '/home/detail',
   INSERT: '/home/insert',
   LIST: '/home/list',
-  LOAD: '/home',
-  UPDATE: '/home/update'
+  LOAD: '/home'
 }
 
 export const MESSAGE = {
@@ -60,7 +59,11 @@ export const PROFILE = {
   INSERT: '/profile/insert',
   LIST: '/profile/list',
   LOAD: '/profile',
-  UPDATE: '/profile/update'
+  UPDATE: '/profile/update',
+  HOME: {
+    LOAD: '/profile/home/',
+    UPSERT: '/profile/home/upsert'
+  }
 }
 
 export const RESUME = {

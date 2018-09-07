@@ -1,14 +1,9 @@
 import React from 'react';
 
-const HiddenInput = ({id, value}) => {
+const HiddenInput = ({name, value}) => {
 
   return (
-    <div>
-      <input
-        id={id}
-        type="hidden"
-        value={value} />
-    </div>
+    <input name={name} type="hidden" value={value} />
   )
 }
 

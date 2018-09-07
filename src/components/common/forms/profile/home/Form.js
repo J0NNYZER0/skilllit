@@ -22,14 +22,14 @@ class HomeForm extends React.Component {
   }
 
   handleChange(value) {
-    const { home } = this.state,
+    const { home, toggle } = this.state,
       newState = { ...home, ...value };
 
     this.setState({ ...home, ...value });
   }
 
   handleClick(e) {
-    const { callback } = this.props;
+    const { callback, toggle } = this.props;
 
     console.log('callback', callback)
 
@@ -41,10 +41,8 @@ class HomeForm extends React.Component {
     for (let i = 0; i < elements.length - 1; i++)
       data[elements[i].name] = elements[i].value;
 
-    console.log('handleClick', data)
-
     callback.homeUpsert(data);
-
+    toggle('home');
   }
 
   render() {
@@ -60,7 +58,8 @@ class HomeForm extends React.Component {
           placeholder="Avatar"
           ref="avatar"
           type="text"
-          value={this.state.avatar} />
+          value={this.state.avatar}
+          label_name="avatar" />
         <TextInput key="profile_selected_avatar_input"
           autocomplete="off"
           name="selected_avatar"
@@ -68,7 +67,8 @@ class HomeForm extends React.Component {
           placeholder="Selected Avatar"
           ref="selected_avatar"
           type="text"
-          value={this.state.selected_avatar} />
+          value={this.state.selected_avatar}
+          label_name="selected avatar" />
         <TextInput key="profile_talk_bubble_input"
           autocomplete="off"
           name="talk_bubble"
@@ -76,7 +76,8 @@ class HomeForm extends React.Component {
           placeholder="Talk Bubble"
           ref="talk_bubble"
           type="text"
-          value={this.state.talk_bubble} />
+          value={this.state.talk_bubble}
+          label_name="talk bubble" />
         <TextInput key="profile_title_input"
           autocomplete="off"
           name="title"
@@ -84,7 +85,8 @@ class HomeForm extends React.Component {
           placeholder="Title"
           ref="title"
           type="text"
-          value={this.state.title} />
+          value={this.state.title}
+          label_name="title" />
         <TextInput key="profile_tagline_input"
           autocomplete="off"
           name="tagline"
@@ -92,7 +94,8 @@ class HomeForm extends React.Component {
           placeholder="Tagline"
           ref="tagline"
           type="text"
-          value={this.state.tagline} />
+          value={this.state.tagline}
+          label_name="tagline" />
         <HiddenInput name="account_id" value={this.state.account_id} />
         <FormButton
           callback={this.handleClick}

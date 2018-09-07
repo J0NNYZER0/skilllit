@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TextInputLabel from './TextInputLabel';
 
 class TextInput extends Component {
   constructor(props) {
@@ -11,16 +12,18 @@ class TextInput extends Component {
   }
 
   render() {
-    const { autocomplete, name, placeholder, type, value } = this.props;
-
-    return (
-      <input
+    const { autocomplete, name, placeholder, type, value, label_name } = this.props,
+      textInputLabel = label_name && <TextInputLabel key={'text_input_label_' + name} label_name={name} />
+    return [
+      textInputLabel,
+      <input key={'text_input_' + name}
         autoComplete={autocomplete}
         name={name}
         onChange={this.handleChange}
         placeholder={placeholder}
         type={type}
-        value={value} />)
+        value={value} />
+    ]
   }
 }
 

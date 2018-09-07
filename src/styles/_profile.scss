@@ -1,5 +1,5 @@
-section.profile {
-
+.profile {
+  min-height: 100%;
   span.avatar {
     width: 150px;
     height: 150px;
@@ -13,7 +13,6 @@ section.profile {
     cursor: pointer;
   }
   #homeForm {
-    position: absolute;
-    top: 100px;
+
   }
 }

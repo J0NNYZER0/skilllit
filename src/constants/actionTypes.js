@@ -47,8 +47,7 @@ export const HOME = {
   INSERT: 'HOME_INSERT',
   LIST: 'HOME_LIST',
   LOAD: 'HOME_LOAD',
-  UPDATE: 'HOME_UPDATE',
-  UPSERT: 'HOME_UPSERT'
+  UPDATE: 'HOME_UPDATE'
 }
 
 export const MESSAGE = {
@@ -68,7 +67,10 @@ export const PROFILE = {
   LIST: 'PROFILE_LIST',
   LOAD: 'PROFILE_LOAD',
   UPDATE: 'PROFILE_UPDATE',
-  UPSERT: 'PROFILE_UPSERT'
+  HOME: {
+    LOAD: 'PROFILE_HOME_LOAD',
+    UPSERT: 'PROFILE_HOME_UPSERT'
+  }
 }
 
 export const RESUME = {
@@ -112,4 +114,5 @@ export const SOCIALMEDIA = {
 }
 
 export const SAVE_FUEL_SAVINGS = 'SAVE_FUEL_SAVINGS';
+
 export const CALCULATE_FUEL_SAVINGS = 'CALCULATE_FUEL_SAVINGS';

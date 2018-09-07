@@ -148,7 +148,8 @@ const start = async () => {
         }),
         ApiRoutes.Account,
         ApiRoutes.Contact,
-        ApiRoutes.Lab
+        ApiRoutes.Lab,
+        ApiRoutes.Profile
       ).map(r => {
         r.config = { auth: false }
         return r

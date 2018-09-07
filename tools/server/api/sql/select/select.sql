@@ -38,17 +38,6 @@ SELECT `experience`.`id`,
     `experience`.`created`
 FROM `experience`;
 
-SELECT `home`.`id`,
-    `home`.`section`,
-    `home`.`avatar`,
-    `home`.`selected_avatar`,
-    `home`.`talk_bubble`,
-    `home`.`title`,
-    `home`.`tagline`,
-    `home`.`account_id`,
-    `home`.`created`
-FROM `home`;
-
 SELECT `login`.`id`,
     `login`.`email`,
     `login`.`token`,

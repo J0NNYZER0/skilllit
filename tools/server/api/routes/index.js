@@ -21,18 +21,24 @@ module.exports = {
     {
       method: 'GET',
       path: '/hello',
-      handler: Handlers.Hello
+      handler: Handlers.Lab.Hello
     },
     {
       method: 'GET',
       path: '/add/{a}/{b}',
-      handler: async (request, h) => {
-
-        const { a, b } = request.params,
-          id = `${a}:${b}`
-
-        return await request.server.app.cache.account.get({ id, a, b })
-      }
+      handler: Handlers.Lab.Add
+    }
+  ],
+  Profile: [
+    {
+      method: 'GET',
+      path: '/api/profile/home/{account_id}',
+      handler: Handlers.Profile.Home.Select
+    },
+    {
+      method: 'POST',
+      path: '/api/profile/home/upsert',
+      handler: Handlers.Profile.Home.Upsert
     }
   ]
 }

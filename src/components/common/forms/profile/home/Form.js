@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import HiddenInput from '../../elements/HiddenInput';
 import TextInput from '../../elements/TextInput';
 import FormButton from '../../elements/Button';
-import * as actions from '../../../../../actions/accountActions.js';
+import * as profileActions from '../../../../../actions/profileActions.js';
 
 const formId = 'homeForm',
   buttonTitle = 'Update';
@@ -24,24 +25,26 @@ class HomeForm extends React.Component {
     const { home } = this.state,
       newState = { ...home, ...value };
 
-    this.setState({ ...home, ...value })
+    this.setState({ ...home, ...value });
   }
 
   handleClick(e) {
     const { callback } = this.props;
 
+    console.log('callback', callback)
+
     e.preventDefault();
 
     let elements = [...document.getElementById(formId).elements],
-      data = {}
+      data = {};
 
     for (let i = 0; i < elements.length - 1; i++)
-      data[elements[i].name] = elements[i].value
+      data[elements[i].name] = elements[i].value;
 
-    callback(data)
-    this.setState({
-        inputGroupState: initialState,
-    })
+    console.log('handleClick', data)
+
+    callback.homeUpsert(data);
+
   }
 
   render() {
@@ -50,7 +53,31 @@ class HomeForm extends React.Component {
 
     return (
       <form id={formId} className="form__login">
-        <TextInput key="contact_email_input"
+        <TextInput key="profile_avatar_input"
+          autocomplete="off"
+          name="avatar"
+          onChange={this.handleChange}
+          placeholder="Avatar"
+          ref="avatar"
+          type="text"
+          value={this.state.avatar} />
+        <TextInput key="profile_selected_avatar_input"
+          autocomplete="off"
+          name="selected_avatar"
+          onChange={this.handleChange}
+          placeholder="Selected Avatar"
+          ref="selected_avatar"
+          type="text"
+          value={this.state.selected_avatar} />
+        <TextInput key="profile_talk_bubble_input"
+          autocomplete="off"
+          name="talk_bubble"
+          onChange={this.handleChange}
+          placeholder="Talk Bubble"
+          ref="talk_bubble"
+          type="text"
+          value={this.state.talk_bubble} />
+        <TextInput key="profile_title_input"
           autocomplete="off"
           name="title"
           onChange={this.handleChange}
@@ -58,6 +85,15 @@ class HomeForm extends React.Component {
           ref="title"
           type="text"
           value={this.state.title} />
+        <TextInput key="profile_tagline_input"
+          autocomplete="off"
+          name="tagline"
+          onChange={this.handleChange}
+          placeholder="Tagline"
+          ref="tagline"
+          type="text"
+          value={this.state.tagline} />
+        <HiddenInput name="account_id" value={this.state.account_id} />
         <FormButton
           callback={this.handleClick}
           buttonTitle={buttonTitle} />
@@ -74,7 +110,7 @@ const mapStateToProps = state => {
 mapDispatchToProps = dispatch => {
 
   return {
-    callback: bindActionCreators(actions.login, dispatch)
+    callback: bindActionCreators(profileActions, dispatch)
   };
 }
 

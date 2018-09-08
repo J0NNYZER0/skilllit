@@ -1,4 +1,5 @@
 import React from 'react';
+import Project from './Project';
 
 class Job extends React.Component {
 
@@ -67,12 +68,10 @@ class Job extends React.Component {
         </div>
         <div className="project_details">
           <h4>Projects</h4>
-          <ul id={'a_' + idx}>
-            {projects.map((project, i) => <li key={i}>{project}</li>)}
-          </ul>
+          <Project idx={idx} projects={projects} />
           <h4>Skills</h4>
           <ul id={'b_' + idx}>
-            {skills.map((responsility, i) => <li key={i}>{responsility}</li>)}
+            {skills.map((responsility, i) => <li key={i} className="skill">{responsility}</li>)}
           </ul>
         </div>
       </div>

@@ -39,7 +39,6 @@ class ProfileExperience extends React.Component {
             section = (renderForm === false) && <ExperienceSection key={'profile_exp_section' + i} idx={i} experience={el} />,
             form = (renderForm === true) && <ExperienceForm key={'profile_exp_form' + i} toggle={this.toggle} idx={i} experience={el} />;
 
-
             return [editIcon,section,form];
           }
         )}

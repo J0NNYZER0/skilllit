@@ -67,6 +67,10 @@ export const PROFILE = {
   EXPERIENCE: {
     LOAD: '/profile/experience/',
     UPSERT: '/profile/experience/upsert'
+  },
+  PROJECT: {
+    LOAD: '/profile/experience/project',
+    UPSERT: '/profile/experience/project/upsert'
   }
 }
 

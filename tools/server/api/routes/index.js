@@ -41,6 +41,11 @@ module.exports = {
       handler: Handlers.Profile.Experience.Select
     },
     {
+      method: 'GET',
+      path: '/api/profile/project/{account_id}',
+      handler: Handlers.Profile.Project.Select
+    },
+    {
       method: 'POST',
       path: '/api/profile/home/upsert',
       handler: Handlers.Profile.Home.Upsert
@@ -49,6 +54,11 @@ module.exports = {
       method: 'POST',
       path: '/api/profile/experience/upsert',
       handler: Handlers.Profile.Experience.Upsert
+    },
+    {
+      method: 'POST',
+      path: '/api/profile/experience/project/upsert',
+      handler: Handlers.Profile.Project.Upsert
     }
   ]
 }

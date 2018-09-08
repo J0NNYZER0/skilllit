@@ -51,39 +51,6 @@ a.download-resume {
   flex: 100px;
 }
 
-section.experience {
-  border-bottom: 1px solid #ccc;
-
-  .job {
-    width: 100%;
-    margin: 0 auto;
-  }
-  .job_header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .job_header > div {
-    flex: 1;
-    text-align: center;
-  }
-  .job_title {
-    display: flex;
-    white-space: nowrap;
-  }
-  .project_details_tab_container,
-  .project_details {
-    width: 100%;
-  }
-  .project_details_tab_container ul li,
-  .project_details ul li {
-    line-height: 1.25em;
-    margin-bottom: 1.5em;
-    text-align: left;
-    list-style-type: square;
-  }
-}
 .skillsets {
   h2 {
     margin-bottom: 0px;

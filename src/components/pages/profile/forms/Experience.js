@@ -10,7 +10,7 @@ import * as profileActions from '../../../../actions/profileActions.js';
 const formId = 'experienceForm',
   buttonTitle = 'Update';
 
-class HomeForm extends React.Component {
+class ExperienceForm extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,24 +23,25 @@ class HomeForm extends React.Component {
 
   handleChange(value) {
     const { experience } = this.state,
-      newState = { ...home, ...value };
+      newState = { ...experience, ...value };
 
-    this.setState({ ...home, ...value });
+    this.setState({ ...experience, ...value });
   }
 
   handleClick(e) {
-    const { callback, toggle } = this.props;
+    const { idx, callback, toggle } = this.props;
 
     e.preventDefault();
 
-    let elements = [...document.getElementById(formId).elements],
+    let elements = [...document.getElementById(formId + '_' + idx).elements],
       data = {};
 
     for (let i = 0; i < elements.length - 1; i++)
       data[elements[i].name] = elements[i].value;
 
-    callback.homeUpsert(data);
-    toggle('experience');
+    callback.experienceUpsert(data);
+
+    toggle(idx);
   }
 
   render() {
@@ -48,7 +49,7 @@ class HomeForm extends React.Component {
     const { idx, handleChange, experience } = this.props;
 
     return (
-      <form key={idx} id={formId} className="form__login">
+      <form key={idx} id={formId + '_' + idx} className="form_profile_experience">
         <HiddenInput name="id" value={this.state.id} />
         <TextInput autocomplete="off"
           name="from"
@@ -119,4 +120,4 @@ mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ExperienceForm);

@@ -63,6 +63,10 @@ export const PROFILE = {
   HOME: {
     LOAD: '/profile/home/',
     UPSERT: '/profile/home/upsert'
+  },
+  EXPERIENCE: {
+    LOAD: '/profile/experience/',
+    UPSERT: '/profile/experience/upsert'
   }
 }
 

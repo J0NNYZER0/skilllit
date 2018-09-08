@@ -47,7 +47,7 @@ class Job extends React.Component {
       {from, to, title, company, city, state, projects, skills } = experience;
 
     return (
-      <div className="job">
+      <div id={"experienceSection_" + idx} className="job">
         <div>
           <div className="job_date">
             <h4>{to ? `${from} - ${to}` : `${from}`}</h4>

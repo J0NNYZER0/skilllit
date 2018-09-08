@@ -1950,7 +1950,7 @@ div.talk_bubble:after {
 
 section.profile span.icon {
   width: 75px;
-  height: 75px;
+  height: 50px;
   margin: 0px;
   display: block;
   background-size: 50px;
@@ -1961,4 +1961,10 @@ section.profile span.icon {
   top: 20px;
   cursor: pointer; }
 
-/*# sourceMappingURL=main.38ed23ee7ea707417d66.css.map*/
+section.profile span.icon.edit {
+  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/edit.svg); }
+
+section.profile span.icon.edit.close {
+  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle.svg); }
+
+/*# sourceMappingURL=main.07467d78141575fcb78a.css.map*/

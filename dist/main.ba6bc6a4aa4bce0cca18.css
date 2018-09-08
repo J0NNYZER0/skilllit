@@ -1038,32 +1038,6 @@ a.download-resume {
   height: 100px;
   flex: 100px; }
 
-section.experience {
-  border-bottom: 1px solid #ccc; }
-  section.experience .job {
-    width: 100%;
-    margin: 0 auto; }
-  section.experience .job_header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-  section.experience .job_header > div {
-    flex: 1;
-    text-align: center; }
-  section.experience .job_title {
-    display: flex;
-    white-space: nowrap; }
-  section.experience .project_details_tab_container,
-  section.experience .project_details {
-    width: 100%; }
-  section.experience .project_details_tab_container ul li,
-  section.experience .project_details ul li {
-    line-height: 1.25em;
-    margin-bottom: 1.5em;
-    text-align: left;
-    list-style-type: square; }
-
 .skillsets h2 {
   margin-bottom: 0px; }
 
@@ -1961,10 +1935,80 @@ section.profile span.icon {
   top: 20px;
   cursor: pointer; }
 
+section.profile span.menu_icon {
+  width: 50px;
+  height: 50px;
+  margin: 0px;
+  display: block;
+  background-size: 25px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  top: 20px;
+  cursor: pointer; }
+
 section.profile span.icon.edit {
   background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/edit.svg); }
 
 section.profile span.icon.edit.close {
   background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle.svg); }
 
-/*# sourceMappingURL=main.07467d78141575fcb78a.css.map*/
+section.profile span.menu_icon {
+  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/ellipsis.svg); }
+
+section.experience {
+  border-bottom: 1px solid #ccc; }
+  section.experience .job {
+    width: 100%;
+    margin: 0 auto; }
+  section.experience .job_header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  section.experience .job_header > div {
+    flex: 1;
+    text-align: center; }
+  section.experience .job_title {
+    display: flex;
+    white-space: nowrap; }
+  section.experience .project_details_tab_container,
+  section.experience .project_details {
+    width: 100%; }
+  section.experience ul li.project,
+  section.experience ul li.skill {
+    line-height: 1.25em;
+    margin-bottom: 1.5em;
+    text-align: left;
+    list-style-type: square;
+    position: relative; }
+
+ul.projects li {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  ul.projects li span:first-child {
+    display: block;
+    flex: 1; }
+  ul.projects li span.last-child {
+    flex: 50px;
+    margin-left: auto; }
+
+ul.item_menu {
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  display: block;
+  background: #666;
+  color: #FFF;
+  border: 1px solid #333; }
+
+ul.item_menu li {
+  margin: 10px;
+  cursor: pointer; }
+  ul.item_menu li:first-child {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #FFF;
+    border-radius: 0; }
+
+/*# sourceMappingURL=main.ba6bc6a4aa4bce0cca18.css.map*/

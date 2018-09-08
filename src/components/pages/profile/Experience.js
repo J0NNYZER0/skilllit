@@ -8,39 +8,41 @@ import ExperienceForm from './forms/Experience';
 class ProfileExperience extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      edit: false
+      idx: null
     }
 
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
+  toggle(idx) {
 
-    this.setState({ edit: this.state.edit === false ? true : false });
+    if (this.state.idx === idx)
+      this.setState({ idx: null });
+    else
+      this.setState({ idx: idx });
+
   }
 
   render() {
 
     const { experience } = this.props,
-      { edit } = this.state;
-    const form = experience && <ExperienceForm experience={experience} toggle={this.toggle} />
+      { idx } = this.state;
 
     return (
       <section className="experience profile">
         <h1>Experience</h1>
-        {experience.map((el, idx) => {
+        {experience.map((el, i) => {
+          let renderForm = i === idx,
+            editIcon = <EditIcon key={'edit_icon_' + i} callback={this.toggle} edit={renderForm} idx={i} />,
+            section = (renderForm === false) && <ExperienceSection key={'profile_exp_section' + i} idx={i} experience={el} />,
+            form = (renderForm === true) && <ExperienceForm key={'profile_exp_form' + i} toggle={this.toggle} idx={i} experience={el} />;
 
-        if (!edit)
-          return [
-            <EditIcon key={'edit' + idx} callback={this.toggle} edit={this.state.edit} />,
-            <ExperienceSection key={'section', idx} experience={el} />
-          ]
-        else return [
-          <EditIcon key={'edit' + idx} callback={this.toggle} edit={this.state.edit} />,
-          <ExperienceForm key={'section', idx} experience={el} />
-        ]
-        })}
+
+            return [editIcon,section,form];
+          }
+        )}
       </section>
     );
   }

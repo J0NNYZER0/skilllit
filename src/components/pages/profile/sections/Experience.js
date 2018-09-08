@@ -9,9 +9,9 @@ class Experience extends React.Component {
 
   render() {
 
-    const { experience } = this.props;
+    const { idx, experience } = this.props;
 
-    return (<Job experience={experience} />);
+    return (<Job idx={idx} experience={experience} />);
   }
 }
 

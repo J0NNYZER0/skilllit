@@ -2,7 +2,7 @@ section.profile {
 
   span.icon {
     width: 75px;
-    height: 75px;
+    height: 50px;
     margin: 0px;
     display: block;
     background-size: 50px;
@@ -12,5 +12,11 @@ section.profile {
     left: calc(100% - 60px);
     top: 20px;
     cursor: pointer;
+  }
+  span.icon.edit {
+    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/edit.svg);
+  }
+  span.icon.edit.close {
+    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle.svg);
   }
 }

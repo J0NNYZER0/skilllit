@@ -112,11 +112,10 @@ module.exports = {
       Select: async (request, h) => {
 
         try {
-          const params = request.params
-
-          const data = await DbQuery.Mysql(
-            '../api/sql/select/experience.sql',
-            params)
+          const params = request.params,
+            data = await DbQuery.Mysql(
+              '../api/sql/select/experience.sql',
+              params)
 
           return h.response({ status: 200, data: data })
 

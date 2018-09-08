@@ -47,6 +47,39 @@ class Api {
       .catch(err => reject(err))
     });
   }
+
+  static experienceLoad(account_id) {
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.EXPERIENCE.LOAD}` + account_id;
+      fetch(url).then((response) => {
+        if (response.status >= 400) return reject(response.status);
+          resolve(response.json());
+      })
+      .then(function (data) {
+        resolve(data);
+      })
+    });
+  }
+
+  static experienceUpsert(data) {
+
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.EXPERIENCE.UPSERT}`;
+      fetch(url, {
+        headers: {
+          'Accept': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then((response) => {
+        if (response.status >= 400) return reject(response.status);
+        resolve(response.json());
+      })
+      .catch(err => reject(err))
+    });
+  }
+
 }
 
 export default Api;

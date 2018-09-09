@@ -57,7 +57,7 @@ module.exports = {
     },
     {
       method: 'POST',
-      path: '/api/profile/experience/project/upsert',
+      path: '/api/profile/project/upsert',
       handler: Handlers.Profile.Project.Upsert
     }
   ]

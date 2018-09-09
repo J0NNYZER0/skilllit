@@ -1,5 +1,6 @@
 import React from 'react';
 import Project from './Project';
+import ItemMenuIcon from './ItemMenuIcon';
 
 class Job extends React.Component {
 
@@ -7,11 +8,13 @@ class Job extends React.Component {
 
     super(props)
 
-    this.toggle = this.toggle.bind(this)
+    this.toggle = this.toggle.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   toggle(e, id) {
-
+    //e.preventDefault();
+    //e.stopPropagation();
     let button = e.target,
       allSelectedButtons = document.getElementsByClassName('button selected'),
       parentElement = button.parentElement,
@@ -43,8 +46,14 @@ class Job extends React.Component {
 
   }
 
+  toggleMenu() {
+    const { toggleMenuCb } = this.props;
+
+    toggleMenuCb()
+  }
+
   render() {
-    const { idx, experience } = this.props,
+    const { idx, experience, toggleMenuCb } = this.props,
       {from, to, title, company, city, state, projects, skills } = experience;
 
     return (
@@ -61,18 +70,6 @@ class Job extends React.Component {
           <div className="job_location">
             <h3>{`${city}, ${state}`}</h3>
           </div>
-        </div>
-        <div className="button_wrapper">
-          <button className="button" onClick={e => this.toggle(e, 'a_' + idx)}>Projects</button>
-          <button className="button" onClick={e => this.toggle(e, 'b_' + idx)}>Skills</button>
-        </div>
-        <div className="project_details">
-          <h4>Projects</h4>
-          <Project idx={idx} projects={projects} />
-          <h4>Skills</h4>
-          <ul id={'b_' + idx}>
-            {skills.map((responsility, i) => <li key={i} className="skill">{responsility}</li>)}
-          </ul>
         </div>
       </div>
     );

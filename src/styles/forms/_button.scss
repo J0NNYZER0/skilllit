@@ -35,57 +35,45 @@ a.button {
 	color: #FFF;
 	margin: auto;
 }
-button.button__small {
-	border: none;
-	background-color: #666;
-	color: #FFF;
-	text-shadow: none;
-	border-radius: 6px;
-	font-size: 16px;
-	padding: 10px;
-}
-
-button.button__small:hover {
-	border: none;
-}
-.button__add--inventory {
-	width: 40px;
-	height: 40px;
-  background-color: transparent;
-  color: #fff;
-  padding: 5px;
-  font-family: 'NeutrafaceTextBold';
-  font-size: 1.25em;
-  margin-left: 2px;
-  text-align: center;
-	border: 1px solid white;
-	border-radius: 6px;
-  //box-shadow: 0 0 18px 0 rgba(0, 0, 6, 0.66);
-  background-image: url(/assets/icon-plus-white.svg);
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
-  background-position: 50% 50%;
-	cursor: pointer;
-}
-.button__add--inventory.show {
-	width: 40px;
-	height: 40px;
-  background-color: transparent;
-  color: #fff;
-  padding: 5px;
-  font-family: 'NeutrafaceTextBold';
-  font-size: 1.25em;
-  margin-left: 2px;
-  text-align: center;
-	border: 1px solid white;
-	border-radius: 6px;
-  //box-shadow: 0 0 18px 0 rgba(0, 0, 6, 0.66);
-	background-image: url(/assets/icon-minus-white.svg);
-  background-repeat: no-repeat;
-  background-size: 30px 30px;
-  background-position: 50% 50%;
-	cursor: pointer;
-}
 .form__login .button {
 	margin: 0 auto;
+}
+.button_wrapper {
+	display: flex;
+	width: 100%;
+	margin-top: 20px;
+}
+.project_form .button_wrapper {
+	display: flex;
+	width: 100%;
+}
+.project_form .button {
+	flex: 1;
+	margin: auto;
+	margin-left: 20px;
+}
+@media only screen  and (min-width : 320px) and (max-width : 480px) {
+	.button_wrapper {
+		flex-direction: column;
+		.button {
+			margin-bottom: 20px;
+		}
+	}
+
+	.project_form .button {
+		margin-left: 0;
+	}
+}
+@media only screen  and (min-width : 480px) {
+	.button_wrapper {
+		flex-direction: row;
+		.button {
+			margin: auto 10px;
+		}
+	}
+}
+@media only screen  and (min-width : 901px) {
+	.button_wrapper {
+		display: none;
+	}
 }

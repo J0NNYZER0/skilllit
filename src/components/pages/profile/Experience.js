@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import EditIcon from '../../common/EditIcon';
-import ExperienceSection from './sections/Experience';
+import Job from '../../common/Job';
+import JobDetail from '../../common/JobDetail';
 import ExperienceForm from './forms/Experience';
 
 class ProfileExperience extends React.Component {
@@ -12,6 +13,7 @@ class ProfileExperience extends React.Component {
     this.state = {
       idx: null
     }
+
 
     this.toggle = this.toggle.bind(this);
   }
@@ -36,10 +38,11 @@ class ProfileExperience extends React.Component {
         {experience.map((el, i) => {
           let renderForm = i === idx,
             editIcon = <EditIcon key={'edit_icon_' + i} callback={this.toggle} edit={renderForm} idx={i} />,
-            section = (renderForm === false) && <ExperienceSection key={'profile_exp_section' + i} idx={i} experience={el} />,
+            section = (renderForm === false) && <Job key={'profile_exp_section' + i} idx={i} experience={el} />,
+            detail = (renderForm === false) && <JobDetail key={'profile_job_section' + i} idx={i} experience={el} />,
             form = (renderForm === true) && <ExperienceForm key={'profile_exp_form' + i} toggle={this.toggle} idx={i} experience={el} />;
 
-            return [editIcon,section,form];
+            return [editIcon,section, detail, form];
           }
         )}
       </section>

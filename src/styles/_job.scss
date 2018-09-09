@@ -4,6 +4,7 @@ section.experience {
   .job {
     width: 100%;
     margin: 0 auto;
+    padding-bottom: 20px;
   }
   .job_header {
     width: 100%;
@@ -23,8 +24,8 @@ section.experience {
   .project_details {
     width: 100%;
   }
-  ul li.project,
-  ul li.skill {
+  .project,
+  .skill {
     line-height: 1.25em;
     margin-bottom: 1.5em;
     text-align: left;
@@ -32,20 +33,29 @@ section.experience {
     position: relative;
   }
 }
-ul.projects {
-  li {
+.projects,
+.skills {
+  display: none;
+  width: 100%;
+  font-family: 'NeutrafaceTextBook';
+  font-size: 1.15em;
+  div {
     display: flex;
     flex-direction: row;
     align-items: center;
-    span:first-child {
+    div:first-child {
       display: block;
       flex: 1;
     }
-    span.last-child {
+    div.last-child {
       flex: 50px;
       margin-left: auto;
     }
   }
+}
+.projects.show,
+.skills.show {
+  display: block;
 }
 ul.item_menu {
   margin: 0;
@@ -55,7 +65,6 @@ ul.item_menu {
   display: block;
   background: #666;
   color: #FFF;
-  border: 1px solid #333;
 }
 ul.item_menu li {
   margin: 10px;
@@ -64,5 +73,12 @@ ul.item_menu li {
     padding-bottom: 10px;
     border-bottom: 1px solid #FFF;
     border-radius: 0;
+  }
+}
+
+@media only screen  and (min-width : 901px) {
+  .projects,
+  .skills {
+    display: block;
   }
 }

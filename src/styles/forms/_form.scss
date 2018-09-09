@@ -10,15 +10,14 @@ form {
 }
 form.form__myproduct {
 	margin-bottom: 30px;
-	.form__section {
-		margin-top: 0;
-	}
 	input::placeholder,
 	textarea::placeholder,
 	.toggle__input--label,
 	button {
 		user-select: none;
 	}
+}
+.project_form {
 }
 label {
 	font-family: 'NeutrafaceTextDemi';
@@ -135,73 +134,12 @@ select.select__invalid {
 	background: #fff url(/assets/icon-plus.svg) no-repeat right 50% center;
 	background-size: 35px;
 }
-ul.form__section {
-	display: flex;
-	margin-top: 30px;
-}
-ul.form__section--address_billing,
-ul.form__section--address_shipping {
-	display: flex;
-	flex-direction: column;
-}
-.form__section--address_shipping-hide {
-	display: none;
-}
-ul.form__section--address_billing input[type=text],
-ul.form__section--address_shipping input[type=text]
-{
-	margin-top: 0px;
-}
-li.form__section--left {
-	width: 100px;
-}
-.form__login li.form__section--left {
-	flex: 1;
-	align-self: center;
-	text-align: center;
-	font-family: 'NeutrafaceTextDemi';
-	font-size: 2em;
-}
-.form__login li.form__section--left a {
-	color: #000;
-	text-decoration: underline;
-}
-.form__login li.form__section--left span {
-	text-decoration: none;
-}
-.form__section--right {
-  width: 280px;
-}
-.form__section--col {
-	display: flex;
-	flex-direction: row;
-}
-.form__section--col li:nth-child(2),
-.form__section--col li:nth-child(3) {
-	margin-left: 30px;
-}
-.form__section--col li select {
-	margin: 0;
-}
 .characters__remaining {
 	font-family: 'bebas_neuebold';
 	font-size: 2.5em;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 2em;
-}
-.form__section--checkbox {
-	font-family: 'bebas_neuebold';
-	display: table;
-	margin-bottom: 30px;
-}
-.form__section--checkbox li {
-	display: table-cell;
-	vertical-align: middle;
-}
-.form__section--checkbox li:nth-child(2) {
-	padding-left: 20px;
-	font-size: 2.5em;
 }
 
 textarea::-webkit-input-placeholder,
@@ -312,20 +250,10 @@ label + textarea {
 }
 
 
-@media only screen and (min-width : 320px) and (max-width : 640px) {
-.form__section--col {
-  flex-direction: column;
-}
-.form__section--col li:nth-child(2),
-.form__section--col li:nth-child(3) {
-  margin-left: 0;
-}
-.form__section--address_shipping li:nth-child(4) .form__section--col li:nth-child(2) {
-  margin-bottom: 30px;
-}
+@media only screen  and (min-width : 320px) and (max-width : 480px) {
+	.project_form {
+		flex-direction: column;
+	}
 }
 @media only screen  and (min-width : 320px) and (max-width : 1224px)  {
-.form__section--right {
-  flex: 1;
-}
 }

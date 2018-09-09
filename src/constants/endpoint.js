@@ -69,8 +69,8 @@ export const PROFILE = {
     UPSERT: '/profile/experience/upsert'
   },
   PROJECT: {
-    LOAD: '/profile/experience/project',
-    UPSERT: '/profile/experience/project/upsert'
+    LOAD: '/profile/project',
+    UPSERT: '/profile/project/upsert'
   }
 }
 

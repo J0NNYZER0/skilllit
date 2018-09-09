@@ -23,6 +23,14 @@ export function experienceUpsertSuccess(data) {
   return { type: types.PROFILE.EXPERIENCE.UPSERT, data };
 }
 
+export function projectLoadSuccess(data) {
+  return { type: types.PROFILE.PROJECT.LOAD, data };
+}
+
+export function projectUpsertSuccess(data) {
+  return { type: types.PROFILE.PROJECT.UPSERT, data };
+}
+
 export function load() {
 
   return function (dispatch) {
@@ -104,6 +112,42 @@ export function experienceUpsert(data) {
 
       if (data.status === 200)
         dispatch(experienceUpsertSuccess(updatedData));
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function projectLoad(account_id) {
+
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.projectLoad(account_id).then(data => {
+
+      if (data.status === 200)
+        dispatch(projectLoadSuccess(data.data));
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function projectUpsert(data) {
+  const updatedData = {...data}
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.projectUpsert(data).then(data => {
+
+      if (data.status === 200)
+        dispatch(projectUpsertSuccess(updatedData));
 
     }).catch(error => {
 

@@ -10,13 +10,21 @@ const profileReducer = (state = initialState.profile, action) => {
     case actionTypes.PROFILE.LOAD:
       return action.data
 
-    case actionTypes.PROFILE.HOME.LOAD: {
-
+    case actionTypes.PROFILE.HOME.LOAD:
       return {...newState, home: action.data};
-    }
 
     case actionTypes.PROFILE.HOME.UPSERT:
       return {...newState, home: [action.data]};
+
+    case actionTypes.PROFILE.EXPERIENCE.UPSERT:
+      return {...newState, experience: [action.data]};
+
+    case actionTypes.PROFILE.PROJECT.UPSERT: {
+      
+      return {...newState, profile: [action.data]};
+    }
+
+
 
     default:
       return state;

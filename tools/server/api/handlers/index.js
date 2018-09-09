@@ -161,7 +161,7 @@ module.exports = {
 
         try {
           const payload = JSON.parse(request.payload)
-
+          console.log('payload', payload)
           await DbQuery.Mysql(
             '../api/sql/upsert/project.sql',
             payload)

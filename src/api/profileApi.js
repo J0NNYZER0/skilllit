@@ -80,6 +80,38 @@ class Api {
     });
   }
 
+  static projectLoad(account_id) {
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.LOAD}` + account_id;
+      fetch(url).then((response) => {
+        if (response.status >= 400) return reject(response.status);
+          resolve(response.json());
+      })
+      .then(function (data) {
+        resolve(data);
+      })
+    });
+  }
+
+  static projectUpsert(data) {
+
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.UPSERT}`;
+      fetch(url, {
+        headers: {
+          'Accept': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then((response) => {
+        if (response.status >= 400) return reject(response.status);
+        resolve(response.json());
+      })
+      .catch(err => reject(err))
+    });
+  }
+
 }
 
 export default Api;

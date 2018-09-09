@@ -137,12 +137,6 @@ section.not_found {
       .job_location {
         margin-top: 10px;
       }
-      .button_wrapper {
-        flex-direction: column;
-        .button {
-          margin: 10px 0;
-        }
-      }
     }
   }
 }
@@ -153,11 +147,7 @@ section.not_found {
       border-bottom: 1px solid #ccc;
       width: calc(100% - 60px);
       margin: 0 auto;
-      .button_wrapper {
-        display: flex;
-        width: 100%;
-        margin: 30px auto;
-      }
+
     }
     .job:last-child {
       border-bottom: 0;
@@ -185,15 +175,6 @@ section.not_found {
 @media only screen  and (min-width : 701px) {
   .button {
     margin: 0 10px;
-  }
-}
-
-@media only screen  and (min-width : 901px) {
-
-  section.experience {
-    .button_wrapper {
-      display: none;
-    }
   }
 }
 

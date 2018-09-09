@@ -13,24 +13,30 @@ section.profile {
     top: 20px;
     cursor: pointer;
   }
-  span.menu_icon {
-    width: 50px;
-    height: 50px;
-    margin: 0px;
-    display: block;
-    background-size: 25px;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    top: 20px;
-    cursor: pointer;
-  }
   span.icon.edit {
     background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/edit.svg);
   }
   span.icon.edit.close {
     background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle.svg);
   }
-  span.menu_icon {
-    background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/ellipsis.svg);
-  }
+}
+
+.menu_icon {
+  width: 50px;
+  height: 50px;
+  margin: 0px;
+  display: block;
+  background-size: 25px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  top: 20px;
+  cursor: pointer;
+}
+
+.menu_icon {
+  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/ellipsis.svg);
+}
+
+.menu_icon.close {
+  background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle-small.svg);
 }

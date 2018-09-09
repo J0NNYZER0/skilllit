@@ -1,31 +1,73 @@
 import React from 'react';
 import ItemMenuIcon from './ItemMenuIcon';
 import ItemMenu from './ItemMenu';
+import TextInput from './forms/elements/TextInput';
+import ProjectForm from '../pages/profile/forms/Project';
+
 
 class Project extends React.Component {
 
   constructor(props) {
-
     super(props)
 
-    this.toggleMenu = this.toggleMenu.bind(this)
+    this.state = {
+      iidx: -1,
+      edit: -1,
+      value: null
+    }
+
+    this.toggleMenu = this.toggleMenu.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
   }
 
-  toggleMenu() {
+  toggleMenu(idx) {
 
+    let newState = { ...this.state };
+
+    if (this.state.iidx === idx)
+      this.setState({...newState, iidx: -1 });
+    else
+      this.setState({...newState, iidx: idx });
+  }
+
+  toggleEdit(edit, project) {
+
+    let newState = { ...this.state };
+
+    if (this.state.edit === edit)
+      this.setState({...newState, edit: -1 });
+    else
+      this.setState({...newState, edit: edit, value: project });
+  }
+
+  cancelEdit() {
+    let newState = { ...this.state };
+
+    this.setState({...newState,  iidx: -1, edit: -1 });
   }
 
   render() {
-    const { idx, projects } = this.props;
+    const { idx, projects, show, experience_id } = this.props,
+    { iidx, edit, value } = this.state;
 
     return (
-      <ul id={'a_' + idx} className="projects">
-        {projects.map((project, i) => <li key={i} className="project">
-          <span>{project}</span>
-          <ItemMenuIcon idx={i} />
-          <ItemMenu idx={i} />
-        </li>)}
-      </ul>
+      <div id={'a_' + idx} className={show !== true ? 'projects' : 'projects show'}>
+        <h4>Projects</h4>
+        {projects.map((project, i) => {
+          let showMenu = i === iidx,
+          editMode = i === edit;
+
+          return <div key={i} className="project">
+            {editMode !== true ?
+              <div>{project.description}</div> :
+              <ProjectForm idx={i} cancelEditCb={this.cancelEdit} project={project} experience_id={experience_id} />}
+            {!editMode && <ItemMenuIcon callback={this.toggleMenu}
+              key={'item_menu_icon_' + i} idx={i} show={showMenu} />}
+            {showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} project={project} experience_id={experience_id} />}
+          </div>
+        })}
+      </div>
     );
   }
 }

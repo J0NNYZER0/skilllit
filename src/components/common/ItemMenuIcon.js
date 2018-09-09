@@ -6,62 +6,25 @@ class ItemMenuIcon extends React.Component {
 
     super(props);
 
-    this.toggle = this.toggle.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
-  toggle() {
+  toggleMenu() {
+
     const { callback, idx } = this.props;
 
-    callback(idx)
+    callback(idx);
   }
 
   render() {
-    const { edit, idx } = this.props;
-
+    const { idx, show } = this.props;
     return (
-      <span onClick={e => this.toggle(e)}
+      <div key={'menu_icon_' + idx}
         id={'menu_icon_' + idx}
-        className={edit !== true ? 'menu_icon' : 'menu_icon open'} />
+        onClick={this.toggleMenu}
+        className={show ? 'menu_icon close' : 'menu_icon'} />
     )
   }
 }
 
 export default ItemMenuIcon;
-
-
-/*
-
-toggle(e) {
-  const { idx } = this.props;
-  const target = e.currentTarget;
-  const section = document.getElementById('experienceSection_' + idx);
-  const form = document.getElementById('experienceForm_' + idx);
-  const allIcons = document.getElementsByClassName('icon edit');
-  const allSections = document.getElementsByClassName('job');
-  const allForms = document.getElementsByClassName('form_profile_experience');
-
-  for (let i = 0; i < allForms.length; i++) {
-    section.style.display = 'flex';
-    console.log('allIcons', allIcons)
-    allIcons[i].style.className = 'icon edit';
-    allSections[i].style.display = 'flex';
-    allForms[i].style.display = 'none';
-  }
-
-  console.log('target', target)
-
-  this.setState({ edit: this.state.edit !== true ? true : false})
-
-  if (target.className === 'icon edit') {
-    target.className = 'icon edit close';
-    section.style.display = 'none';
-    form.style.display = 'block';
-  } else {
-    target.className = 'icon edit';
-    section.style.display = 'flex';
-    form.style.display = 'none';
-  }
-
-}
-
-*/

@@ -6,10 +6,21 @@
     "city": "Cupertino",
     "state": "CA",
     "projects": [
-      "Forensic tools giving visibility into fraud vectors across multiple segments of Apple - retail, applepay, network activity, expense reporting Dev-ops tool enabling engineers to create APIs",
-      "Manufacturing tools giving insight into yield count / parametric data",
-      "CMS/HR tools for employees and trainers enabling the scheduling, reserving  and content creation of classes",
-      "Manager/employee review process tool to give leadership insight into the review process and allow employees to manage their career development within Apple Inc."
+      {
+        "id": 1,
+        "description": "Project 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Project 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Project 3",
+        "experience_id": 1
+      }
     ],
     "skills": [
       "Manage code, infrastructure and data",
@@ -40,7 +51,21 @@
     "city": "Brandon",
     "state": "FL",
     "projects": [
-      "Retail site and various internal sales tools"
+      {
+        "id": 4,
+        "description": "Project 1",
+        "experience_id": 1
+      },
+      {
+        "id": 5,
+        "description": "Project 2",
+        "experience_id": 1
+      },
+      {
+        "id": 6,
+        "description": "Project 3",
+        "experience_id": 1
+      }
     ],
     "skills": [
       "Manage code, infrastructure, qa, releases, etc.",

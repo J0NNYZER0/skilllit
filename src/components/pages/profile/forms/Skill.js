@@ -7,15 +7,15 @@ import TextInput from '../../../common/forms/elements/TextInput';
 import FormButton from '../../../common/forms/elements/Button';
 import * as profileActions from '../../../../actions/profileActions.js';
 
-const formId = 'experienceForm';
+const formId = 'skillForm';
 
-class ProjectForm extends React.Component {
+class SkillForm extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
-      project: props.project
+      skill: props.skill
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +40,7 @@ class ProjectForm extends React.Component {
     for (let i = 0; i < elements.length - 1; i++)
       data[elements[i].name] = elements[i].value;
 
-    callback.projectUpsert(data);
+    callback.skillUpsert(data);
 
     this.handleCancelEdit()
   }
@@ -54,18 +54,18 @@ class ProjectForm extends React.Component {
   render() {
 
     const { idx, cancelEditCb, experience_id } = this.props,
-      { project } = this.state;
+      { skill } = this.state;
 
     return (
-      <form key={idx} id={formId + '_' + idx}>
-        <HiddenInput name="id" value={project.id} />
+      <form key={idx} id={formId + '_' + idx} className="skill_form">
+        <HiddenInput name="id" value={skill.id} />
         <TextInput autocomplete="off"
-          name="project"
+          name="skill"
           onChange={this.handleChange}
-          placeholder="Project"
-          ref="project"
+          placeholder="Skill"
+          ref="skill"
           type="text"
-          value={project.description} />
+          value={skill.description} />
         <HiddenInput name="experience_id" value={experience_id} />
         <div className="buttons">
           <FormButton
@@ -92,4 +92,4 @@ mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectForm);
+export default connect(mapStateToProps, mapDispatchToProps)(SkillForm);

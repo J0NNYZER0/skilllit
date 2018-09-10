@@ -20,7 +20,12 @@ const profileReducer = (state = initialState.profile, action) => {
       return {...newState, experience: [action.data]};
 
     case actionTypes.PROFILE.PROJECT.UPSERT: {
-      
+
+      return {...newState, profile: [action.data]};
+    }
+
+    case actionTypes.PROFILE.SKILL.UPSERT: {
+
       return {...newState, profile: [action.data]};
     }
 

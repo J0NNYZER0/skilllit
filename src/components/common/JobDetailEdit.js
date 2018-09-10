@@ -1,6 +1,6 @@
 import React from 'react';
-import Project from './Project';
-import Skill from './Skill';
+import ProjectEdit from './ProjectEdit';
+import SkillEdit from './SkillEdit';
 import ItemMenuIcon from './ItemMenuIcon';
 
 class JobDetail extends React.Component {
@@ -33,8 +33,8 @@ class JobDetail extends React.Component {
         <button className={!showSkill ? 'button' : 'button selected'} onClick={() => this.toggleDetail('skill')}>Skills</button>
       </div>,
       <div key="job_detail_" className="job_details">
-        {<Project show={showProject} idx={idx} projects={projects} experience_id={id} />}
-        {<Skill show={showSkill} idx={idx} skills={skills} experience_id={id} />}
+        {<ProjectEdit show={showProject} idx={idx} projects={projects} experience_id={id} />}
+        {<SkillEdit show={showSkill} idx={idx} skills={skills} experience_id={id} />}
       </div>
     ];
   }

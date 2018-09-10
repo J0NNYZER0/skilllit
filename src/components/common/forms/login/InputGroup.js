@@ -30,7 +30,7 @@ const actions = accountActions.login,
     email: ''
   },
   formId = 'loginForm',
-  buttonTitle = "Log In"
+  buttonTitle = "Continue"
 
 //FormHOC requires 5 arguments - InputGroup, initialState, callback, formId, buttonTitle
 // initialState is passed into the FormHOC

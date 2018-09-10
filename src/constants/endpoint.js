@@ -71,6 +71,10 @@ export const PROFILE = {
   PROJECT: {
     LOAD: '/profile/project',
     UPSERT: '/profile/project/upsert'
+  },
+  SKILL: {
+    LOAD: '/profile/skill',
+    UPSERT: '/profile/skill/upsert'
   }
 }
 

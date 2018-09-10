@@ -10,12 +10,12 @@ import * as profileActions from '../../../../actions/profileActions.js';
 const formId = 'experienceForm',
   buttonTitle = 'Update';
 
-class ExperienceForm extends React.Component {
+class JobForm extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = props.experience
+    this.state = props.experience;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -49,7 +49,7 @@ class ExperienceForm extends React.Component {
     const { idx, handleChange, experience } = this.props;
 
     return (
-      <form key={idx} id={formId + '_' + idx} className="form_profile_experience">
+      <form key={idx} id={formId + '_' + idx} className="job_form">
         <HiddenInput name="id" value={this.state.id} />
         <TextInput autocomplete="off"
           name="from"
@@ -120,4 +120,4 @@ mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExperienceForm);
+export default connect(mapStateToProps, mapDispatchToProps)(JobForm);

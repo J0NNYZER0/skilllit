@@ -27,24 +27,36 @@
       "projects": [
         {
           "id": 1,
-          "description": "Project 1"
+          "description": "Project 1",
+          "experience_id": 1
         },
         {
           "id": 2,
-          "description": "Project 2"
+          "description": "Project 2",
+          "experience_id": 1
         },
         {
           "id": 3,
-          "description": "Project 3"
+          "description": "Project 3",
+          "experience_id": 1
         }
       ],
       "skills": [
-        "Skill 1",
-        "Skill 2",
-        "Skill 3",
-        "Skill 4",
-        "Skill 5",
-        "Skill 6"
+        {
+          "id": 1,
+          "description": "Skill 1",
+          "experience_id": 1
+        },
+        {
+          "id": 2,
+          "description": "Skill 2",
+          "experience_id": 1
+        },
+        {
+          "id": 3,
+          "description": "Skill 3",
+          "experience_id": 1
+        }
       ]
     },
     {
@@ -58,25 +70,37 @@
       "account_id": 1,
       "projects": [
         {
-          "id": 1,
-          "description": "Project 1"
+          "id": 4,
+          "description": "Project 1",
+          "experience_id": 1
         },
         {
-          "id": 2,
-          "description": "Project 2"
+          "id": 5,
+          "description": "Project 2",
+          "experience_id": 1
         },
         {
-          "id": 3,
-          "description": "Project 3"
+          "id": 6,
+          "description": "Project 3",
+          "experience_id": 1
         }
       ],
       "skills": [
-        "Skill 1",
-        "Skill 2",
-        "Skill 3",
-        "Skill 4",
-        "Skill 5",
-        "Skill 6"
+        {
+          "id": 4,
+          "description": "Skill 1",
+          "experience_id": 1
+        },
+        {
+          "id": 5,
+          "description": "Skill 2",
+          "experience_id": 1
+        },
+        {
+          "id": 6,
+          "description": "Skill 3",
+          "experience_id": 1
+        }
       ]
     }
   ],

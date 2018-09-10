@@ -13,7 +13,7 @@ class Skillset extends React.Component {
     const { skillset } = this.props;
 
     return (
-      <section className="skillsets">
+      <section>
         <h1>Skillset</h1>
         {skillset.map(({category, skills}, idx) => {
           return <div key={idx}>

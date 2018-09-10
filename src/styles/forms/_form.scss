@@ -8,16 +8,8 @@ form {
 	width: 100%;
 	margin: auto;
 }
-form.form__myproduct {
-	margin-bottom: 30px;
-	input::placeholder,
-	textarea::placeholder,
-	.toggle__input--label,
-	button {
-		user-select: none;
-	}
-}
-.project_form {
+form.job_form {
+	margin-bottom: 20px;
 }
 label {
 	font-family: 'NeutrafaceTextDemi';

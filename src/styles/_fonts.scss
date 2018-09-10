@@ -1,5 +1,29 @@
 
 @font-face {
+    font-family: 'kitchen_bold';
+    src: url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_bold-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'kitchen_regular';
+    src: url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_regular-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'kitchen_light';
+    src: url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_light-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
 	font-family: 'NeutrafaceDisplayTitling';
 	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot');
 	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot?#iefix') format('embedded-opentype'),

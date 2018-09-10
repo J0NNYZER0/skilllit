@@ -125,7 +125,6 @@ footer {
   font-family: 'NeutrafaceDisplayTitling';
 }
 
-
 @media only screen  and (min-width : 320px) and (max-width : 600px)  {
   main section h1 {
     font-size: 2.5em;
@@ -138,5 +137,11 @@ footer {
   }
   .layout {
     flex-direction: column;
+  }
+}
+
+@media only screen  and (min-width : 1225px) {
+  nav {
+    width: 250px;
   }
 }

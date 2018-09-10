@@ -10,6 +10,24 @@ span.avatar {
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
   cursor: pointer; }
 @font-face {
+  font-family: 'kitchen_bold';
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_bold-webfont.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'kitchen_regular';
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_regular-webfont.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'kitchen_light';
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_light-webfont.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: 'NeutrafaceDisplayTitling';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot");
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.ttf") format("truetype");
@@ -840,6 +858,10 @@ footer {
   .layout {
     flex-direction: column; } }
 
+@media only screen and (min-width: 1225px) {
+  nav {
+    width: 250px; } }
+
 nav > div {
   width: 100%; }
 
@@ -848,7 +870,9 @@ nav > div {
   font-size: 3.1em; }
 
 .logo a {
-  margin-left: 25px; }
+  margin-left: 25px;
+  font-family: 'kitchen_light';
+  letter-spacing: 1px; }
 
 .menu_wrapper {
   display: block; }
@@ -1852,4 +1876,4 @@ ul.item_menu li {
   .skills {
     display: none; } }
 
-/*# sourceMappingURL=main.b941ab272d1875c3cfba.css.map*/
+/*# sourceMappingURL=main.e31d7287e4e314d28dd6.css.map*/

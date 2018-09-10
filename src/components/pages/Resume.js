@@ -13,7 +13,7 @@ class Resume extends React.Component {
     const { resume } = this.props;
 
     return (
-      <section className="resume">
+      <section>
         <h1>Resume</h1>
         {resume.map(({call_to_action, link}) => {
           return <div key="resume" className="download_container">

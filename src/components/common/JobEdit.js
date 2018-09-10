@@ -1,13 +1,21 @@
 import React from 'react';
 import Project from './Project';
 import ItemMenuIcon from './ItemMenuIcon';
-import JobDetail from './JobDetail';
+import JobDetailEdit from './JobDetailEdit';
 
 class Job extends React.Component {
 
   constructor(props) {
 
     super(props)
+    this.state = {
+      idx: null
+    }
+    this.toggleEdit = this.toggleEdit.bind(this);
+  }
+
+  toggleEdit(id) {
+    console.log('toggle')
   }
 
   render() {
@@ -31,7 +39,7 @@ class Job extends React.Component {
             <h3>{`${city}, ${state}`}</h3>
           </div>
         </div>
-        <JobDetail key={'profile_job_detail' + idx} idx={idx} experience={experience} />
+        <JobDetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} />
       </div>
     );
   }

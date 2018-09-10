@@ -13,7 +13,7 @@ class Login extends React.Component {
     const { contact } = this.props;
 
     return (
-      <section className="signin">
+      <section>
         <h1>Log In</h1>
         <LoginForm contact={contact} />
       </section>

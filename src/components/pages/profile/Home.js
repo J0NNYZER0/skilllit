@@ -1,40 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import Main from './sections/Main';
 import EditIcon from '../../common/EditIcon';
-import HomeSection from './sections/Home';
 import HomeForm from './forms/Home';
 
 class ProfileHome extends React.Component {
+
   constructor(props) {
+
     super(props);
+
     this.state = {
       edit: false
     }
-
-    this.toggle = this.toggle.bind(this);
+    this.toggleEdit = this.toggleEdit.bind(this);
   }
 
-  toggle() {
+  toggleEdit() {
 
-    this.setState({ edit: this.state.edit === false ? true : false });
+    this.setState({ edit: !this.state.edit });
   }
 
   render() {
-
-    const { home } = this.props,
-      { edit } = this.state,
-      section = home && <HomeSection home={home} />,
-      form = home && <HomeForm home={home} toggle={this.toggle} />;
-
-    return (
-      <section className="home profile">
-        <EditIcon callback={this.toggle} edit={this.state.edit} />
-        {edit ?
-          form : section}
-      </section>
-    );
+    const { profile } = this.props,
+      { edit } = this.state;
+    return [
+      <EditIcon key="edit_icon" callback={this.toggleEdit} />,
+      !edit && <Main key="main_section" site={profile.site} home={profile.home} className="avatar" />,
+      edit && <HomeForm key="home_form" home={profile.home[0]} />
+    ]
   }
 }
 
-export default ProfileHome;
+ProfileHome.propTypes = {
+  profile: PropTypes.object.isRequired
+};
+
+function mapStateToProps(state) {
+  return {
+    profile: state.profile
+  };
+}
+
+export default connect(mapStateToProps)(ProfileHome);

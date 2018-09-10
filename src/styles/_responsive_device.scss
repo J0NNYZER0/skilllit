@@ -51,10 +51,10 @@ and (max-device-width : 667px) {
   span.copyright {
     margin-right: auto;
   }
-  section.home  > div {
+  section > div {
     min-height: calc(100vh - 776px);
   }
-  section.home span.profile_picture {
+  span.profile_picture {
     width: 250px;
     height: 250px;
     margin: auto;

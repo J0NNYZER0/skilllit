@@ -14,9 +14,9 @@ class Experience extends React.Component {
     const { experience } = this.props;
 
     return (
-      <section className="experience">
+      <section>
         <h1>Experience</h1>
-        {experience.map((el, idx) => <Job key={idx} idx={idx} experience={el} />)}
+        {experience.map((el, i) => <Job key={'profile_job_' + i} idx={i} experience={el} />)}
       </section>
     );
   }

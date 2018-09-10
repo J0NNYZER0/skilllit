@@ -31,8 +31,8 @@ class App extends React.Component {
 
     const { location, site, social_media } = this.props;
 
-    return (
-      <div className="layout">
+    return [
+      <div key="layout" className="layout">
         <Modal />
         <Nav pathname={location.pathname} site={site} />
         <main className="scrollable">
@@ -47,10 +47,10 @@ class App extends React.Component {
             <Route path="/me" component={Me}/>
             <Route component={NotFound}/>
           </Switch>
-          <Footer site={site} social_media={social_media}  />
         </main>
-      </div>
-    );
+      </div>,
+      <Footer key="footer" site={site} social_media={social_media}  />
+    ];
   }
 }
 

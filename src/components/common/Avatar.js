@@ -1,36 +1,24 @@
 import React from 'react';
 
-class Avatar extends React.Component {
+class Logo extends React.Component {
 
   constructor(props) {
-
     super(props);
-
-    this.state = {
-      toggle: false
-    }
-    this.toggleSiteLogo = this.toggleSiteLogo.bind(this);
-  }
-
-  toggleSiteLogo() {
-    let toggleState = this.state.toggle === true ? false : true;
-
-    this.setState({toggle: toggleState});
   }
 
   render() {
-    const {profile_pic, selected_profile_pic} = this.props;
-    let profilePic = (this.state.toggle) ?
-      `${selected_profile_pic}` :
-      `${profile_pic}`
+    const {avatar, className, selected_avatar, toggle, callback} = this.props;
+
+    let pathToImage = toggle ?
+      `${selected_avatar}` :
+      `${avatar}`
 
     return (
-      <span onClick={this.toggleSiteLogo}
-        id="avatar"
-        className="avatar"
-        style={{ backgroundImage: "url(" + profilePic + ")" }} />
+      <span onClick={callback} id="avatar"
+        className={className}
+        style={{ backgroundImage: "url(" + pathToImage + ")" }} />
     )
   }
 }
 
-export default Avatar;
+export default Logo;

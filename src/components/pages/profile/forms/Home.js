@@ -48,7 +48,7 @@ class HomeForm extends React.Component {
     const { handleChange, home } = this.props;
 
     return (
-      <form id={formId} className="form__login">
+      <form id={formId}>
         <TextInput key="profile_avatar_input"
           autocomplete="off"
           name="avatar"

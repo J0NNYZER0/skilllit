@@ -58,7 +58,7 @@ class ProjectForm extends React.Component {
       { project } = this.state;
 
     return (
-      <form key={idx} id={formId + '_' + idx} className="project_form">
+      <form key={idx} id={formId + '_' + idx}>
         <HiddenInput name="id" value={project.id} />
         <TextInput autocomplete="off"
           name="project"
@@ -68,14 +68,14 @@ class ProjectForm extends React.Component {
           type="text"
           value={project.description} />
         <HiddenInput name="experience_id" value={experience_id} />
-        <div className="button_wrapper">
+        <div className="buttons">
           <FormButton
             callback={this.handleClick}
             buttonTitle="Update" />
           <FormButton
             callback={this.handleCancelEdit}
             buttonTitle="Cancel" />
-          </div>
+        </div>
       </form>
     );
   }

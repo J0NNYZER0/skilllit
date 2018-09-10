@@ -12,7 +12,7 @@ class Education extends React.Component {
     const { education } = this.props;
 
     return (
-      <section className="education">
+      <section>
         <h1>Education</h1>
         <div className="download_container">
           {education.map(edu => <p key="education_1"><span>{`${edu.degree}, ${edu.focus} ${edu.gpa}`}</span><br/><span>{`${edu.school}`}</span></p>)}

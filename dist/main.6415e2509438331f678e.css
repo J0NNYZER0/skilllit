@@ -77,6 +77,13 @@ span.avatar {
   font-style: normal; }
 
 @font-face {
+  font-family: 'NeutrafaceDisplayBold';
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot");
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
   font-family: 'NeutrafaceDisplayLight';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.eot");
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.ttf") format("truetype");
@@ -84,11 +91,11 @@ span.avatar {
   font-style: normal; }
 
 @font-face {
-  font-family: 'NeutrafaceDisplayBold';
-  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot");
-  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.ttf") format("truetype");
+  font-family: 'NeutrafaceTextLightItalic';
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.eot");
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.ttf") format("truetype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.svg#Neutraface2Text-LightItalic") format("svg");
   font-weight: 300;
-  font-style: normal; }
+  font-style: italic; }
 
 /*
 @font-face {
@@ -1789,7 +1796,7 @@ span.icon.edit.close {
   display: flex;
   white-space: nowrap; }
 
-.job_location h3 {
+h3.job_location {
   font-size: 1.5em;
   font-family: 'NeutrafaceTextLightItalic'; }
 
@@ -1876,4 +1883,4 @@ ul.item_menu li {
   .skills {
     display: none; } }
 
-/*# sourceMappingURL=main.e31d7287e4e314d28dd6.css.map*/
+/*# sourceMappingURL=main.6415e2509438331f678e.css.map*/

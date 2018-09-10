@@ -12,8 +12,8 @@ const JobSummaryEdit = ({ idx, experience }) => {
           <h3>&nbsp;@&nbsp;</h3>
           <h3>{`${experience.company}`}</h3>
         </div>
-        <div className="job_location">
-          <h3>{`${experience.city}, ${experience.state}`}</h3>
+        <div>
+          <h3 className="job_location">{`${experience.city}, ${experience.state}`}</h3>
         </div>
       </div>
     </div>

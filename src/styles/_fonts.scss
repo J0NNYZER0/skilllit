@@ -101,6 +101,17 @@
 }
 
 @font-face {
+	font-family: 'NeutrafaceDisplayBold';
+	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot');
+	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot?#iefix') format('embedded-opentype'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff2') format('woff2'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff') format('woff'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
 	font-family: 'NeutrafaceDisplayLight';
 	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.eot');
 	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Light.eot?#iefix') format('embedded-opentype'),
@@ -112,14 +123,15 @@
 }
 
 @font-face {
-	font-family: 'NeutrafaceDisplayBold';
-	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot');
-	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.eot?#iefix') format('embedded-opentype'),
-		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff2') format('woff2'),
-		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.woff') format('woff'),
-		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Bold.ttf') format('truetype');
+	font-family: 'NeutrafaceTextLightItalic';
+	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.eot');
+	src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.eot?#iefix') format('embedded-opentype'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.woff2') format('woff2'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.woff') format('woff'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.ttf') format('truetype'),
+		url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.svg#Neutraface2Text-LightItalic') format('svg');
 	font-weight: 300;
-	font-style: normal;
+	font-style: italic;
 }
 
 /*

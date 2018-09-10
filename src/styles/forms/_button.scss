@@ -44,6 +44,15 @@ a.button {
 	margin: auto;
 }
 
+.button.load_more {
+	background-color: #CCC;
+	border: 1px solid #AAA;
+	text-shadow: none;
+}
+button.button.load_more:hover {
+	background-color: #AAA;
+}
+
 @media only screen  and (max-width : 768px) {
 	.buttons {
 		flex-direction: column;

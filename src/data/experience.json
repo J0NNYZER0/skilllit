@@ -20,27 +20,69 @@
         "id": 3,
         "description": "Project 3",
         "experience_id": 1
+      },
+      {
+        "id": 4,
+        "description": "Project 4",
+        "experience_id": 1
+      },
+      {
+        "id": 5,
+        "description": "Project 5",
+        "experience_id": 1
+      },
+      {
+        "id": 6,
+        "description": "Project 6",
+        "experience_id": 1
       }
     ],
     "skills": [
-      "Manage code, infrastructure and data",
-      "Mentor 1 to 3 junior developers / interns",
-      "Communicate to customers, partners and leadership globally",
-      "Ensure quality with testing and QA",
-      "Manage git repos, build process and continuous integration",
-      "Manage migration process across development environments",
-      "Design high level architectural diagrams and spec docs",
-      "Gather requirements and define project scopes",
-      "Review all pull requests",
-      "Submit and manage information security reviews",
-      "Manage 2 week sprint cycles with agile principles and tools",
-      "Manage documentation for any tribal knowledge",
-      "Organize and lead various presentations, meetings and demos",
-      "Organize and lead technical/behavior interviews",
-      "Create partnerships across teams for help and support",
-      "Manage integration of external APIs",
-      "Manage dev-ops and no-ops support and integration",
-      "Continuously manage expectations with leadership"
+      {
+        "id": 1,
+        "description": "Skill 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Skill 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Skill 3",
+        "experience_id": 1
+      },
+      {
+        "id": 4,
+        "description": "Skill 4",
+        "experience_id": 1
+      },
+      {
+        "id": 5,
+        "description": "Skill 5",
+        "experience_id": 1
+      },
+      {
+        "id": 6,
+        "description": "Skill 6",
+        "experience_id": 1
+      },
+      {
+        "id": 7,
+        "description": "Skill 7",
+        "experience_id": 1
+      },
+      {
+        "id": 8,
+        "description": "Skill 8",
+        "experience_id": 1
+      },
+      {
+        "id": 9,
+        "description": "Skill 9",
+        "experience_id": 1
+      }
     ]
   },
   {
@@ -68,8 +110,16 @@
       }
     ],
     "skills": [
-      "Manage code, infrastructure, qa, releases, etc.",
-      "Communicate to marketing and business partners"
+      {
+        "id": 1,
+        "description": "Skill 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Skill 2",
+        "experience_id": 1
+      }
     ]
   },
   {
@@ -79,22 +129,36 @@
     "company": "HSN, Inc.",
     "city": "St. Pete",
     "state": "FL",
-    "projects": [
-      "Entire retail site - navigation, home page, product search, sort and filter, product refinement, product list, product detail, payment, checkout, customer account, product support, chat, gamification",
-      "Various internal production support tools"
-    ],
-    "skills": [
-      "Manage code, infrastructure and data for mobile web, android and ios",
-      "Communicate to business partners",
-      "Work with QA partners to manage testing",
-      "Manage database stored procedures",
-      "Manage code repos, build processes and CI",
-      "Manage code releases across development environment",
-      "Gather requirements and define project scopes",
-      "Review all code submissions",
-      "Continuously manage expectations with leadership",
-      "Move development from waterfall to agile"
-    ]
+    "projects": [{
+      "id": 1,
+      "description": "Project 1",
+      "experience_id": 1
+    },
+    {
+      "id": 2,
+      "description": "Project 2",
+      "experience_id": 1
+    },
+    {
+      "id": 3,
+      "description": "Project 3",
+      "experience_id": 1
+    }],
+    "skills": [{
+      "id": 1,
+      "description": "Skill 1",
+      "experience_id": 1
+    },
+    {
+      "id": 2,
+      "description": "Skill 2",
+      "experience_id": 1
+    },
+    {
+      "id": 3,
+      "description": "Skill 3",
+      "experience_id": 1
+    }]
   },
   {
     "from": "2009",
@@ -103,11 +167,37 @@
     "company": "Madmobile",
     "city": "Tampa",
     "state": "FL",
-    "projects": [
-      "Retail sites for various big brands - VANS, URBAN OUTFITTERS, MLB, Office Depot, Panera Bread, The North Face, Timberland etc."
-    ],
+    "projects": [{
+      "id": 1,
+      "description": "Skill 1",
+      "experience_id": 1
+    },
+    {
+      "id": 2,
+      "description": "Skill 2",
+      "experience_id": 1
+    },
+    {
+      "id": 3,
+      "description": "Skill 3",
+      "experience_id": 1
+    }],
     "skills": [
-      "Manage design, full stack code and infrastructure"
+      {
+        "id": 1,
+        "description": "Skill 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Skill 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Skill 3",
+        "experience_id": 1
+      }
     ]
   }
 ]

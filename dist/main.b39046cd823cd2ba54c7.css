@@ -1470,6 +1470,14 @@ a.button {
   color: #FFF;
   margin: auto; }
 
+.button.load_more {
+  background-color: #CCC;
+  border: 1px solid #AAA;
+  text-shadow: none; }
+
+button.button.load_more:hover {
+  background-color: #AAA; }
+
 @media only screen and (max-width: 768px) {
   .buttons {
     flex-direction: column; }
@@ -1879,4 +1887,4 @@ ul.item_menu li {
   .skills {
     display: none; } }
 
-/*# sourceMappingURL=main.0ac4de61f3eb8d057af1.css.map*/
+/*# sourceMappingURL=main.b39046cd823cd2ba54c7.css.map*/

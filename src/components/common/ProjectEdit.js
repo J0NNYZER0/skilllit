@@ -43,11 +43,11 @@ class Project extends React.Component {
   }
 
   render() {
-    const { idx, projects, show, experience_id } = this.props,
+    const { idx, projects, experience_id } = this.props,
     { iidx, edit, value } = this.state;
 
     return (
-      <div id={'a_' + idx} className={show !== true ? 'projects' : 'projects show'}>
+      <div id={'project_edit_' + idx} className="projects show">
         <h4>Projects</h4>
         {projects.map((project, i) => {
           let showMenu = i === iidx,

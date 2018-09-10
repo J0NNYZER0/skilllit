@@ -1,5 +1,4 @@
 import React from 'react';
-import Project from './Project';
 import EditIcon from './EditIcon';
 import JobSummary from './JobSummary';
 import JobForm from '../pages/profile/forms/Job';

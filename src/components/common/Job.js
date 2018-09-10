@@ -1,5 +1,4 @@
 import React from 'react';
-import Project from './Project';
 import JobSummary from './JobSummary';
 import JobDetail from './JobDetail';
 

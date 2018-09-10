@@ -24,40 +24,36 @@
       "city": "Cupertino",
       "state": "CA",
       "account_id": 1,
-      "projects": [
-        {
-          "id": 1,
-          "description": "Project 1",
-          "experience_id": 1
-        },
-        {
-          "id": 2,
-          "description": "Project 2",
-          "experience_id": 1
-        },
-        {
-          "id": 3,
-          "description": "Project 3",
-          "experience_id": 1
-        }
-      ],
-      "skills": [
-        {
-          "id": 1,
-          "description": "Skill 1",
-          "experience_id": 1
-        },
-        {
-          "id": 2,
-          "description": "Skill 2",
-          "experience_id": 1
-        },
-        {
-          "id": 3,
-          "description": "Skill 3",
-          "experience_id": 1
-        }
-      ]
+      "projects": [{
+        "id": 1,
+        "description": "Project 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Project 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Project 3",
+        "experience_id": 1
+      }],
+      "skills": [{
+        "id": 1,
+        "description": "Skill 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Skill 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Skill 3",
+        "experience_id": 1
+      }]
     },
     {
       "id": 2,
@@ -68,40 +64,36 @@
       "city": "Cupertino",
       "state": "CA",
       "account_id": 1,
-      "projects": [
-        {
-          "id": 4,
-          "description": "Project 1",
-          "experience_id": 1
-        },
-        {
-          "id": 5,
-          "description": "Project 2",
-          "experience_id": 1
-        },
-        {
-          "id": 6,
-          "description": "Project 3",
-          "experience_id": 1
-        }
-      ],
-      "skills": [
-        {
-          "id": 4,
-          "description": "Skill 1",
-          "experience_id": 1
-        },
-        {
-          "id": 5,
-          "description": "Skill 2",
-          "experience_id": 1
-        },
-        {
-          "id": 6,
-          "description": "Skill 3",
-          "experience_id": 1
-        }
-      ]
+      "projects": [{
+        "id": 1,
+        "description": "Project 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Project 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Project 3",
+        "experience_id": 1
+      }],
+      "skills": [{
+        "id": 1,
+        "description": "Skill 1",
+        "experience_id": 1
+      },
+      {
+        "id": 2,
+        "description": "Skill 2",
+        "experience_id": 1
+      },
+      {
+        "id": 3,
+        "description": "Skill 3",
+        "experience_id": 1
+      }]
     }
   ],
   "home": [{

@@ -56,13 +56,6 @@ span.avatar {
   font-style: normal; }
 
 @font-face {
-  font-family: 'NeutrafaceTextBold';
-  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.eot");
-  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: normal; }
-
-@font-face {
   font-family: 'NeutrafaceTextBook';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Book.eot");
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Book.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Book.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Book.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Book.ttf") format("truetype");
@@ -1876,4 +1869,4 @@ ul.item_menu li {
   .skills {
     display: none; } }
 
-/*# sourceMappingURL=main.500fb9af1f12d9a0f80a.css.map*/
+/*# sourceMappingURL=main.0f4e847c9daac2ffa8c3.css.map*/

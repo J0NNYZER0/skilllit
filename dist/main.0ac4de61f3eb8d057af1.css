@@ -1793,6 +1793,9 @@ span.icon.edit.close {
   display: flex;
   white-space: nowrap; }
 
+.job_location {
+  text-align: right; }
+
 .project_details_tab_container,
 .project_details {
   width: 100%; }
@@ -1876,4 +1879,4 @@ ul.item_menu li {
   .skills {
     display: none; } }
 
-/*# sourceMappingURL=main.6ccbf14b4a514445af1e.css.map*/
+/*# sourceMappingURL=main.0ac4de61f3eb8d057af1.css.map*/

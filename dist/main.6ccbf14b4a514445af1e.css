@@ -70,11 +70,18 @@ span.avatar {
   font-style: normal; }
 
 @font-face {
+  font-family: 'NeutrafaceTextBold';
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.eot");
+  src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+@font-face {
   font-family: 'NeutrafaceTextLightItalic';
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.eot");
   src: url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.eot?#iefix") format("embedded-opentype"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.woff2") format("woff2"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.woff") format("woff"), url("https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Text-LightItalic.ttf") format("truetype");
-  font-weight: 300;
-  font-style: italic; }
+  font-weight: bold;
+  font-style: normal; }
 
 @font-face {
   font-family: 'NeutrafaceTextLight';
@@ -761,8 +768,8 @@ h3 {
   font-size: 1.75em; }
 
 h3.light_italic {
-  font-size: 1.5em;
-  font-family: 'NeutrafaceTextLightItalic'; }
+  font-family: 'NeutrafaceTextLightItalic';
+  font-size: 1.5em; }
 
 h4 {
   font-size: 2em; }
@@ -1869,4 +1876,4 @@ ul.item_menu li {
   .skills {
     display: none; } }
 
-/*# sourceMappingURL=main.0f4e847c9daac2ffa8c3.css.map*/
+/*# sourceMappingURL=main.6ccbf14b4a514445af1e.css.map*/

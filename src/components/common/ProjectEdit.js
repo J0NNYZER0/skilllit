@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemMenuIcon from './ItemMenuIcon';
 import ItemMenu from './ItemMenu';
-import TextInput from './forms/elements/TextInput';
 import ProjectForm from '../pages/profile/forms/Project';
 
 

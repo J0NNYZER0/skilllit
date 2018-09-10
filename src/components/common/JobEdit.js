@@ -1,6 +1,8 @@
 import React from 'react';
 import Project from './Project';
-import ItemMenuIcon from './ItemMenuIcon';
+import EditIcon from './EditIcon';
+import JobSummary from './JobSummary';
+import JobForm from '../pages/profile/forms/Job';
 import JobDetailEdit from './JobDetailEdit';
 
 class Job extends React.Component {
@@ -9,37 +11,28 @@ class Job extends React.Component {
 
     super(props)
     this.state = {
-      idx: null
+      edit: -1
     }
     this.toggleEdit = this.toggleEdit.bind(this);
   }
 
-  toggleEdit(id) {
-    console.log('toggle')
+  toggleEdit(idx) {
+    let newState = { ...this.state };
+    this.setState({...newState, edit: this.state.edit === idx ? -1 : idx });
   }
 
   render() {
     const { idx, experience, toggleMenuCb } = this.props,
-      {from, to, title, company, city, state, projects, skills } = experience;
+      { edit } = this.state,
+      editMode = idx === edit;
 
     return (
       <div id={"job_" + idx} className="job">
-        <div>
-          <div className="job_date">
-            <h4>{to ? `${from} - ${to}` : `${from}`}</h4>
-          </div>
-        </div>
-        <div className="job_header">
-          <div className="job_title">
-            <h3>{`${title}`}</h3>
-            <h3>&nbsp;@&nbsp;</h3>
-            <h3>{`${company}`}</h3>
-          </div>
-          <div className="job_location">
-            <h3>{`${city}, ${state}`}</h3>
-          </div>
-        </div>
-        <JobDetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} />
+        <EditIcon key="edit_icon" idx={idx} callback={this.toggleEdit} />
+        {!editMode ?
+          <JobSummary idx={idx} experience={experience} /> :
+          <JobForm key={'job_form' + idx} toggle={this.toggle} idx={idx} experience={experience} />}
+        {!editMode && <JobDetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} />}
       </div>
     );
   }

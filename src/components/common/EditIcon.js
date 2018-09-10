@@ -14,7 +14,6 @@ class EditIcon extends React.Component {
   toggle() {
     const { callback, idx } = this.props;
     this.setState({ close: !this.state.close })
-
     callback(idx)
   }
 

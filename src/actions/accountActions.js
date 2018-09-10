@@ -13,7 +13,7 @@ export function loginSuccess(data) {
 }
 
 export const login = data => {
-  console.log('data', data)
+
   return dispatch => {
 
     dispatch(beginAjaxCall());

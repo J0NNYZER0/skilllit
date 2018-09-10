@@ -80,9 +80,9 @@ class Api {
     });
   }
 
-  static projectLoad(account_id) {
+  static projectLoad(experience_id) {
     return new Promise((resolve, reject) => {
-      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.LOAD}` + account_id;
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.LOAD}` + experience_id;
       fetch(url).then((response) => {
         if (response.status >= 400) return reject(response.status);
           resolve(response.json());
@@ -97,6 +97,38 @@ class Api {
 
     return new Promise((resolve, reject) => {
       const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.UPSERT}`;
+      fetch(url, {
+        headers: {
+          'Accept': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      .then((response) => {
+        if (response.status >= 400) return reject(response.status);
+        resolve(response.json());
+      })
+      .catch(err => reject(err))
+    });
+  }
+
+  static skillLoad(experience_id) {
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.SKILL.LOAD}` + experience_id;
+      fetch(url).then((response) => {
+        if (response.status >= 400) return reject(response.status);
+          resolve(response.json());
+      })
+      .then(function (data) {
+        resolve(data);
+      })
+    });
+  }
+
+  static skillUpsert(data) {
+
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.SKILL.UPSERT}`;
       fetch(url, {
         headers: {
           'Accept': 'application/json'

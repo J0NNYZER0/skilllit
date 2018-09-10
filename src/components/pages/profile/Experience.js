@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import EditIcon from '../../common/EditIcon';
 import JobEdit from '../../common/JobEdit';
-import ExperienceForm from './forms/Experience';
 
 class ProfileExperience extends React.Component {
   constructor(props) {

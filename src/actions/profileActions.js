@@ -31,6 +31,14 @@ export function projectUpsertSuccess(data) {
   return { type: types.PROFILE.PROJECT.UPSERT, data };
 }
 
+export function skillLoadSuccess(data) {
+  return { type: types.PROFILE.SKILL.LOAD, data };
+}
+
+export function skillUpsertSuccess(data) {
+  return { type: types.PROFILE.SKILL.UPSERT, data };
+}
+
 export function load() {
 
   return function (dispatch) {
@@ -67,7 +75,9 @@ export function homeLoad(account_id) {
 }
 
 export function homeUpsert(data) {
+
   const updatedData = {...data}
+
   return function (dispatch) {
 
     dispatch(beginAjaxCall());
@@ -103,7 +113,9 @@ export function experienceLoad(account_id) {
 }
 
 export function experienceUpsert(data) {
+
   const updatedData = {...data}
+
   return function (dispatch) {
 
     dispatch(beginAjaxCall());
@@ -126,7 +138,7 @@ export function projectLoad(account_id) {
 
     dispatch(beginAjaxCall());
 
-    return api.projectLoad(account_id).then(data => {
+    return api.projectLoad(experience_id).then(data => {
 
       if (data.status === 200)
         dispatch(projectLoadSuccess(data.data));
@@ -139,7 +151,9 @@ export function projectLoad(account_id) {
 }
 
 export function projectUpsert(data) {
+
   const updatedData = {...data}
+
   return function (dispatch) {
 
     dispatch(beginAjaxCall());
@@ -148,6 +162,44 @@ export function projectUpsert(data) {
 
       if (data.status === 200)
         dispatch(projectUpsertSuccess(updatedData));
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function skillLoad(account_id) {
+
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.skillLoad(experience_id).then(data => {
+
+      if (data.status === 200)
+        dispatch(skillLoadSuccess(data.data));
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function skillUpsert(data) {
+
+  const updatedData = {...data}
+
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.skillUpsert(data).then(data => {
+
+      if (data.status === 200)
+        dispatch(skillUpsertSuccess(updatedData));
 
     }).catch(error => {
 

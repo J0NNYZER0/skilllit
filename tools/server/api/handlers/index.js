@@ -161,9 +161,42 @@ module.exports = {
 
         try {
           const payload = JSON.parse(request.payload)
-          console.log('payload', payload)
+
           await DbQuery.Mysql(
             '../api/sql/upsert/project.sql',
+            payload)
+
+          return h.response({ status: 200 })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      }
+    },
+    Skill: {
+      Select: async (request, h) => {
+
+        try {
+          const params = request.params,
+            data = await DbQuery.Mysql(
+              '../api/sql/select/skill.sql',
+              params)
+
+          return h.response({ status: 200, data: data })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      },
+      Upsert: async (request, h) => {
+
+        try {
+          const payload = JSON.parse(request.payload)
+
+          await DbQuery.Mysql(
+            '../api/sql/upsert/skill.sql',
             payload)
 
           return h.response({ status: 200 })

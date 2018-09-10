@@ -19,7 +19,6 @@ class ItemMenu extends React.Component {
 
   deleteItem() {
     const { editCallback, experience_id } = this.props;
-    console.log('deleteItem', experience_id)
   }
 
   render() {

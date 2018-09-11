@@ -7,16 +7,14 @@ import TextInput from '../../../common/forms/elements/TextInput';
 import FormButton from '../../../common/forms/elements/Button';
 import * as profileActions from '../../../../actions/profileActions.js';
 
-const formId = 'experienceForm';
+const formId = 'projectForm';
 
 class ProjectForm extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      project: props.project
-    }
+    this.state = props.project;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -24,9 +22,9 @@ class ProjectForm extends React.Component {
   }
 
   handleChange(value) {
-    const newState =  {...this.state};
+    const { project } = this.state;
 
-    this.setState({ ...newState, ...value });
+    this.setState({ ...project, ...value });
   }
 
   handleClick(e) {
@@ -53,19 +51,18 @@ class ProjectForm extends React.Component {
 
   render() {
 
-    const { idx, cancelEditCb, experience_id } = this.props,
-      { project } = this.state;
+    const { idx, cancelEditCb, experience_id } = this.props;
 
     return (
       <form key={idx} id={formId + '_' + idx}>
-        <HiddenInput name="id" value={project.id} />
+        <HiddenInput name="id" value={this.state.id} />
         <TextInput autocomplete="off"
-          name="project"
+          name="description"
           onChange={this.handleChange}
           placeholder="Project"
-          ref="project"
+          ref="description"
           type="text"
-          value={project.description} />
+          value={this.state.description} />
         <HiddenInput name="experience_id" value={experience_id} />
         <div className="buttons">
           <FormButton

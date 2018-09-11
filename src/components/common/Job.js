@@ -13,7 +13,7 @@ class Job extends React.Component {
     const { idx, experience, toggleMenuCb } = this.props;
 
     return (
-      <div id={"job_" + idx} className="job">
+      <div className="job">
         <JobSummary idx={idx} experience={experience} />
         <JobDetail key={'profile_job_detail' + idx} idx={idx} experience={experience} />
       </div>

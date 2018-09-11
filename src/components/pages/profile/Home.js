@@ -26,7 +26,7 @@ class ProfileHome extends React.Component {
     const { profile } = this.props,
       { edit } = this.state;
     return [
-      <EditIcon key="edit_icon" callback={this.toggleEdit} />,
+      !edit && <EditIcon key="edit_icon" callback={this.toggleEdit} className="home_edit_icon" />,
       !edit && <Main key="main_section" site={profile.site} home={profile.home} className="avatar" />,
       edit && <HomeForm key="home_form" home={profile.home[0]} toggle={this.toggleEdit} />
     ]

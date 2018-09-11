@@ -47,7 +47,7 @@ class Project extends React.Component {
     { iidx, edit, value } = this.state;
 
     return (
-      <div id={'project_edit_' + idx} className="projects show">
+      <div className="projects show">
         <h4>Projects</h4>
         {projects.map((project, i) => {
           let showMenu = i === iidx,

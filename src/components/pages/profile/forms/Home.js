@@ -19,11 +19,11 @@ class HomeForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleChange(value) {
-    const { home } = this.state,
-      newState = { ...home, ...value };
+    const { home } = this.state;
 
     this.setState({ ...home, ...value });
   }
@@ -43,62 +43,75 @@ class HomeForm extends React.Component {
     toggle();
   }
 
+  handleCancel() {
+    const { toggle } = this.props;
+    toggle()
+  }
+
+
   render() {
 
     const { handleChange, home } = this.props;
 
     return (
-      <form id={formId}>
-        <TextInput key="profile_avatar_input"
-          autocomplete="off"
-          name="avatar"
-          onChange={this.handleChange}
-          placeholder="Avatar"
-          ref="avatar"
-          type="text"
-          value={this.state.avatar}
-          label_name="avatar" />
-        <TextInput key="profile_selected_avatar_input"
-          autocomplete="off"
-          name="selected_avatar"
-          onChange={this.handleChange}
-          placeholder="Selected Avatar"
-          ref="selected_avatar"
-          type="text"
-          value={this.state.selected_avatar}
-          label_name="selected avatar" />
-        <TextInput key="profile_talk_bubble_input"
-          autocomplete="off"
-          name="talk_bubble"
-          onChange={this.handleChange}
-          placeholder="Talk Bubble"
-          ref="talk_bubble"
-          type="text"
-          value={this.state.talk_bubble}
-          label_name="talk bubble" />
-        <TextInput key="profile_title_input"
-          autocomplete="off"
-          name="title"
-          onChange={this.handleChange}
-          placeholder="Title"
-          ref="title"
-          type="text"
-          value={this.state.title}
-          label_name="title" />
-        <TextInput key="profile_tagline_input"
-          autocomplete="off"
-          name="tagline"
-          onChange={this.handleChange}
-          placeholder="Tagline"
-          ref="tagline"
-          type="text"
-          value={this.state.tagline}
-          label_name="tagline" />
-        <HiddenInput name="account_id" value={this.state.account_id} />
-        <FormButton
-          callback={this.handleClick}
-          buttonTitle={buttonTitle} />
-      </form>
+      <section>
+        <form id={formId}>
+          <TextInput key="profile_avatar_input"
+            autocomplete="off"
+            name="avatar"
+            onChange={this.handleChange}
+            placeholder="Avatar"
+            ref="avatar"
+            type="text"
+            value={this.state.avatar}
+            label_name="avatar" />
+          <TextInput key="profile_selected_avatar_input"
+            autocomplete="off"
+            name="selected_avatar"
+            onChange={this.handleChange}
+            placeholder="Selected Avatar"
+            ref="selected_avatar"
+            type="text"
+            value={this.state.selected_avatar}
+            label_name="selected avatar" />
+          <TextInput key="profile_talk_bubble_input"
+            autocomplete="off"
+            name="talk_bubble"
+            onChange={this.handleChange}
+            placeholder="Talk Bubble"
+            ref="talk_bubble"
+            type="text"
+            value={this.state.talk_bubble}
+            label_name="talk bubble" />
+          <TextInput key="profile_title_input"
+            autocomplete="off"
+            name="title"
+            onChange={this.handleChange}
+            placeholder="Title"
+            ref="title"
+            type="text"
+            value={this.state.title}
+            label_name="title" />
+          <TextInput key="profile_tagline_input"
+            autocomplete="off"
+            name="tagline"
+            onChange={this.handleChange}
+            placeholder="Tagline"
+            ref="tagline"
+            type="text"
+            value={this.state.tagline}
+            label_name="tagline" />
+          <HiddenInput name="account_id" value={this.state.account_id} />
+          <div className="buttons">
+            <FormButton
+              callback={this.handleClick}
+              buttonTitle="Update" />
+            <FormButton
+              callback={this.handleCancel}
+              buttonTitle="Cancel" />
+          </div>
+        </form>
+      </section>
     );
   }
 }

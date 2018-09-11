@@ -18,13 +18,13 @@ class EditIcon extends React.Component {
   }
 
   render() {
-    const { idx } = this.props,
+    const { idx, className } = this.props,
       { close } = this.state;
+    let _className = !className ? '' : className;
 
     return (
       <span onClick={this.toggle}
-        id={'edit_icon_' + idx}
-        className={ !close ? 'icon edit' : 'icon edit close'} />
+        className={ !close ? 'icon edit ' + _className : 'icon edit'} />
     )
   }
 }

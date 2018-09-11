@@ -47,7 +47,7 @@ class SkillEdit extends React.Component {
     { iidx, edit, value } = this.state;
 
     return (
-      <div id={'skill_edit_' + idx} className="skills show">
+      <div className="skills show">
         <h4>Skills</h4>
         {skills.map((skill, i) => {
           let showMenu = i === iidx,

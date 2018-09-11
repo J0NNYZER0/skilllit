@@ -2,7 +2,7 @@ import React from 'react';
 
 const JobSummaryEdit = ({ idx, experience }) => {
   return (
-    <div id={"job_" + idx} className="job_summary">
+    <div className="job_summary">
       <div className="job_date">
         <h4>{experience.to ? `${experience.from} - ${experience.to}` : `${experience.from}`}</h4>
       </div>

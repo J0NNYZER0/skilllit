@@ -26,6 +26,7 @@ class JobForm extends React.Component {
       newState = { ...experience, ...value };
 
     this.setState({ ...experience, ...value });
+    console.log('this.state', this.state)
   }
 
   handleClick(e) {
@@ -60,7 +61,7 @@ class JobForm extends React.Component {
           value={this.state.from}
           label_name="from" />
         <TextInput autocomplete="off"
-          name="selected_avatar"
+          name="to"
           onChange={this.handleChange}
           placeholder="To"
           ref="to"

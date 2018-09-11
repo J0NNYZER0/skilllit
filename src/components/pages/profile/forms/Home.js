@@ -40,7 +40,7 @@ class HomeForm extends React.Component {
       data[elements[i].name] = elements[i].value;
 
     callback.homeUpsert(data);
-    toggle('home');
+    toggle();
   }
 
   render() {

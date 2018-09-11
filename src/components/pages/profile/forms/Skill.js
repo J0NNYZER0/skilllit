@@ -14,9 +14,7 @@ class SkillForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      skill: props.skill
-    }
+    this.state = props.skill;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -24,9 +22,9 @@ class SkillForm extends React.Component {
   }
 
   handleChange(value) {
-    const newState =  {...this.state};
+    const { skill } =  {...this.state};
 
-    this.setState({ ...newState, ...value });
+    this.setState({ ...skill, ...value });
   }
 
   handleClick(e) {
@@ -53,19 +51,18 @@ class SkillForm extends React.Component {
 
   render() {
 
-    const { idx, cancelEditCb, experience_id } = this.props,
-      { skill } = this.state;
+    const { idx, cancelEditCb, experience_id } = this.props;
 
     return (
       <form key={idx} id={formId + '_' + idx} className="skill_form">
-        <HiddenInput name="id" value={skill.id} />
+        <HiddenInput name="id" value={this.state.id} />
         <TextInput autocomplete="off"
-          name="skill"
+          name="description"
           onChange={this.handleChange}
           placeholder="Skill"
-          ref="skill"
+          ref="description"
           type="text"
-          value={skill.description} />
+          value={this.state.description} />
         <HiddenInput name="experience_id" value={experience_id} />
         <div className="buttons">
           <FormButton

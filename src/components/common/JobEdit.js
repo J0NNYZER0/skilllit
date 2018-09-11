@@ -21,16 +21,16 @@ class Job extends React.Component {
   }
 
   render() {
-    const { idx, experience, toggleMenuCb } = this.props,
+    const { idx, experience } = this.props,
       { edit } = this.state,
       editMode = idx === edit;
 
     return (
-      <div id={"job_" + idx} className="job">
-        <EditIcon key="edit_icon" idx={idx} callback={this.toggleEdit} />
+      <div className="job">
+        {!editMode && <EditIcon key="edit_icon" idx={idx} callback={this.toggleEdit} />}
         {!editMode ?
           <JobSummary idx={idx} experience={experience} /> :
-          <JobForm key={'job_form' + idx} toggle={this.toggle} idx={idx} experience={experience} />}
+          <JobForm key={'job_form' + idx} toggle={this.toggle} idx={idx} experience={experience} toggle={this.toggleEdit} />}
         {!editMode && <JobDetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} />}
       </div>
     );

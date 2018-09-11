@@ -7,15 +7,23 @@ import TextInput from '../../../common/forms/elements/TextInput';
 import FormButton from '../../../common/forms/elements/Button';
 import * as profileActions from '../../../../actions/profileActions.js';
 
-const formId = 'experienceForm',
-  buttonTitle = 'Update';
+const formId = 'jobAddForm';
 
 class JobForm extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = props.experience;
+    this.state = {
+      id: '',
+      from: '',
+      to: '',
+      title: '',
+      company: '',
+      city: '',
+      state: '',
+      account_id: '1'
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -26,34 +34,33 @@ class JobForm extends React.Component {
     const { experience } = this.state;
 
     this.setState({ ...experience, ...value });
+    console.log('this.state', this.state)
   }
 
   handleClick() {
     const { idx, callback, toggle } = this.props;
-
-    let elements = [...document.getElementById(formId + '_' + idx).elements],
+    //e.preventDefault();
+    let elements = [...document.getElementById(formId).elements],
       data = {};
 
-    for (let i = 0; i < elements.length - 1; i++)
+    for (let i = 0; i < elements.length - 2; i++)
       data[elements[i].name] = elements[i].value;
 
     callback.experienceUpsert(data);
 
-    toggle(idx);
+    toggle();
   }
 
   handleCancel() {
-    const { idx, toggle } = this.props;
+    const { toggle } = this.props;
 
-    toggle(idx)
+    toggle()
   }
 
   render() {
 
-    const { idx, handleChange, experience } = this.props;
-
     return (
-      <form key={idx} id={formId + '_' + idx} className="job_form">
+      <form id={formId} className="job_form">
         <HiddenInput name="id" value={this.state.id} />
         <TextInput autocomplete="off"
           name="from"
@@ -107,7 +114,7 @@ class JobForm extends React.Component {
         <div className="buttons">
           <FormButton
             callback={this.handleClick}
-            buttonTitle="Update" />
+            buttonTitle="Add" />
           <FormButton
             callback={this.handleCancel}
             buttonTitle="Cancel" />

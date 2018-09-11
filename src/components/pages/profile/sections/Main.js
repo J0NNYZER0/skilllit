@@ -5,9 +5,9 @@ import ScrollablePages from '../../ScrollablePages';
 
 const Main = ({site, home, className}) => {
 
-  return (<section>
+  return (<section className="home_section">
       {home.map((el,idx) => {
-        return <div className="main" key={idx}>
+        return <div key={idx}>
           <AvatarAndTalkBubble site={site} main={el} className={className} />
           <h1 className="site_title" dangerouslySetInnerHTML={{__html: `${el.title}`}} />
           <p dangerouslySetInnerHTML={{__html: `${el.tagline}`}} />

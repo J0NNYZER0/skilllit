@@ -9,7 +9,7 @@ class LoadMore extends React.Component {
 
     this.state = {
       items: props.list,
-      visible: 2,
+      visible: 3,
       error: false
     };
 
@@ -18,7 +18,7 @@ class LoadMore extends React.Component {
 
   loadMore() {
     this.setState((prev) => {
-      return {visible: prev.visible + 4};
+      return {visible: prev.visible + 3};
     });
   }
 

@@ -1,6 +1,10 @@
+.jobs > h1 {
+  margin-bottom: 0;
+}
+.job > form {
+  margin-top: 30px;
+}
 .job {
-  width: calc(100% - 60px);
-  margin: 0 auto;
   padding-bottom: 20px;
   border-bottom: 1px solid #ccc;
 }
@@ -8,6 +12,7 @@
   width: 100%;
   display: flex;
   margin-bottom: 30px;
+  align-items: center;
 }
 .job_header > div {
   flex: 1;
@@ -100,6 +105,13 @@ ul.item_menu li {
   }
   .job_title {
     margin-bottom: 40px;
+  }
+  .job_title h3,
+  h3.light_italic {
+    margin: 0;
+  }
+  .job_location {
+    text-align: center;
   }
 }
 @media only screen  and (min-width : 768px) {

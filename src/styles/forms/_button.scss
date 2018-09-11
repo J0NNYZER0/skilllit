@@ -60,14 +60,7 @@ button.button.load_more:hover {
 			margin-bottom: 20px;
 		}
 	}
-	form .buttons {
-		.button:first-child {
-			margin-bottom: 0;
-		}
-	}
 }
 @media only screen  and (min-width : 1024px) {
-	.buttons {
-		display: none;
-	}
+	
 }

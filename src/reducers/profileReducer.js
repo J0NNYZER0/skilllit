@@ -16,8 +16,17 @@ const profileReducer = (state = initialState.profile, action) => {
     case actionTypes.PROFILE.HOME.UPSERT:
       return {...newState, home: [action.data]};
 
-    case actionTypes.PROFILE.EXPERIENCE.UPSERT:
-      return {...newState, experience: [action.data]};
+    case actionTypes.PROFILE.EXPERIENCE.UPSERT: {
+
+      const updated = newState.experience.map(el => {
+        if (el.id === action.data.id) {
+          return { ...el, ...action.data };
+        }
+        return el;
+      })
+
+      return {...newState, experience: updated };
+    }
 
     case actionTypes.PROFILE.PROJECT.UPSERT: {
 
@@ -28,8 +37,6 @@ const profileReducer = (state = initialState.profile, action) => {
 
       return {...newState, profile: [action.data]};
     }
-
-
 
     default:
       return state;

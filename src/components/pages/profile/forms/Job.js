@@ -29,12 +29,13 @@ class JobForm extends React.Component {
   }
 
   handleClick() {
+
     const { idx, callback, toggle } = this.props;
 
     let elements = [...document.getElementById(formId + '_' + idx).elements],
       data = {};
 
-    for (let i = 0; i < elements.length - 1; i++)
+    for (let i = 0; i < elements.length - 2; i++)
       data[elements[i].name] = elements[i].value;
 
     callback.experienceUpsert(data);

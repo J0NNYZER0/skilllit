@@ -15,13 +15,13 @@ class JobForm extends React.Component {
     super(props);
 
     this.state = {
-      id: '',
-      from: '',
-      to: '',
-      title: '',
-      company: '',
-      city: '',
-      state: '',
+      id: 'a',
+      from: 'a',
+      to: 'a',
+      title: 'a',
+      company: 'a',
+      city: 'a',
+      state: 'a',
       account_id: '1'
     };
 
@@ -39,7 +39,7 @@ class JobForm extends React.Component {
 
   handleClick() {
     const { idx, callback, toggle } = this.props;
-    //e.preventDefault();
+
     let elements = [...document.getElementById(formId).elements],
       data = {};
 

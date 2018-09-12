@@ -16,14 +16,14 @@
     "school": "Montserrat College of Art"
   }],
   "experience": [{
-      "id": 1,
+      "id": "1",
       "from": "2014",
       "to": "2018",
       "title": "Your Title",
       "company": "Company X, Inc.",
       "city": "Cupertino",
       "state": "CA",
-      "account_id": 1,
+      "account_id": "1",
       "projects": [{
         "id": 1,
         "description": "Project 1",

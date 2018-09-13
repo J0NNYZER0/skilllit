@@ -8,7 +8,7 @@
     "projects": [
       {
         "id": 1,
-        "description": "Project 1",
+        "description": "Project 1 - a crazy amount of text in the project description",
         "experience_id": 1
       },
       {

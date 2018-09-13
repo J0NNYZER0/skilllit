@@ -31,38 +31,27 @@
 .project_details {
   width: 100%;
 }
-.project,
-.skill {
-  line-height: 1.25em;
-  margin-bottom: 1.5em;
-  text-align: left;
-  list-style-type: square;
-  position: relative;
-}
-
 .projects,
 .skills {
-  display: none;
+  display: block;
   width: 100%;
   font-family: 'NeutrafaceTextBook';
   font-size: 1.15em;
-  div {
+  .job_detail_edit {
     display: flex;
     flex-direction: row;
     align-items: center;
-    div:first-child {
-      display: block;
-      flex: 1;
-    }
+
     div.last-child {
       flex: 50px;
       margin-left: auto;
     }
   }
 }
-.projects.show,
-.skills.show {
-  display: block;
+.description {
+  display: flex;
+  flex: 1;
+  margin: 20px;
 }
 ul.item_menu {
   margin: 0;
@@ -117,16 +106,5 @@ ul.item_menu li {
 @media only screen  and (min-width : 768px) {
   .job_location {
     text-align: right;
-  }
-  .projects,
-  .skills {
-    display: block;
-  }
-}
-
-@media only screen  and (max-width : 901px) {
-  .projects,
-  .skills {
-    display: none;
   }
 }

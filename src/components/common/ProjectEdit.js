@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemMenuIcon from './ItemMenuIcon';
 import ItemMenu from './ItemMenu';
+import ShowMore from './ShowMore';
 import ProjectForm from '../pages/profile/forms/Project';
 
 
@@ -47,19 +48,19 @@ class Project extends React.Component {
     { iidx, edit, value } = this.state;
 
     return (
-      <div className="projects show">
+      <div className="projects">
         <h4>Projects</h4>
-        {projects.map((project, i) => {
+        {projects.map((el, i) => {
           let showMenu = i === iidx,
           editMode = i === edit;
 
-          return <div key={i} className="project">
+          return <div key={i} className="job_detail_edit">
             {editMode !== true ?
-              <div>{project.description}</div> :
-              <ProjectForm idx={i} cancelEditCb={this.cancelEdit} project={project} experience_id={experience_id} />}
+              <ShowMore key={i} description={el.description} /> :
+              <ProjectForm idx={i} cancelEditCb={this.cancelEdit} project={el} experience_id={experience_id} />}
             {!editMode && <ItemMenuIcon callback={this.toggleMenu}
               key={'item_menu_icon_' + i} idx={i} show={showMenu} />}
-            {showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} project={project} experience_id={experience_id} />}
+            {showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} project={el} experience_id={experience_id} />}
           </div>
         })}
       </div>

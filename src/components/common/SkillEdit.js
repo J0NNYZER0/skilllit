@@ -1,6 +1,7 @@
 import React from 'react';
 import ItemMenuIcon from './ItemMenuIcon';
 import ItemMenu from './ItemMenu';
+import ShowMore from './ShowMore';
 import SkillForm from '../pages/profile/forms/Skill';
 
 
@@ -47,16 +48,16 @@ class SkillEdit extends React.Component {
     { iidx, edit, value } = this.state;
 
     return (
-      <div className="skills show">
+      <div className="skills">
         <h4>Skills</h4>
-        {skills.map((skill, i) => {
+        {skills.map((el, i) => {
           let showMenu = i === iidx,
           editMode = i === edit;
 
-          return <div key={i} className="skill">
+          return <div key={i} className="job_detail_edit">
             {editMode !== true ?
-              <div>{skill.description}</div> :
-              <SkillForm idx={i} cancelEditCb={this.cancelEdit} skill={skill} experience_id={experience_id} />}
+              <ShowMore key={i} description={el.description} /> :
+              <SkillForm idx={i} cancelEditCb={this.cancelEdit} skill={el} experience_id={experience_id} />}
             {!editMode && <ItemMenuIcon callback={this.toggleMenu}
               key={'item_menu_icon_' + i} idx={i} show={showMenu} />}
             {showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} skill={skills} experience_id={experience_id} />}

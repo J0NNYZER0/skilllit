@@ -1,6 +1,5 @@
 import React from 'react';
-import ItemMenuIcon from './ItemMenuIcon';
-import ItemMenu from './ItemMenu';
+import ShowMore from './ShowMore';
 
 class LoadMore extends React.Component {
 
@@ -26,12 +25,14 @@ class LoadMore extends React.Component {
     const { idx, title } = this.props;
 
     return (
-      <div id={'skill_' + idx} className={title + ' show'}>
+      <div className={title}>
         <h4>{title}</h4>
-        {this.state.items.slice(0, this.state.visible).map((el, i) => <div key={i} className="project"><div>{el.description}</div></div>)}
+        <div className="job_detail">
+        {this.state.items.slice(0, this.state.visible).map((el, i) => <ShowMore key={i} description={el.description} />)}
         {this.state.visible < this.state.items.length &&
           <button onClick={this.loadMore} type="button" className="button load_more">Load more</button>
         }
+        </div>
       </div>
     );
   }

@@ -1463,6 +1463,10 @@ a.button {
 button.button.load_more:hover {
   background-color: #AAA; }
 
+.show_more {
+  display: inline-block;
+  cursor: pointer; }
+
 @media only screen and (max-width: 768px) {
   .buttons {
     flex-direction: column; }
@@ -1734,13 +1738,10 @@ span.icon.edit.close {
 
 .menu_icon {
   width: 50px;
-  height: 50px;
-  margin: 0px;
-  display: block;
+  height: 25px;
   background-size: 25px;
   background-position: 50%;
   background-repeat: no-repeat;
-  top: 20px;
   cursor: pointer; }
 
 .menu_icon {
@@ -1800,44 +1801,33 @@ span.icon.edit.close {
 .project_details {
   width: 100%; }
 
-.project,
-.skill {
-  line-height: 1.25em;
-  margin-bottom: 1.5em;
-  text-align: left;
-  list-style-type: square;
-  position: relative; }
-
 .projects,
 .skills {
-  display: none;
+  display: block;
   width: 100%;
   font-family: 'NeutrafaceTextBook';
   font-size: 1.15em; }
-  .projects div,
-  .skills div {
+  .projects .job_detail_edit,
+  .skills .job_detail_edit {
     display: flex;
     flex-direction: row;
     align-items: center; }
-    .projects div div:first-child,
-    .skills div div:first-child {
-      display: block;
-      flex: 1; }
-    .projects div div.last-child,
-    .skills div div.last-child {
+    .projects .job_detail_edit div.last-child,
+    .skills .job_detail_edit div.last-child {
       flex: 50px;
       margin-left: auto; }
 
-.projects.show,
-.skills.show {
-  display: block; }
+.description {
+  display: flex;
+  flex: 1;
+  margin: 20px; }
 
 ul.item_menu {
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 30px;
-  right: 50px;
+  margin-top: -33px;
+  right: 130px;
   display: block;
   background: #666;
   color: #FFF; }
@@ -1874,14 +1864,6 @@ ul.item_menu li {
 
 @media only screen and (min-width: 768px) {
   .job_location {
-    text-align: right; }
-  .projects,
-  .skills {
-    display: block; } }
+    text-align: right; } }
 
-@media only screen and (max-width: 901px) {
-  .projects,
-  .skills {
-    display: none; } }
-
-/*# sourceMappingURL=main.57289150ee174069bf23.css.map*/
+/*# sourceMappingURL=main.49ae06e811cff95d599b.css.map*/

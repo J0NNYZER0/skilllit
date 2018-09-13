@@ -1822,6 +1822,9 @@ span.icon.edit.close {
   flex: 1;
   margin: 20px; }
 
+.desc_text {
+  text-align: left; }
+
 ul.item_menu {
   margin: 0;
   padding: 0;
@@ -1866,4 +1869,4 @@ ul.item_menu li {
   .job_location {
     text-align: right; } }
 
-/*# sourceMappingURL=main.49ae06e811cff95d599b.css.map*/
+/*# sourceMappingURL=main.7cf18a708d9c51add87f.css.map*/

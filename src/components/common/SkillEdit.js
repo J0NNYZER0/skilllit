@@ -54,14 +54,15 @@ class SkillEdit extends React.Component {
           let showMenu = i === iidx,
           editMode = i === edit;
 
-          return <div key={i} className="job_detail_edit">
+          return [<div key={i} className="job_detail_edit">
             {editMode !== true ?
               <ShowMore key={i} description={el.description} /> :
               <SkillForm idx={i} cancelEditCb={this.cancelEdit} skill={el} experience_id={experience_id} />}
             {!editMode && <ItemMenuIcon callback={this.toggleMenu}
               key={'item_menu_icon_' + i} idx={i} show={showMenu} />}
-            {showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} skill={skills} experience_id={experience_id} />}
-          </div>
+          </div>,
+        showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} skill={skills} experience_id={experience_id} />
+        ]
         })}
       </div>
     );

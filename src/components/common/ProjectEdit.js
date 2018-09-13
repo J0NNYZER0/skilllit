@@ -54,15 +54,17 @@ class Project extends React.Component {
           let showMenu = i === iidx,
           editMode = i === edit;
 
-          return <div key={i} className="job_detail_edit">
+          return [<div key={i} className="job_detail_edit">
             {editMode !== true ?
               <ShowMore key={i} description={el.description} /> :
               <ProjectForm idx={i} cancelEditCb={this.cancelEdit} project={el} experience_id={experience_id} />}
             {!editMode && <ItemMenuIcon callback={this.toggleMenu}
               key={'item_menu_icon_' + i} idx={i} show={showMenu} />}
-            {showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} project={el} experience_id={experience_id} />}
-          </div>
-        })}
+          </div>,
+          showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} project={el} experience_id={experience_id} />
+          ]
+        }
+      )}
       </div>
     );
   }

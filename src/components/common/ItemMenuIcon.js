@@ -19,10 +19,12 @@ class ItemMenuIcon extends React.Component {
   render() {
     const { idx, show } = this.props;
     return (
+      <div className="menu_wrapper">
       <div key={'menu_icon_' + idx}
         id={'menu_icon_' + idx}
         onClick={this.toggleMenu}
         className={show ? 'menu_icon close' : 'menu_icon'} />
+      </div>
     )
   }
 }

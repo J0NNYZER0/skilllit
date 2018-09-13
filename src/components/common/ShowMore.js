@@ -25,7 +25,7 @@ class ShowMore extends React.Component {
       end = show ? description.length : limit;
     return (
       <div className="description">
-        <div>
+        <div className="desc_text">
           {description.substring(0, end)}
         </div>
         {!show && description.length > limit && <div><div onClick={this.showMore} className="show_more">...</div></div>}

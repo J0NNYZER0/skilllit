@@ -37,7 +37,7 @@ class Nav extends React.Component {
         <nav>
           <div className="logo">
             <NavLink exact to="/">{site.title + 's'}</NavLink>
-            <div className="menu_wrapper">
+            <div className="nav_menu_button">
               <div onClick={this.toggle} id="nav-icon" className={(this.state.toggle) ?
                 'open' : '' }>
                 <span />

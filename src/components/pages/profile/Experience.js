@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import JobForm from './forms/JobAdd';
+import JobForm from '../../common/forms/profile/JobAdd';
 import JobEdit from '../../common/JobEdit';
 import AddIcon from '../../common/AddIcon';
 
@@ -27,8 +27,10 @@ class ProfileExperience extends React.Component {
     return (
       <section className="jobs">
 
-        <h1>Experience</h1>
-        {!add && <AddIcon toggle={this.toggleAdd} />}
+        <div className="section_header">
+          <div><h1>Experience</h1></div>
+          {!add && <div><AddIcon toggle={this.toggleAdd} /></div>}
+        </div>
         {add && <JobForm toggle={this.toggleAdd} />}
         {experience.map((el, i) => <JobEdit key={'experience_' + i} idx={i} experience={el} />)}
       </section>

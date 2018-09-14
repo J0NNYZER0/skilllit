@@ -48,6 +48,15 @@
     }
   }
 }
+.job_detail_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.job_detail_title div:first-child {
+  width: 100%;
+}
 .description {
   display: flex;
   flex: 1;
@@ -61,7 +70,7 @@ ul.item_menu {
   padding: 0;
   position: absolute;
   margin-top: -33px;
-  right: 130px;
+  right: 110px;
   display: block;
   background: #666;
   color: #FFF;

@@ -914,41 +914,6 @@ nav > div {
 .menu > a:last-child {
   border-bottom: none; }
 
-@media only screen and (min-width: 320px) and (max-width: 1224px) {
-  nav {
-    width: 100%;
-    border-bottom: 1px solid #FFF800; }
-  .logo {
-    display: flex;
-    flex: 1;
-    align-items: center; }
-  .logo a {
-    flex: 1;
-    margin-left: 25px; }
-  .menu {
-    display: none; }
-  .menu.show a:first-child {
-    border-top: 1px solid #FFF800; }
-  .home_link {
-    margin-left: 20px; }
-  .nav_menu_button {
-    margin-right: 25px; } }
-
-@media only screen and (min-width: 1225px) {
-  nav {
-    border-right: 1px solid #FFF800; }
-  .logo {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center; }
-  .logo a {
-    margin-right: 25px; }
-  .menu {
-    width: 100%; }
-  .menu_wrapper {
-    display: none; } }
-
 /*animated menu icon*/
 #nav-icon {
   cursor: pointer;
@@ -1008,6 +973,41 @@ nav > div {
   border-radius: 6px;
   border: 1px solid #FFF800;
   cursor: pointer; }
+
+@media only screen and (min-width: 320px) and (max-width: 1224px) {
+  nav {
+    width: 100%;
+    border-bottom: 1px solid #FFF800; }
+  .logo {
+    display: flex;
+    flex: 1;
+    align-items: center; }
+  .logo a {
+    flex: 1;
+    margin-left: 25px; }
+  .menu {
+    display: none; }
+  .menu.show a:first-child {
+    border-top: 1px solid #FFF800; }
+  .home_link {
+    margin-left: 20px; }
+  .nav_menu_button {
+    margin-right: 25px; } }
+
+@media only screen and (min-width: 1225px) {
+  nav {
+    border-right: 1px solid #FFF800; }
+  .logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; }
+  .logo a {
+    margin-right: 25px; }
+  .menu {
+    width: 100%; }
+  .nav_menu_button {
+    display: none; } }
 
 footer div.menu__social,
 footer div.company_info {
@@ -1879,4 +1879,4 @@ ul.item_menu li {
   .job_location {
     text-align: right; } }
 
-/*# sourceMappingURL=main.c7ee46a656202d6ebe77.css.map*/
+/*# sourceMappingURL=main.91f11a6a9d1b8da585c6.css.map*/

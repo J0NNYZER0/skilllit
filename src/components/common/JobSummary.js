@@ -1,8 +1,10 @@
 import React from 'react';
+import EditIcon from './EditIcon';
 
-const JobSummaryEdit = ({ idx, experience }) => {
+const JobSummaryEdit = ({ idx, experience, callback, editMode }) => {
   return (
     <div className="job_summary">
+      {editMode && <EditIcon key="edit_icon" idx={idx} callback={callback} />}
       <div className="job_date">
         <h4>{experience.to ? `${experience.from} - ${experience.to}` : `${experience.from}`}</h4>
       </div>

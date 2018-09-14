@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Main from './sections/Main';
-import EditIcon from '../../common/EditIcon';
-import HomeForm from './forms/Home';
+import HomeForm from '../../common/forms/profile/Home';
 
 class ProfileHome extends React.Component {
 
@@ -26,8 +25,7 @@ class ProfileHome extends React.Component {
     const { profile } = this.props,
       { edit } = this.state;
     return [
-      !edit && <EditIcon key="edit_icon" callback={this.toggleEdit} className="home_edit_icon" />,
-      !edit && <Main key="main_section" site={profile.site} home={profile.home} className="avatar" />,
+      !edit && <Main key="main_section" site={profile.site} home={profile.home} className="avatar" callback={this.toggleEdit} />,
       edit && <HomeForm key="home_form" home={profile.home[0]} toggle={this.toggleEdit} />
     ]
   }

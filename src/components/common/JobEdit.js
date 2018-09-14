@@ -1,7 +1,6 @@
 import React from 'react';
-import EditIcon from './EditIcon';
 import JobSummary from './JobSummary';
-import JobForm from '../pages/profile/forms/Job';
+import JobForm from './forms/profile/Job';
 import JobDetailEdit from './JobDetailEdit';
 
 class Job extends React.Component {
@@ -27,9 +26,8 @@ class Job extends React.Component {
 
     return (
       <div className="job">
-        {!editMode && <EditIcon key="edit_icon" idx={idx} callback={this.toggleEdit} />}
         {!editMode ?
-          <JobSummary idx={idx} experience={experience} /> :
+          <JobSummary idx={idx} experience={experience} callback={this.toggleEdit} editMode={true} /> :
           <JobForm key={'job_form' + idx} toggle={this.toggle} idx={idx} experience={experience} toggle={this.toggleEdit} />}
         {!editMode && <JobDetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} />}
       </div>

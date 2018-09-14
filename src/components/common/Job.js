@@ -14,7 +14,7 @@ class Job extends React.Component {
 
     return (
       <div className="job">
-        <JobSummary idx={idx} experience={experience} />
+        <JobSummary idx={idx} experience={experience} editMode={false} />
         <JobDetail key={'profile_job_detail' + idx} idx={idx} experience={experience} />
       </div>
     );

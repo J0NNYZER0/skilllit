@@ -43,7 +43,7 @@ class ScrollNav extends React.Component {
         <Element name="top" />
         <div className="logo">
           <NavLink to="/">{site.title}</NavLink>
-          <div className="menu_wrapper">
+          <div className="nav_menu_button">
             <div onClick={this.toggle} id="nav-icon" className={(this.state.toggle) ?
               'open' : '' }>
               <span />

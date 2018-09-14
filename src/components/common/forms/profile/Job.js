@@ -2,28 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import HiddenInput from '../../../common/forms/elements/HiddenInput';
-import TextInput from '../../../common/forms/elements/TextInput';
-import FormButton from '../../../common/forms/elements/Button';
+import HiddenInput from '../elements/HiddenInput';
+import TextInput from '../elements/TextInput';
+import FormButton from '../elements/Button';
 import * as profileActions from '../../../../actions/profileActions.js';
 
-const formId = 'jobAddForm';
+const formId = 'experienceForm',
+  buttonTitle = 'Update';
 
 class JobForm extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      id: 'a',
-      from: 'a',
-      to: 'a',
-      title: 'a',
-      company: 'a',
-      city: 'a',
-      state: 'a',
-      account_id: '1'
-    };
+    this.state = props.experience;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -34,13 +26,13 @@ class JobForm extends React.Component {
     const { experience } = this.state;
 
     this.setState({ ...experience, ...value });
-    console.log('this.state', this.state)
   }
 
   handleClick() {
+
     const { idx, callback, toggle } = this.props;
 
-    let elements = [...document.getElementById(formId).elements],
+    let elements = [...document.getElementById(formId + '_' + idx).elements],
       data = {};
 
     for (let i = 0; i < elements.length - 2; i++)
@@ -48,19 +40,21 @@ class JobForm extends React.Component {
 
     callback.experienceUpsert(data);
 
-    toggle();
+    toggle(idx);
   }
 
   handleCancel() {
-    const { toggle } = this.props;
+    const { idx, toggle } = this.props;
 
-    toggle()
+    toggle(idx)
   }
 
   render() {
 
+    const { idx, handleChange, experience } = this.props;
+
     return (
-      <form id={formId} className="job_form">
+      <form key={idx} id={formId + '_' + idx} className="job_form">
         <HiddenInput name="id" value={this.state.id} />
         <TextInput autocomplete="off"
           name="from"
@@ -114,7 +108,7 @@ class JobForm extends React.Component {
         <div className="buttons">
           <FormButton
             callback={this.handleClick}
-            buttonTitle="Add" />
+            buttonTitle="Update" />
           <FormButton
             callback={this.handleCancel}
             buttonTitle="Cancel" />

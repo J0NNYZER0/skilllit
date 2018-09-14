@@ -1,0 +1,10 @@
+.section_header {
+  display: flex;
+  flex-direction: row;
+}
+.section_header > div:first-child {
+  width: 100%;;
+}
+.section_header > div:last-child {
+  flex: 50px;
+}

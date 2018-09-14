@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import HiddenInput from '../../../common/forms/elements/HiddenInput';
-import TextInput from '../../../common/forms/elements/TextInput';
-import FormButton from '../../../common/forms/elements/Button';
+import HiddenInput from '../elements/HiddenInput';
+import TextInput from '../elements/TextInput';
+import FormButton from '../elements/Button';
 import * as profileActions from '../../../../actions/profileActions.js';
 
 const formId = 'homeForm',

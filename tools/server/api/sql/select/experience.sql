@@ -10,10 +10,10 @@ SELECT * FROM (
     `experience`.`created`,
 	GROUP_CONCAT(
     DISTINCT 'id:',`project`.`id`, '####', 'description:', `project`.`description`, '####',
-    'created:', `project`.`created` SEPARATOR '----') AS `projects`,
+    'experience_id:', `experience`.`id`, '####', 'created:', `project`.`created` SEPARATOR '----') AS `projects`,
     GROUP_CONCAT(
       DISTINCT 'id:',`skill`.`id`, '####', 'description:', `skill`.`description`, '####',
-    'created:', `skill`.`created` SEPARATOR '----') AS `skills`
+    'experience_id:', `experience`.`id`, '####', 'created:', `skill`.`created` SEPARATOR '----') AS `skills`
 FROM `experience`
 LEFT JOIN `project` ON
 `experience`.`id` = `project`.`experience_id`

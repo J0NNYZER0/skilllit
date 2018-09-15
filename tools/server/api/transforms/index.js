@@ -1,19 +1,32 @@
 'use strict'
 
-const Experience = (data) => new Promise((resolve, reject) => {
-    const experience = JSON.parse(JSON.stringify(data))
+const transformArray = (array) => array.split('----')
+  .map(el => {
+    let obj = new Object(),
+      keyVal = el.split('####'),
+      keyValArray = keyVal.map(el => el.split(':'))
 
-    const transformed = experience.map(el => {
-      el.projects = el.projects.split('----')
-      el.skills = el.skills.split('----')
-      return el
+    keyValArray.forEach(el => {
+      obj[el[0]] = el[1]
     })
 
-     //projects = projects.map(el => el.split('####'))
-     //skills = skills.map(el => el.split('####'))
+    return obj
+  })
 
-     console.log('transformed experience', transformed)
-     resolve(transformed)
+const Experience = (data) => new Promise((resolve, reject) => {
+
+    const experience = JSON.parse(JSON.stringify(data)),
+      transformed = experience.map(el => {
+
+        el.projects = transformArray(el.projects)
+
+        el.skills = transformArray(el.skills)
+
+        return el
+      })
+
+    resolve(transformed)
+
   })
 
 module.exports = {

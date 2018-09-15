@@ -15,7 +15,7 @@ class JobForm extends React.Component {
     super(props);
 
     this.state = {
-      id: 'a',
+      id: 0,
       from: 'a',
       to: 'a',
       title: 'a',

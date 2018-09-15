@@ -32,6 +32,7 @@ store.dispatch(site.load());
 store.dispatch(skillset.load());
 store.dispatch(socialmedia.load());
 store.dispatch(profile.homeLoad(1));
+store.dispatch(profile.experienceLoad(1));
 
 render(
   <AppContainer>

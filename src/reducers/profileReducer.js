@@ -16,16 +16,31 @@ const profileReducer = (state = initialState.profile, action) => {
     case actionTypes.PROFILE.HOME.UPSERT:
       return {...newState, home: [action.data]};
 
+    case actionTypes.PROFILE.EXPERIENCE.LOAD: {
+      const newData = { projects: [], skills: [] },
+        experience = action.data.map(el => ({...newData, ...el}))
+
+      return {...newState, experience: experience}
+    }
+
     case actionTypes.PROFILE.EXPERIENCE.UPSERT: {
 
-      const updated = newState.experience.map(el => {
-        if (el.id === action.data.id) {
-          return { ...el, ...action.data };
-        }
-        return el;
-      })
+      if (parseInt(action.data.id) !== 0) {
+        const updated = newState.experience.map(el => {
 
-      return {...newState, experience: updated };
+          if (el.id === action.data.id) {
+            return { ...el, ...action.data };
+          }
+
+          return el;
+        })
+
+        return {...newState, experience: updated };
+      } else {
+        let newData = { projects: [], skills: [] };
+        return {...newState,
+          experience: [...newState.experience, {...newData, ...action.data}]}
+      }
     }
 
     case actionTypes.PROFILE.PROJECT.UPSERT: {

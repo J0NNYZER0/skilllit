@@ -2,6 +2,7 @@
 
 const DbQuery = require('../dbs/queries'),
   Bounce = require('bounce'),
+  Transform = require('../transforms'),
   Security = require('../../security'),
   Email = require('../../email')
 
@@ -116,6 +117,8 @@ module.exports = {
             data = await DbQuery.Mysql(
               '../api/sql/select/experience.sql',
               params)
+
+          await Transform.Experience(data)
 
           return h.response({ status: 200, data: data })
 

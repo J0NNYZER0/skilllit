@@ -116,11 +116,10 @@ module.exports = {
           const params = request.params,
             data = await DbQuery.Mysql(
               '../api/sql/select/experience.sql',
-              params)
+              params),
+            transformed = await Transform.Experience(data)
 
-          await Transform.Experience(data)
-
-          return h.response({ status: 200, data: data })
+          return h.response({ status: 200, data: transformed })
 
         } catch(err) {
 

@@ -9,11 +9,11 @@ SELECT * FROM (
     `experience`.`account_id`,
     `experience`.`created`,
 	GROUP_CONCAT(
-    DISTINCT `project`.`id`, '####', `project`.`description`, '####',
-    `project`.`created` SEPARATOR '----') AS `projects`,
+    DISTINCT 'id:',`project`.`id`, '####', 'description:', `project`.`description`, '####',
+    'created:', `project`.`created` SEPARATOR '----') AS `projects`,
     GROUP_CONCAT(
-      DISTINCT `skill`.`id`, '####', `skill`.`description`, '####',
-      `skill`.`created` SEPARATOR '----') AS `skills`
+      DISTINCT 'id:',`skill`.`id`, '####', 'description:', `skill`.`description`, '####',
+    'created:', `skill`.`created` SEPARATOR '----') AS `skills`
 FROM `experience`
 LEFT JOIN `project` ON
 `experience`.`id` = `project`.`experience_id`

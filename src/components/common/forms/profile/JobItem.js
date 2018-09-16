@@ -17,9 +17,9 @@ class ItemForm extends React.Component {
   }
 
   handleChange(value) {
-    const { item } = this.state;
 
-    this.setState({ ...item, ...value });
+    this.setState({ ...this.state, ...value });
+    
   }
 
   handleClick(e) {
@@ -30,7 +30,7 @@ class ItemForm extends React.Component {
     let elements = [...document.getElementById(formId + '_' + idx).elements],
       data = {};
 
-    for (let i = 0; i < elements.length - 1; i++)
+    for (let i = 0; i < elements.length - 2; i++)
       data[elements[i].name] = elements[i].value;
 
     callback(data);
@@ -45,18 +45,20 @@ class ItemForm extends React.Component {
 
   render() {
 
-    const { idx, experience_id, itemType, buttonTitle } = this.props;
+    const { idx, experience_id, itemType, buttonTitle } = this.props,
+      { description } = this.state,
+      itemId = !this.state.id ? 0 : this.state.id;
 
     return (
       <form key={idx} id={formId + '_' + idx}>
-        <HiddenInput name="id" value={this.state.id} />
+        <HiddenInput name="id" value={itemId} />
         <TextInput autocomplete="off"
           name="description"
           onChange={this.handleChange}
           placeholder={itemType}
           ref="description"
           type="text"
-          value={this.state.description} />
+          value={description} />
         <HiddenInput name="experience_id" value={experience_id} />
         <div className="buttons">
           <FormButton

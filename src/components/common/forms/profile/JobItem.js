@@ -10,16 +10,16 @@ class ItemForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = props.item;
+    this.state = !props.item.description ? { description: '' } : props.item;
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleCancelEdit = this.handleCancelEdit.bind(this);
   }
 
   handleChange(value) {
-
+    console.log('value', value)
     this.setState({ ...this.state, ...value });
-    
+    console.log('this.state', this.state)
   }
 
   handleClick(e) {

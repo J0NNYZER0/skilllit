@@ -164,11 +164,11 @@ module.exports = {
         try {
           const payload = JSON.parse(request.payload)
 
-          await DbQuery.Mysql(
+          const data = await DbQuery.Mysql(
             '../api/sql/upsert/project.sql',
             payload)
 
-          return h.response({ status: 200 })
+          return h.response({ status: 200, data: { id: data.insertId } })
 
         } catch(err) {
 

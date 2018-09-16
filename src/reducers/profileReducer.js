@@ -54,15 +54,23 @@ const profileReducer = (state = initialState.profile, action) => {
         const addedOrUpdated = newState.experience.map(el => {
           if (parseInt(action.data.experience_id) === el.id) {
             let projects;
-            if (parseInt(action.data.id) !== 0) {
+            if (!action.data.added) {
+
               const index = el.projects.findIndex(el => el.id === action.data.id);
+
               projects = [
                 ...el.projects.slice(0, index),
                 action.data,
                 ...el.projects.slice(index + 1)
               ]
+
             } else {
-              projects = [ ...el.projects, action.data ]
+
+              const added = { ...action.data };
+
+              delete added.added;
+
+              projects = [ ...el.projects, added ]
             }
             return { ...el, projects: projects}
           } else {

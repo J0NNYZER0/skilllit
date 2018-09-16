@@ -150,6 +150,11 @@ export function projectLoad(account_id) {
   };
 }
 
+const resolveInsertId = (data, response) => {
+  if (parseInt(data.id) !== 0) return data;
+  else return {...data, id: response.data.id.toString(), added: true }
+}
+
 export function projectUpsert(data) {
 
   const updatedData = {...data}
@@ -160,8 +165,11 @@ export function projectUpsert(data) {
 
     return api.projectUpsert(data).then(data => {
 
-      if (data.status === 200)
-        dispatch(projectUpsertSuccess(updatedData));
+      if (data.status === 200) {
+        const resolvedData = resolveInsertId(updatedData, data);
+
+        dispatch(projectUpsertSuccess(resolvedData));
+      }
 
     }).catch(error => {
 

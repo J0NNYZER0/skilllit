@@ -1,2 +1,2 @@
-DELETE `project`
-WHERE `id` = ?;
+DELETE FROM `project`
+WHERE `project`.`id` = ?;

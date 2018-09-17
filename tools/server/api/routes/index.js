@@ -71,9 +71,19 @@ module.exports = {
       handler: Handlers.Profile.Skill.Upsert
     },
     {
-      method: 'GET',
-      path: '/api/profile/project/delete/{account_id}',
+      method: 'DELETE',
+      path: '/api/profile/experience/delete/{id}',
+      handler: Handlers.Profile.Experience.Delete
+    },
+    {
+      method: 'DELETE',
+      path: '/api/profile/project/delete/{id}',
       handler: Handlers.Profile.Project.Delete
+    },
+    {
+      method: 'DELETE',
+      path: '/api/profile/skill/delete/{id}',
+      handler: Handlers.Profile.Skill.Delete
     }
   ]
 }

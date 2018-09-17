@@ -141,6 +141,21 @@ module.exports = {
 
           Bounce.rethrow(err, 'system')
         }
+      },
+      Delete: async (request, h) => {
+
+        try {
+          const params = request.params,
+            data = await DbQuery.Mysql(
+              '../api/sql/delete/experience.sql',
+              params)
+
+          return h.response({ status: 200, data: data })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
       }
     },
     Project: {
@@ -217,6 +232,21 @@ module.exports = {
             payload)
 
           return h.response({ status: 200 })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
+      },
+      Delete: async (request, h) => {
+
+        try {
+          const params = request.params,
+            data = await DbQuery.Mysql(
+              '../api/sql/delete/skill.sql',
+              params)
+
+          return h.response({ status: 200, data: data })
 
         } catch(err) {
 

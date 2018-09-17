@@ -112,6 +112,19 @@ class Api {
     });
   }
 
+  static projectDelete(id) {
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.DELETE}` + id;
+      fetch(url).then((response) => {
+        if (response.status >= 400) return reject(response.status);
+          resolve(response.json());
+      })
+      .then(function (data) {
+        resolve(data);
+      })
+    });
+  }
+
   static skillLoad(experience_id) {
     return new Promise((resolve, reject) => {
       const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.SKILL.LOAD}` + experience_id;

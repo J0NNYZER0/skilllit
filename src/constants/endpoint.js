@@ -70,7 +70,8 @@ export const PROFILE = {
   },
   PROJECT: {
     LOAD: '/profile/project',
-    UPSERT: '/profile/project/upsert'
+    UPSERT: '/profile/project/upsert',
+    DELETE: '/profile/project/delete/'
   },
   SKILL: {
     LOAD: '/profile/skill',

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Job from '../common/Job';
+import Job from '../common/job/Index';
 
 class Experience extends React.Component {
 
@@ -11,24 +11,24 @@ class Experience extends React.Component {
 
   render() {
 
-    const { experience } = this.props;
+    const { site } = this.props;
 
     return (
       <section>
         <h1>Experience</h1>
-        {experience.map((el, i) => <Job key={'profile_job_' + i} idx={i} experience={el} />)}
+        {site.experience.map((el, i) => <Job key={'profile_job_' + i} idx={i} experience={el} />)}
       </section>
     );
   }
 }
 
 Experience.propTypes = {
-  experience: PropTypes.array.isRequired
+  site: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    experience: state.experience
+    site: state.site
   };
 }
 

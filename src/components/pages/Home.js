@@ -15,20 +15,19 @@ class Home extends React.Component {
   }
 
   render() {
-    const { site, home } = this.props;
-    return (<Main site={site} home={home} className="skilllit_logo" />)
+    const { site } = this.props;
+
+    return (<Main className="skilllit_logo" {...this.props.site} />)
   }
 }
 
 Home.propTypes = {
   site: PropTypes.object.isRequired,
-  home: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    site: state.site,
-    home: state.home
+    site: state.site
   };
 }
 

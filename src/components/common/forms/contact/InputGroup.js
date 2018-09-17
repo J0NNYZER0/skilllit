@@ -3,7 +3,7 @@ import SelectBox from '../elements/SelectBox';
 import TextAreaInput from '../elements/TextAreaInput';
 import TextInput from '../elements/TextInput';
 import FormHOC from '../elements/FormHOC';
-import * as contactActions from '../../../../actions/contactActions.js';
+import * as siteActions from '../../../../actions/siteActions';
 
 class InputGroup extends React.Component {
 
@@ -49,7 +49,7 @@ class InputGroup extends React.Component {
     ];
   }
 }
-const actions = contactActions.insert,
+const actions = siteActions.insertContact,
   initialState = {
     email: '',
     reason: '',

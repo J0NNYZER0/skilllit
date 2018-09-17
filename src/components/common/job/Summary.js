@@ -1,5 +1,5 @@
 import React from 'react';
-import EditIcon from './EditIcon';
+import EditIcon from '../EditIcon';
 
 const JobSummaryEdit = ({ idx, experience, callback, editMode }) => {
   return (

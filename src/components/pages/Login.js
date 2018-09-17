@@ -22,12 +22,12 @@ class Login extends React.Component {
 }
 
 Login.propTypes = {
-  contact: PropTypes.array.isRequired
+  site: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    contact: state.contact
+    site: state.site
   };
 }
 

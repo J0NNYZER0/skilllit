@@ -1,6 +1,6 @@
 import React from 'react';
-import JobSummary from './JobSummary';
-import JobDetail from './JobDetail';
+import JobSummary from './Summary';
+import JobDetail from './Detail';
 
 class Job extends React.Component {
 

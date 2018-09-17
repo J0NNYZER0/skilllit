@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from "prop-types";
+import {connect} from 'react-redux';
 import { NavLink } from "react-router-dom";
-import ScrollLink from './ScrollLink';
 import { Element } from 'react-scroll';
+import ScrollLink from './ScrollLink';
 
 class ScrollNav extends React.Component {
 
@@ -19,7 +21,7 @@ class ScrollNav extends React.Component {
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.pathname !== this.props.pathname)
+    if (nextProps.location.pathname !== this.props.location.pathname)
       this.setState({toggle: false});
   }
 
@@ -29,9 +31,7 @@ class ScrollNav extends React.Component {
 
   toggle() {
 
-    let toggleState = this.state.toggle === true ? false : true;
-
-    this.setState({toggle: toggleState});
+    this.setState({toggle: !this.state.toggle});
   }
 
   render() {
@@ -42,7 +42,7 @@ class ScrollNav extends React.Component {
       <nav className="scroll_nav">
         <Element name="top" />
         <div className="logo">
-          <NavLink to="/">{site.title}</NavLink>
+          <NavLink to="/">{site.site.title}</NavLink>
           <div className="nav_menu_button">
             <div onClick={this.toggle} id="nav-icon" className={(this.state.toggle) ?
               'open' : '' }>
@@ -54,7 +54,7 @@ class ScrollNav extends React.Component {
           </div>
         </div>
         {<div className={(this.state.toggle) ? 'menu show' : 'menu'}>
-          {pathname !== '/' && <NavLink exact to="/">Home</NavLink>}
+          {location.pathname !== '/' && <NavLink exact to="/">Home</NavLink>}
           <ScrollLink scrollLink={{ to:'experience', offset: -250, onClick: this.toggleMenu, text: 'Experience' }} />
           <ScrollLink scrollLink={{ to:'skillset', offset: -250, onClick: this.toggleMenu, text: 'Skillset' }} />
           <ScrollLink scrollLink={{ to:'education', offset: -250, onClick: this.toggleMenu, text: 'Education' }} />
@@ -67,4 +67,14 @@ class ScrollNav extends React.Component {
     }
 }
 
-export default ScrollNav;
+ScrollNav.propTypes = {
+  site: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    site: state.site
+  };
+}
+
+export default connect(mapStateToProps)(ScrollNav);

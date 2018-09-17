@@ -9,13 +9,13 @@ class Education extends React.Component {
   }
 
   render() {
-    const { education } = this.props;
+    const { site } = this.props;
 
     return (
       <section>
         <h1>Education</h1>
         <div className="download_container">
-          {education.map(edu => <p key="education_1"><span>{`${edu.degree}, ${edu.focus} ${edu.gpa}`}</span><br/><span>{`${edu.school}`}</span></p>)}
+          {site.education.map(edu => <p key="education_1"><span>{`${edu.degree}, ${edu.focus} ${edu.gpa}`}</span><br/><span>{`${edu.school}`}</span></p>)}
         </div>
       </section>
     );
@@ -23,12 +23,12 @@ class Education extends React.Component {
 }
 
 Education.propTypes = {
-  education: PropTypes.array.isRequired
+  site: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    education: state.education
+    site: state.site
   };
 }
 

@@ -31,6 +31,10 @@ export function projectUpsertSuccess(data) {
   return { type: types.PROFILE.PROJECT.UPSERT, data };
 }
 
+export function projectDeleteSuccess(data) {
+  return { type: types.PROFILE.PROJECT.DELETE, data };
+}
+
 export function skillLoadSuccess(data) {
   return { type: types.PROFILE.SKILL.LOAD, data };
 }
@@ -170,6 +174,24 @@ export function projectUpsert(data) {
 
         dispatch(projectUpsertSuccess(resolvedData));
       }
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function projectDelete(id, experience_id) {
+
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.projectLoad(id).then(data => {
+
+      if (data.status === 200)
+        dispatch(projectDeleteSuccess({ id: id, experience_id: experience_id }));
 
     }).catch(error => {
 

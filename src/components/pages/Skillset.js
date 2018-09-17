@@ -10,12 +10,12 @@ class Skillset extends React.Component {
 
   render() {
 
-    const { skillset } = this.props;
+    const { site } = this.props;
 
     return (
       <section>
         <h1>Skillset</h1>
-        {skillset.map(({category, skills}, idx) => {
+        {site.skillset.length > 0 && site.skillset.map(({category, skills}, idx) => {
           return <div key={idx}>
             <h2>{`${category}`}</h2>
             {<ul className="tagcloud">
@@ -30,12 +30,12 @@ class Skillset extends React.Component {
 }
 
 Skillset.propTypes = {
-  skillset: PropTypes.array.isRequired
+  site: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    skillset: state.skillset
+    site: state.site
   };
 }
 

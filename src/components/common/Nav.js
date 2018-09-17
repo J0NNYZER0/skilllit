@@ -1,5 +1,7 @@
-import { NavLink } from 'react-router-dom';
 import React from 'react';
+import PropTypes from "prop-types";
+import {connect} from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import ScrollNav from './ScrollNav';
 
 class Nav extends React.Component {
@@ -12,31 +14,29 @@ class Nav extends React.Component {
       toggle: false
     }
 
-    this.toggle = this.toggle.bind(this, this.state.toggle);
+    this.toggle = this.toggle.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
 
-    if (nextProps.pathname !== this.props.pathname)
+    if (nextProps.location.pathname !== this.props.location.pathname)
       this.setState({toggle: false});
   }
 
   toggle() {
 
-    let toggleState = this.state.toggle === true ? false : true;
-
-    this.setState({toggle: toggleState});
+    this.setState({toggle: !this.state.toggle});
   }
 
   render() {
 
-    const { site, pathname } = this.props;
+    const { site, location } = this.props;
 
-    if (site.is_scrollable !== true) {
+    if (site.site.is_scrollable !== true) {
       return (
         <nav>
           <div className="logo">
-            <NavLink exact to="/">{site.title + 's'}</NavLink>
+            <NavLink exact to="/">{site.site.title}</NavLink>
             <div className="nav_menu_button">
               <div onClick={this.toggle} id="nav-icon" className={(this.state.toggle) ?
                 'open' : '' }>
@@ -49,7 +49,7 @@ class Nav extends React.Component {
           </div>
           {<div className={(this.state.toggle) ?
             'menu show' : 'menu'}>
-            {pathname !== '/' &&
+            {location.pathname !== '/' &&
             <NavLink exact to="/">Home</NavLink>}
             <NavLink to="/experience">Experience</NavLink>
             <NavLink to="/skillset">Skillset</NavLink>
@@ -61,9 +61,19 @@ class Nav extends React.Component {
           </div>}
         </nav>);
     } else {
-      return (<ScrollNav pathname={location.pathname} site={site} />)
+      return (<ScrollNav {...this.props} />)
     }
     }
 }
 
-export default Nav;
+Nav.propTypes = {
+  site: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    site: state.site
+  };
+}
+
+export default connect(mapStateToProps)(Nav);

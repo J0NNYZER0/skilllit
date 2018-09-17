@@ -1,6 +1,6 @@
 import React from 'react';
-import LoadMore from './LoadMore';
-import ItemMenuIcon from './ItemMenuIcon';
+import LoadMore from '../LoadMore';
+import ItemMenuIcon from '../ItemMenuIcon';
 
 class JobDetail extends React.Component {
 

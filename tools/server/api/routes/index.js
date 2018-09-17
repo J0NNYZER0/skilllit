@@ -69,6 +69,11 @@ module.exports = {
       method: 'POST',
       path: '/api/profile/skill/upsert',
       handler: Handlers.Profile.Skill.Upsert
+    },
+    {
+      method: 'GET',
+      path: '/api/profile/project/delete/{account_id}',
+      handler: Handlers.Profile.Project.Delete
     }
   ]
 }

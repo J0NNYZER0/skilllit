@@ -1,14 +1,9 @@
 export default {
   account: [],
-  contact: [],
-  education: [],
-  experience: [],
   fetch: {
     in_progress: null,
     status: null
   },
-  home: [],
-  messages: [],
   profile: {
     account: [],
     contact: [],
@@ -21,10 +16,18 @@ export default {
     skillset: [],
     social_media: []
   },
-  resume: [],
-  site: {},
-  skillset: [],
-  social_media: [],
+  site: {
+    account: [],
+    contact: [],
+    education: [],
+    experience: [],
+    home: [],
+    messages: [],
+    resume: [],
+    site: {},
+    skillset: [],
+    social_media: []
+  },
   fuelSavings: {
     newMpg: '',
     tradeMpg: '',

@@ -25,34 +25,35 @@ const profileReducer = (state = initialState.profile, action) => {
 
     case actionTypes.PROFILE.EXPERIENCE.UPSERT: {
 
+      let experience;
       if (parseInt(action.data.id) !== 0) {
 
-        const updated = newState.experience.map(el => {
+        experience = newState.experience.map(el => {
 
-          if (el.id === action.data.id)
-            return { ...el, ...action.data };
+          if (action.data.id == el.id) {
+            let updated = { ...el, ...action.data }
 
-          return el;
-
+            return updated;
+          } else {
+            return el;
+          }
         })
-
-        return {...newState, experience: updated };
-
       } else {
 
-        let newData = { projects: [], skills: [] };
-
-        return {...newState, experience: [
+        experience = [
           ...newState.experience,
-          { ...newData, ...action.data }
-        ]}
+          { projects: [], skills: [], ...action.data }
+        ]
       }
+
+      return {...newState, experience: experience };
     }
+
 
     case actionTypes.PROFILE.PROJECT.UPSERT: {
 
         const addedOrUpdated = newState.experience.map(el => {
-          if (parseInt(action.data.experience_id) === el.id) {
+          if (action.data.experience_id == el.id) {
             let projects;
             if (!action.data.added) {
 
@@ -79,6 +80,16 @@ const profileReducer = (state = initialState.profile, action) => {
         })
 
         return { ...newState, experience: addedOrUpdated };
+    }
+
+    case actionTypes.PROFILE.PROJECT.DELETE: {
+      /*let deleted = {
+        ...newState,
+        experience: [
+          ...newState.experience,
+          {
+            ...newState.experience[experience_id], }]}*/
+      return {...newState, project: [action.data]};
     }
 
     case actionTypes.PROFILE.SKILL.UPSERT: {

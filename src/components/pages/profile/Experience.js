@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import JobForm from '../../common/forms/profile/JobAdd';
-import JobEdit from '../../common/JobEdit';
+import JobEdit from '../../common/job/Edit';
 import AddIcon from '../../common/AddIcon';
 
 class ProfileExperience extends React.Component {

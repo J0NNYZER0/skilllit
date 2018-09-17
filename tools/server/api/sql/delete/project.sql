@@ -1,0 +1,2 @@
+DELETE `project`
+WHERE `id` = ?;

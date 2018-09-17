@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import ContactForm from '../common/forms/contact/InputGroup';
 
 class Contact extends React.Component {
@@ -18,4 +19,14 @@ class Contact extends React.Component {
   }
 }
 
-export default Contact;
+Contact.propTypes = {
+  site: PropTypes.object.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    site: state.site
+  };
+}
+
+export default connect(mapStateToProps)(Contact);

@@ -10,12 +10,12 @@ class Resume extends React.Component {
 
   render() {
 
-    const { resume } = this.props;
+    const { site } = this.props;
 
     return (
       <section>
         <h1>Resume</h1>
-        {resume.map(({call_to_action, link}) => {
+        {site.resume.map(({call_to_action, link}) => {
           return <div key="resume" className="download_container">
             <p dangerouslySetInnerHTML={{__html: `${call_to_action}`}} />
             <a className="download-resume" target="_blank" href={`${link}`} />
@@ -27,12 +27,12 @@ class Resume extends React.Component {
 }
 
 Resume.propTypes = {
-  resume: PropTypes.array.isRequired
+  site: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
   return {
-    resume: state.resume
+    site: state.site
   };
 }
 

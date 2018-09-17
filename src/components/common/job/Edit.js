@@ -1,7 +1,7 @@
 import React from 'react';
-import JobSummary from './JobSummary';
-import JobForm from './forms/profile/Job';
-import JobDetailEdit from './JobDetailEdit';
+import JobSummary from './Summary';
+import JobForm from '../forms/profile/Job';
+import JobDetailEdit from './DetailEdit';
 
 class Job extends React.Component {
 

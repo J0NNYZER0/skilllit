@@ -1,8 +1,8 @@
 import React from 'react';
-import ItemMenuIcon from './ItemMenuIcon';
-import ItemMenu from './ItemMenu';
-import ShowMore from './ShowMore';
-import JobItemForm from './forms/profile/JobItem';
+import ItemMenuIcon from '../ItemMenuIcon';
+import ItemMenu from '../ItemMenu';
+import ShowMore from '../ShowMore';
+import JobItemForm from '../forms/profile/JobItem';
 
 class JobDetailItem extends React.Component {
 
@@ -18,6 +18,7 @@ class JobDetailItem extends React.Component {
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.cancelEdit = this.cancelEdit.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   toggleMenu(idx) {
@@ -33,6 +34,11 @@ class JobDetailItem extends React.Component {
     if (this.state.edit === edit)
       this.setState({...newState, edit: -1 });
     else this.setState({...newState, edit: edit, value: item });
+  }
+
+  deleteItem(id, experience_id) {
+    const { deleteCallback } = this.props;
+
   }
 
   cancelEdit() {
@@ -59,7 +65,7 @@ class JobDetailItem extends React.Component {
             {!editMode && <ItemMenuIcon callback={this.toggleMenu}
               key={'item_menu_icon_' + i} idx={i} show={showMenu} />}
           </div>,
-          showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} item={el} experience_id={experience_id} />
+          showMenu && !editMode && <ItemMenu key={'item_menu_' + i} idx={i} editCallback={this.toggleEdit} deleteCallback={this.deleteItem} item={el} experience_id={experience_id} />
           ]
         }
       )

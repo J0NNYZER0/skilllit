@@ -174,6 +174,21 @@ module.exports = {
 
           Bounce.rethrow(err, 'system')
         }
+      },
+      Delete: async (request, h) => {
+
+        try {
+          const params = request.params,
+            data = await DbQuery.Mysql(
+              '../api/sql/delete/project.sql',
+              params)
+
+          return h.response({ status: 200, data: data })
+
+        } catch(err) {
+
+          Bounce.rethrow(err, 'system')
+        }
       }
     },
     Skill: {

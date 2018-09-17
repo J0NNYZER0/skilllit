@@ -18,7 +18,9 @@ class ItemMenu extends React.Component {
   }
 
   deleteItem() {
-    const { editCallback } = this.props;
+    const { deleteCallback } = this.props;
+
+    deleteCallback();
   }
 
   render() {

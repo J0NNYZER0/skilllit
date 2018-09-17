@@ -12,15 +12,15 @@ class ItemMenu extends React.Component {
 
   toggleMenu() {
 
-    const { editCallback, idx, item } = this.props;
+    const { editCallback, ii, item } = this.props;
 
-    editCallback(idx, item);
+    editCallback(ii, item);
   }
 
   deleteItem() {
-    const { deleteCallback } = this.props;
+    const { deleteCallback, item, i, ii } = this.props;
 
-    deleteCallback();
+    deleteCallback(item.id, i, ii);
   }
 
   render() {

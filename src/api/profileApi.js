@@ -113,9 +113,10 @@ class Api {
   }
 
   static projectDelete(id) {
+    console.log('test', id)
     return new Promise((resolve, reject) => {
       const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.DELETE}` + id;
-      fetch(url).then((response) => {
+      fetch(url, { method: 'DELETE' }).then((response) => {
         if (response.status >= 400) return reject(response.status);
           resolve(response.json());
       })

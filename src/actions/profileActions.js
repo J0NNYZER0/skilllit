@@ -4,42 +4,52 @@ import mockApi from '../api/mock/profileApi';
 import {beginAjaxCall} from './ajaxStatusActions';
 
 export function loadSuccess(data) {
+
   return { type: types.PROFILE.LOAD, data };
 }
 
 export function homeLoadSuccess(data) {
+
   return { type: types.PROFILE.HOME.LOAD, data };
 }
 
 export function homeUpsertSuccess(data) {
+
   return { type: types.PROFILE.HOME.UPSERT, data };
 }
 
 export function experienceLoadSuccess(data) {
+
   return { type: types.PROFILE.EXPERIENCE.LOAD, data };
 }
 
 export function experienceUpsertSuccess(data) {
+
   return { type: types.PROFILE.EXPERIENCE.UPSERT, data };
 }
 
 export function projectLoadSuccess(data) {
+
   return { type: types.PROFILE.PROJECT.LOAD, data };
 }
 
 export function projectUpsertSuccess(data) {
+
   return { type: types.PROFILE.PROJECT.UPSERT, data };
 }
 
 export function projectDeleteSuccess(data) {
+
   return { type: types.PROFILE.PROJECT.DELETE, data };
 }
 
 export function skillLoadSuccess(data) {
+
   return { type: types.PROFILE.SKILL.LOAD, data };
 }
 
 export function skillUpsertSuccess(data) {
+
   return { type: types.PROFILE.SKILL.UPSERT, data };
 }
 
@@ -182,16 +192,16 @@ export function projectUpsert(data) {
   };
 }
 
-export function projectDelete(id, experience_id) {
+export function projectDelete(id, i, ii) {
 
   return function (dispatch) {
 
     dispatch(beginAjaxCall());
 
-    return api.projectLoad(id).then(data => {
+    return api.projectDelete(id).then(data => {
 
       if (data.status === 200)
-        dispatch(projectDeleteSuccess({ id: id, experience_id: experience_id }));
+        dispatch(projectDeleteSuccess({ id: id, i: i, ii: ii }));
 
     }).catch(error => {
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import JobDetailItemEdit from './ItemEdit';
+import ItemEdit from './ItemEdit';
 import AddIcon from '../AddIcon';
 import JobItemForm from '../forms/profile/JobItem';
 import * as profileActions from '../../../actions/profileActions';
@@ -54,7 +54,7 @@ class JobDetailEdit extends React.Component {
           itemType="Add Project"
           buttonTitle="Add"
           callback={actions.projectUpsert} />}
-        <JobDetailItemEdit
+        <ItemEdit
             idx={idx} items={projects}
             experience_id={id}
             itemType="Project"
@@ -65,7 +65,7 @@ class JobDetailEdit extends React.Component {
             <div className="job_detail_title">
               <h4>Skills</h4>
             </div>
-        <JobDetailItemEdit
+        <ItemEdit
             idx={idx} items={skills}
             experience_id={id}
             itemType="Skill"

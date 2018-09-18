@@ -16,12 +16,12 @@ class JobForm extends React.Component {
 
     this.state = {
       id: 0,
-      from: 'a',
-      to: 'a',
-      title: 'a',
-      company: 'a',
-      city: 'a',
-      state: 'a',
+      from: '',
+      to: '',
+      title: '',
+      company: '',
+      city: '',
+      state: '',
       account_id: '1'
     };
 
@@ -68,48 +68,42 @@ class JobForm extends React.Component {
           placeholder="From"
           ref="from"
           type="text"
-          value={this.state.from}
-          label_name="from" />
+          value={this.state.from} />
         <TextInput autocomplete="off"
           name="to"
           onChange={this.handleChange}
           placeholder="To"
           ref="to"
           type="text"
-          value={this.state.to}
-          label_name="to" />
+          value={this.state.to} />
         <TextInput autocomplete="off"
           name="title"
           onChange={this.handleChange}
           placeholder="Title"
           ref="title"
           type="text"
-          value={this.state.title}
-          label_name="title" />
+          value={this.state.title} />
         <TextInput autocomplete="off"
           name="company"
           onChange={this.handleChange}
           placeholder="Company"
           ref="company"
           type="text"
-          value={this.state.company}
-          label_name="company" />
+          value={this.state.company} />
         <TextInput autocomplete="off"
           name="city"
           onChange={this.handleChange}
           placeholder="City"
           ref="city"
           type="text"
-          value={this.state.city}
-          label_name="city" />
+          value={this.state.city} />
         <TextInput autocomplete="off"
           name="state"
           onChange={this.handleChange}
           placeholder="State"
           ref="state"
           type="text"
-          value={this.state.state}
-          label_name="state" />
+          value={this.state.state} />
         <HiddenInput name="account_id" value={this.state.account_id} />
         <div className="buttons">
           <FormButton

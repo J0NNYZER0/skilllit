@@ -83,13 +83,18 @@ const profileReducer = (state = initialState.profile, action) => {
     }
 
     case actionTypes.PROFILE.PROJECT.DELETE: {
-      /*let deleted = {
+
+      let updated = newState.experience.map((el,i) => {
+        if (i === action.data.i) {
+          let projects = el.projects.filter((el, i) => i !== action.data.ii)
+          return { ...el, projects: [...projects] }
+        } else return el
+      })
+
+      return {
         ...newState,
-        experience: [
-          ...newState.experience,
-          {
-            ...newState.experience[experience_id], }]}*/
-      return {...newState, project: [action.data]};
+        experience: [...updated]
+      };
     }
 
     case actionTypes.PROFILE.SKILL.UPSERT: {

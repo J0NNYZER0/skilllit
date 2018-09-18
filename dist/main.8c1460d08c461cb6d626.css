@@ -752,7 +752,8 @@ h1 {
 
 main section h1.site_title {
   font-size: 8vw;
-  margin: 0; }
+  margin: 0;
+  margin-top: 30px; }
 
 main section h1 {
   font-size: 3.5em; }
@@ -1727,15 +1728,22 @@ span.icon.edit {
 span.icon.edit.close {
   background-image: url(https://s3.us-east-2.amazonaws.com/ui-icons/grey/x-circle.svg); }
 
-.skilllit_logo {
+.sprite {
+  display: block;
+  background-image: url(https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit_sprite.svg);
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  cursor: pointer; }
+
+.site_avatar {
   width: 250px;
   height: 175px;
-  display: block;
-  background-size: 250px;
-  background-position: 50% 70%;
-  background-repeat: no-repeat;
-  margin: 0px auto 30px auto;
-  cursor: pointer; }
+  background-size: 500px;
+  background-position: 0px 3px; }
+
+.site_avatar.clicked {
+  background-size: 500px;
+  background-position: -252px 3px; }
 
 .menu_icon {
   width: 50px;
@@ -1879,4 +1887,4 @@ ul.item_menu li {
   .job_location {
     text-align: right; } }
 
-/*# sourceMappingURL=main.91f11a6a9d1b8da585c6.css.map*/
+/*# sourceMappingURL=main.8c1460d08c461cb6d626.css.map*/

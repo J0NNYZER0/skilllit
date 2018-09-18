@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
-import AvatarAndTalkBubble from '../common/AvatarAndTalkBubble';
+import SiteAvatarAndTalkBubble from '../common/SiteAvatarAndTalkBubble';
 import ScrollablePages from './ScrollablePages';
 
 class Main extends React.Component {
@@ -17,7 +17,7 @@ class Main extends React.Component {
       <section key="main_page" className="home_section">
         {home.map((el,idx) => {
           return <div key={idx}>
-            <AvatarAndTalkBubble site={site} main={el} className={className} />
+            <SiteAvatarAndTalkBubble site={site} main={el} className={className} />
             <h1 className="site_title" dangerouslySetInnerHTML={{__html: `${el.title}`}} />
             <p dangerouslySetInnerHTML={{__html: `${el.tagline}`}} />
             {site.is_scrollable && <Link className="down_animation" activeClass="active" to="experience"

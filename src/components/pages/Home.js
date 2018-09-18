@@ -17,7 +17,7 @@ class Home extends React.Component {
   render() {
     const { site } = this.props;
 
-    return (<Main className="skilllit_logo" {...this.props.site} />)
+    return (<Main {...this.props.site} />)
   }
 }
 

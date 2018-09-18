@@ -5,12 +5,12 @@ class ItemMenu extends React.Component {
   constructor(props) {
 
     super(props);
-    this.toggleMenu = this.toggleMenu.bind(this);
+    this.editItem = this.editItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
   }
 
 
-  toggleMenu() {
+  editItem() {
 
     const { editCallback, ii, item } = this.props;
 
@@ -27,7 +27,7 @@ class ItemMenu extends React.Component {
 
     return (
       <ul className="item_menu">
-        <li onClick={this.toggleMenu}>Edit</li>
+        <li onClick={this.editItem}>Edit</li>
         <li onClick={this.deleteItem}>Delete</li>
       </ul>
     )

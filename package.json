@@ -34,6 +34,7 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "2.316.0",
     "catbox": "10.0.2",
     "catbox-memory": "3.1.2",
     "hapi": "17.5.4",
@@ -54,7 +55,6 @@
   },
   "devDependencies": {
     "autoprefixer": "9.1.0",
-    "aws-sdk": "2.316.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.6",

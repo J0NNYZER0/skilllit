@@ -1,5 +1,5 @@
 import React from 'react';
-import ShowMore from './ShowMore';
+import Job from './Index';
 
 class LoadMore extends React.Component {
 
@@ -22,12 +22,10 @@ class LoadMore extends React.Component {
   }
 
   render() {
-    const { buttonText } = this.props;
-
     return [
-      this.state.items.slice(0, this.state.visible).map((el, i) => <ShowMore key={i} description={el.description} />),
+      this.state.items.slice(0, this.state.visible).map((el, i) => <Job key={'profile_job_' + i} idx={i} experience={el} />),
       this.state.visible < this.state.items.length &&
-        <button key="load_more_key" onClick={this.loadMore} type="button" className="button load_more">{buttonText}</button>
+        <button key="load_more_key" onClick={this.loadMore} type="button" className="button load_more_jobs">Load Jobs</button>
     ];
   }
 }

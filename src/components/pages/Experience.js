@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Job from '../common/job/Index';
+import LoadMore from '../common/job/LoadMore';
 
 class Experience extends React.Component {
 
@@ -16,7 +16,7 @@ class Experience extends React.Component {
     return (
       <section>
         <h1>Experience</h1>
-        {site.experience.map((el, i) => <Job key={'profile_job_' + i} idx={i} experience={el} />)}
+        <LoadMore list={site.experience} />
       </section>
     );
   }

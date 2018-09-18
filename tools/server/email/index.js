@@ -3,7 +3,8 @@
 const Bounce = require('bounce'),
   Fs = require('fs'),
 	Path = require('path'),
-	Nodemailer = require('nodemailer')
+	Nodemailer = require('nodemailer'),
+  Aws = require('aws-sdk')
 
 const Transporter = () => Nodemailer.createTransport({
 	service: process.env.SMTP_SERVICE,
@@ -11,6 +12,12 @@ const Transporter = () => Nodemailer.createTransport({
 			user: process.env.SMTP_AUTH_USER,
 			pass: process.env.SMTP_AUTH_PASS
 	}
+})
+
+const AwsTransporter = () => Nodemailer.createTransport({
+  SES: new Aws.SES({
+      apiVersion: '2010-12-01'
+  })
 })
 
 const ParseEmail = (email,token) => new Promise ((resolve) => {
@@ -31,13 +38,23 @@ const MailOptions = (email, token, parsedEmail) => new Promise(resolve => resolv
 	html: parsedEmail
 }))
 
+const SesMailOptions = (email, token, parsedEmail) => new Promise(resolve => resolve({
+  from: 'hello@skilllit.com',
+  to: 'jon.ortiz@me.com',
+  subject: 'Message',
+  text: 'I hope this message gets sent!',
+  ses: { // optional extra arguments for SendRawEmail
+    Tags: [{
+      Name: 'tag name',
+      Value: 'tag value'
+    }]
+  }
+}))
+
 const SendEmail = (mailOptions) => new Promise((resolve, reject) => {
 
   Transporter().verify((error, success) => {
      if (error) {
-       console.log('verify')
-       console.log('verify')
-      console.log('verify')
       console.log(error)
      } else {
       console.log('Server is ready to take our messages')
@@ -52,11 +69,21 @@ const SendEmail = (mailOptions) => new Promise((resolve, reject) => {
   })
 })
 
+const SendAwsEmail = (mailOptions) => new Promise((resolve, reject) => {
+  AwsTransporter().sendMail(mailOptions, (error, info) => {
+    if (error) {
+      reject(error)
+    }
+    console.log('info', info)
+    resolve('Message sent: %s', info.messageId)
+  })
+})
+
 const EmailProcessor = async (email, token) => {
   try {
     const parsedEmail = await ParseEmail(email, token),
-      mailOptions = await MailOptions(email, token, parsedEmail),
-      sentEmail = await SendEmail(mailOptions)
+      mailOptions = await SesMailOptions(email, token, parsedEmail),
+      sentEmail = await SendAwsEmail(mailOptions)
 
     return sentEmail
   } catch(err) {

@@ -3,6 +3,7 @@ div.talk_bubble {
   width: 100%;
   display: none;
   position: absolute;
+  z-index: 2;
   color: #000;
   background-color: #fff;
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5);

@@ -1433,7 +1433,7 @@ label + textarea {
   width: 100%;
   padding: 15px;
   font-family: 'NeutrafaceDisplayTitling';
-  text-shadow: 1px 1px 3px rgba(60, 60, 60, 0.6);
+  text-shadow: none;
   font-size: 24px;
   cursor: pointer;
   outline: none;
@@ -1449,7 +1449,6 @@ button[disabled] {
   background-color: #cccccc;
   color: #999;
   cursor: auto;
-  text-shadow: none;
   border-radius: 6px; }
 
 a.button.selected,
@@ -1468,8 +1467,11 @@ a.button {
 
 .button.load_more {
   background-color: #CCC;
-  border: 1px solid #AAA;
-  text-shadow: none; }
+  border: 1px solid #AAA; }
+
+.button.load_more_jobs {
+  background-color: #000;
+  border: none; }
 
 button.button.load_more:hover {
   background-color: #AAA; }
@@ -1655,6 +1657,7 @@ div.talk_bubble {
   width: 100%;
   display: none;
   position: absolute;
+  z-index: 2;
   color: #000;
   background-color: #fff;
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.5), 0 -9px 30px 0 rgba(0, 0, 0, 0.5); }
@@ -1887,4 +1890,4 @@ ul.item_menu li {
   .job_location {
     text-align: right; } }
 
-/*# sourceMappingURL=main.8c1460d08c461cb6d626.css.map*/
+/*# sourceMappingURL=main.f6c1076d76562cd7b4e8.css.map*/

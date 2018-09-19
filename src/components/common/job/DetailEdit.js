@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import ItemEdit from './ItemEdit';
-import AddIcon from '../AddIcon';
-import JobItemForm from '../forms/profile/JobItem';
-import * as profileActions from '../../../actions/profileActions';
+import Section from './Section';
 
-class JobDetailEdit extends React.Component {
+class DetailEdit extends React.Component {
 
   constructor(props) {
     super(props);
@@ -36,56 +33,23 @@ class JobDetailEdit extends React.Component {
 
   render() {
     const { add } = this.state,
-      { idx, experience, actions } = this.props,
-      {id, from, to, title, company, city, state, projects, skills } = experience,
+      { idx, actions, experience } = this.props,
+      { id, projects, skills } = experience,
       addMode = idx === add;
 
     return (
       <div className="job_details">
-        <div className="projects">
-          <div className="job_detail_title">
-            <div><h4>Projects</h4></div>
-            {!addMode && <div><AddIcon toggle={this.toggleAdd} /></div>}
-          </div>
-        {addMode && <JobItemForm idx={idx}
-          cancelEditCb={this.toggleAdd}
-          item={{}}
-          experience_id={id}
-          itemType="Add Project"
-          buttonTitle="Add"
-          callback={actions.projectUpsert} />}
-        <ItemEdit
-            idx={idx} items={projects}
-            experience_id={id}
-            itemType="Project"
-            callback={actions.projectUpsert}
-            deleteCallback={actions.projectDelete} />
-        </div>
-          <div className="projects">
-            <div className="job_detail_title">
-              <h4>Skills</h4>
-            </div>
-        <ItemEdit
-            idx={idx} items={skills}
-            experience_id={id}
-            itemType="Skill"
-            callback={actions.skillUpsert} />
-        </div>
+        <Section { ...this.state } {...this.props}
+          title="Project" upsertItem={actions.projectUpsert}
+          deleteItem={actions.projectDelete}
+          items={projects} />
+        <Section { ...this.state } {...this.props}
+          title="Skill" upsertItem={actions.skillUpsert}
+          deleteItem={actions.skillDelete}
+          items={skills} />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    actions: PropTypes.object.isRequired
-  };
-},
-mapDispatchToProps = dispatch => {
-
-  return {
-    actions: bindActionCreators(profileActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(JobDetailEdit);
+export default DetailEdit;

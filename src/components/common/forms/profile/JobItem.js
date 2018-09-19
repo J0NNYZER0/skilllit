@@ -17,9 +17,7 @@ class ItemForm extends React.Component {
   }
 
   handleChange(value) {
-    console.log('value', value)
     this.setState({ ...this.state, ...value });
-    console.log('this.state', this.state)
   }
 
   handleClick(e) {

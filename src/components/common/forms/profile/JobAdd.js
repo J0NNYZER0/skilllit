@@ -34,7 +34,6 @@ class JobForm extends React.Component {
     const { experience } = this.state;
 
     this.setState({ ...experience, ...value });
-    console.log('this.state', this.state)
   }
 
   handleClick() {

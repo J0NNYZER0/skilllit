@@ -1800,7 +1800,13 @@ span.icon.edit.close {
   flex: 1; }
 
 .job_date {
-  text-align: center; }
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  align-items: center; }
+
+.dates {
+  flex: 1; }
 
 .job_title {
   display: flex;
@@ -1890,4 +1896,4 @@ ul.item_menu li {
   .job_location {
     text-align: right; } }
 
-/*# sourceMappingURL=main.f6c1076d76562cd7b4e8.css.map*/
+/*# sourceMappingURL=main.dbfffe2da9ea188d15da.css.map*/

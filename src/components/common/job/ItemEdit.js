@@ -38,7 +38,6 @@ class JobDetailItem extends React.Component {
 
   deleteItem(itemId, i, ii) {
     const { deleteCallback } = this.props;
-
     deleteCallback(itemId, i, ii);
     this.toggleMenu(-1);
   }

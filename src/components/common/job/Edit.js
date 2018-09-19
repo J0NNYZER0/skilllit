@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import JobSummary from './Summary';
 import JobForm from '../forms/profile/Job';
-import JobDetailEdit from './DetailEdit';
+import DetailEdit from './DetailEdit';
+import * as profileActions from '../../../actions/profileActions';
 
-class Job extends React.Component {
+class Edit extends React.Component {
 
   constructor(props) {
 
@@ -20,19 +24,31 @@ class Job extends React.Component {
   }
 
   render() {
-    const { idx, experience } = this.props,
+    const { idx, experience, actions } = this.props,
       { edit } = this.state,
       editMode = idx === edit;
 
     return (
       <div className="job">
         {!editMode ?
-          <JobSummary idx={idx} experience={experience} callback={this.toggleEdit} editMode={true} /> :
+          <JobSummary idx={idx} experience={experience} callback={this.toggleEdit} editMode={true} actions={actions} /> :
           <JobForm key={'job_form' + idx} toggle={this.toggle} idx={idx} experience={experience} toggle={this.toggleEdit} />}
-        {!editMode && <JobDetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} />}
+        {!editMode && <DetailEdit key={'profile_job_detail' + idx} idx={idx} experience={experience} actions={actions} />}
       </div>
     );
   }
 }
 
-export default Job;
+const mapStateToProps = state => {
+  return {
+    actions: PropTypes.object.isRequired
+  };
+},
+mapDispatchToProps = dispatch => {
+
+  return {
+    actions: bindActionCreators(profileActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Edit);

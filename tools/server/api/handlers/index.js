@@ -131,11 +131,11 @@ module.exports = {
         try {
           const payload = JSON.parse(request.payload)
 
-          await DbQuery.Mysql(
+          const data = await DbQuery.Mysql(
             '../api/sql/upsert/experience.sql',
             payload)
 
-          return h.response({ status: 200 })
+          return h.response({ status: 200, data: { id: data.insertId } })
 
         } catch(err) {
 
@@ -227,11 +227,11 @@ module.exports = {
         try {
           const payload = JSON.parse(request.payload)
 
-          await DbQuery.Mysql(
+          const data = await DbQuery.Mysql(
             '../api/sql/upsert/skill.sql',
             payload)
 
-          return h.response({ status: 200 })
+          return h.response({ status: 200, data: { id: data.insertId } })
 
         } catch(err) {
 

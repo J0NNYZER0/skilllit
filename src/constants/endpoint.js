@@ -66,7 +66,8 @@ export const PROFILE = {
   },
   EXPERIENCE: {
     LOAD: '/profile/experience/',
-    UPSERT: '/profile/experience/upsert'
+    UPSERT: '/profile/experience/upsert',
+    DELETE: '/profile/experience/delete/'
   },
   PROJECT: {
     LOAD: '/profile/project',
@@ -75,7 +76,8 @@ export const PROFILE = {
   },
   SKILL: {
     LOAD: '/profile/skill',
-    UPSERT: '/profile/skill/upsert'
+    UPSERT: '/profile/skill/upsert',
+    DELETE: '/profile/skill/delete/'
   }
 }
 

@@ -24,9 +24,9 @@ const profileReducer = (state = initialState.profile, action) => {
     }
 
     case actionTypes.PROFILE.EXPERIENCE.UPSERT: {
-
+      console.log('PROFILE.EXPERIENCE.UPSERT', action.data)
       let experience;
-      if (parseInt(action.data.id) !== 0) {
+      if (!action.data.added) {
 
         experience = newState.experience.map(el => {
 
@@ -49,6 +49,12 @@ const profileReducer = (state = initialState.profile, action) => {
       return {...newState, experience: experience };
     }
 
+    case actionTypes.PROFILE.EXPERIENCE.DELETE: {
+
+      let updated = newState.experience.filter((el, i) => i !== action.data.i)
+
+      return {...newState, experience: updated };
+    }
 
     case actionTypes.PROFILE.PROJECT.UPSERT: {
 
@@ -99,7 +105,49 @@ const profileReducer = (state = initialState.profile, action) => {
 
     case actionTypes.PROFILE.SKILL.UPSERT: {
 
-      return {...newState, profile: [action.data]};
+        const addedOrUpdated = newState.experience.map(el => {
+          if (action.data.experience_id == el.id) {
+            let skills;
+            if (!action.data.added) {
+
+              const index = el.skills.findIndex(el => el.id === action.data.id);
+
+              skills = [
+                ...el.skills.slice(0, index),
+                action.data,
+                ...el.skills.slice(index + 1)
+              ]
+
+            } else {
+
+              const added = { ...action.data };
+
+              delete added.added;
+
+              skills = [ ...el.skills, added ]
+            }
+            return { ...el, skills: skills}
+          } else {
+            return el;
+          }
+        })
+
+        return { ...newState, experience: addedOrUpdated };
+    }
+
+    case actionTypes.PROFILE.SKILL.DELETE: {
+
+      let updated = newState.experience.map((el,i) => {
+        if (i === action.data.i) {
+          let skills = el.skills.filter((el, i) => i !== action.data.ii)
+          return { ...el, skills: [...skills] }
+        } else return el
+      })
+
+      return {
+        ...newState,
+        experience: [...updated]
+      };
     }
 
     default:

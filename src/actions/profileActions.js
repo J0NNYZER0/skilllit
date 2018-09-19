@@ -28,6 +28,11 @@ export function experienceUpsertSuccess(data) {
   return { type: types.PROFILE.EXPERIENCE.UPSERT, data };
 }
 
+export function experienceDeleteSuccess(data) {
+
+  return { type: types.PROFILE.EXPERIENCE.DELETE, data };
+}
+
 export function projectLoadSuccess(data) {
 
   return { type: types.PROFILE.PROJECT.LOAD, data };
@@ -51,6 +56,16 @@ export function skillLoadSuccess(data) {
 export function skillUpsertSuccess(data) {
 
   return { type: types.PROFILE.SKILL.UPSERT, data };
+}
+
+export function skillDeleteSuccess(data) {
+
+  return { type: types.PROFILE.SKILL.DELETE, data };
+}
+
+const resolveInsertId = (data, response) => {
+  if (parseInt(data.id) !== 0) return data;
+  else return {...data, id: response.data.id.toString(), added: true }
 }
 
 export function load() {
@@ -136,8 +151,30 @@ export function experienceUpsert(data) {
 
     return api.experienceUpsert(data).then(data => {
 
+      if (data.status === 200) {
+
+        const resolvedData = resolveInsertId(updatedData, data);
+
+        dispatch(experienceUpsertSuccess(resolvedData));
+      }
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function experienceDelete(id, i) {
+
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.experienceDelete(id).then(data => {
+
       if (data.status === 200)
-        dispatch(experienceUpsertSuccess(updatedData));
+        dispatch(experienceDeleteSuccess({ i: i }));
 
     }).catch(error => {
 
@@ -162,11 +199,6 @@ export function projectLoad(account_id) {
       throw(error);
     });
   };
-}
-
-const resolveInsertId = (data, response) => {
-  if (parseInt(data.id) !== 0) return data;
-  else return {...data, id: response.data.id.toString(), added: true }
 }
 
 export function projectUpsert(data) {
@@ -238,8 +270,29 @@ export function skillUpsert(data) {
 
     return api.skillUpsert(data).then(data => {
 
+      if (data.status === 200) {
+        const resolvedData = resolveInsertId(updatedData, data);
+
+        dispatch(skillUpsertSuccess(resolvedData));
+      }
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export function skillDelete(id, i, ii) {
+  console.log('skillDelete', id, i, ii)
+  return function (dispatch) {
+
+    dispatch(beginAjaxCall());
+
+    return api.skillDelete(id).then(data => {
+
       if (data.status === 200)
-        dispatch(skillUpsertSuccess(updatedData));
+        dispatch(skillDeleteSuccess({ id: id, i: i, ii: ii }));
 
     }).catch(error => {
 

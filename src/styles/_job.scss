@@ -18,7 +18,13 @@
   flex: 1;
 }
 .job_date {
+  display: flex;
   text-align: center;
+  flex-direction: row;
+  align-items: center;
+}
+.dates {
+  flex: 1;
 }
 .job_title {
   display: flex;

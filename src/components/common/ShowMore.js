@@ -1,6 +1,4 @@
 import React from 'react';
-import ItemMenuIcon from './ItemMenuIcon';
-import ItemMenu from './ItemMenu';
 
 class ShowMore extends React.Component {
 

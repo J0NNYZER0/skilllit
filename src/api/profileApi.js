@@ -80,6 +80,20 @@ class Api {
     });
   }
 
+  static experienceDelete(id) {
+
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.EXPERIENCE.DELETE}` + id;
+      fetch(url, { method: 'DELETE' }).then((response) => {
+        if (response.status >= 400) return reject(response.status);
+          resolve(response.json());
+      })
+      .then(function (data) {
+        resolve(data);
+      })
+    });
+  }
+
   static projectLoad(experience_id) {
     return new Promise((resolve, reject) => {
       const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.PROJECT.LOAD}` + experience_id;
@@ -155,6 +169,20 @@ class Api {
         resolve(response.json());
       })
       .catch(err => reject(err))
+    });
+  }
+
+  static skillDelete(id) {
+
+    return new Promise((resolve, reject) => {
+      const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.SKILL.DELETE}` + id;
+      fetch(url, { method: 'DELETE' }).then((response) => {
+        if (response.status >= 400) return reject(response.status);
+          resolve(response.json());
+      })
+      .then(function (data) {
+        resolve(data);
+      })
     });
   }
 

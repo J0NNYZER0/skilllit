@@ -12,7 +12,6 @@ const Mysql = require('mysql'),
       }
       sql = Mysql.format(sql, values)
     }
-
     return sql
   }
 

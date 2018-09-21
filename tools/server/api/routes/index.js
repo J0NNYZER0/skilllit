@@ -85,5 +85,17 @@ module.exports = {
       path: '/api/profile/skill/delete/{id}',
       handler: Handlers.Profile.Skill.Delete
     }
+  ],
+  Sdk: [
+    {
+      method: 'GET',
+      path: '/api/sdk/aws/test/upload',
+      handler: Handlers.Sdk.Aws.Test.Upload
+    },
+    {
+      method: 'GET',
+      path: '/api/sdk/aws/test/email',
+      handler: Handlers.Sdk.Aws.Test.Email
+    }
   ]
 }

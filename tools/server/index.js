@@ -149,7 +149,8 @@ const start = async () => {
         ApiRoutes.Account,
         ApiRoutes.Contact,
         ApiRoutes.Lab,
-        ApiRoutes.Profile
+        ApiRoutes.Profile,
+        ApiRoutes.Sdk
       ).map(r => {
         r.config = { auth: false }
         return r

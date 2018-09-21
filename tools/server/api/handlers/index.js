@@ -4,6 +4,7 @@ const DbQuery = require('../dbs/queries'),
   Bounce = require('bounce'),
   Transform = require('../transforms'),
   Security = require('../../security'),
+  ShortId = require('shortid'),
   Email = require('../../email'),
   AwsSdk = require('../../sdk/aws').Sdk.Aws
 
@@ -14,6 +15,7 @@ module.exports = {
       try {
 
         const ip = request.info.remoteAddress,
+          shortId = ShortId.generate(),
           payload = JSON.parse(request.payload),
           encoded = await Security.Token.Encode(payload.email, ip),
           decoded = await Security.Token.Decode(encoded),
@@ -21,13 +23,13 @@ module.exports = {
           existingAccount = await DbQuery.Mysql('../api/sql/select/account.sql', payload)
 
           if (existingAccount.length === 0) {
-            const newAccount = await DbQuery.Mysql('../api/sql/insert/account.sql', payload)
+            const newAccount = await DbQuery.Mysql('../api/sql/insert/account.sql', { ...payload })
             //console.log('newAccount', newAccount)
           }
 
         await DbQuery.Mysql(
           '../api/sql/insert/login.sql',
-          { ...payload, ...encoded })
+          { short_id: shortId, ...payload, ...encoded })
 
         return h.response({ status: 200 })
 

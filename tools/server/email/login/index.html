@@ -30,6 +30,14 @@
     <!-- CSS Reset : BEGIN -->
     <style>
       @font-face {
+        font-family: 'kitchen_light';
+        src: url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_light-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/vellocet/kitchen/kitchen_light-webfont.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
         font-family: 'NeutrafaceDisplayTitling';
         src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot');
         src: url('https://s3-us-west-1.amazonaws.com/vellocet/neutraface/Neutraface2Display-Titling.eot?#iefix') format('embedded-opentype'),
@@ -98,20 +106,25 @@
 
       .logo {
         width: 100px;
-        height: 200px;
+        height: 250px;
         display: block;
         margin: 0 auto;
-        background: url('https://s3.us-east-2.amazonaws.com/skilllit.com/skilllit_logo.svg') 50% 20% / 200px no-repeat;
+        background: url('https://s3.us-east-2.amazonaws.com/skilllit.com/mister_skilllit.svg') 50% 20% / 300px no-repeat;
       }
       section {
         font-size: 2em;
       }
       h1 {
-        font-family: 'NeutrafaceDisplayTitling';
+        font-family: 'kitchen_light';
+        letter-spacing: 1px;
         text-align: center;
         font-size: 2em;
         margin: 10px 0;
         font-weight: normal;
+      }
+      h1 a {
+        color: #FFF800;
+        text-decoration: none;
       }
       p {
         margin: 0 15px;
@@ -123,12 +136,17 @@
         text-align: center;
       }
 
+      .company_name {
+        font-family: 'kitchen_light';
+        letter-spacing: 1px;
+      }
+
       .button {
         display: block;
         width: auto;
         margin: 20px 50px;
         padding: 20px;
-        background-color: #333;
+        background-color: #000;
         border-radius: 6px;
         text-align: center;
         font-family: 'NeutrafaceDisplayTitling';
@@ -167,7 +185,7 @@
 </head>
   <body>
     <header>
-      <h1>Skilllit</h1>
+      <h1><a href="http://www.skilllit.com">Skilllit</a></h1>
     </header>
     <main>
       <div class="logo"></div>
@@ -175,12 +193,12 @@
         <p>Click the button below.</p><br/>
         <p>It can only be used once.</p><br/>
         <p>It expires in 10 minutes.</p><br/>
-        <a href="http://www.silllit.com/account/%%TOKEN%%" class="button">Sign In</a>
+        <a href="http://www.silllit.com/login/%%TOKEN%%" class="button">Sign In</a>
         <br/>
       </section>
       <aside class="aside aside-1"></aside>
       <aside class="aside aside-2"></aside>
-      <footer>&copy; 2018 Skilllit</footer>
+      <footer>&copy; 2018 <span class="company_name">Skilllit</span></footer>
     </main>
   </body>
 </html>

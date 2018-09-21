@@ -4,7 +4,8 @@ const DbQuery = require('../dbs/queries'),
   Bounce = require('bounce'),
   Transform = require('../transforms'),
   Security = require('../../security'),
-  Email = require('../../email')
+  Email = require('../../email'),
+  AwsSdk = require('../../sdk/aws').Sdk.Aws
 
 module.exports = {
   Account: {
@@ -16,7 +17,13 @@ module.exports = {
           payload = JSON.parse(request.payload),
           encoded = await Security.Token.Encode(payload.email, ip),
           decoded = await Security.Token.Decode(encoded),
-          email = await Email.EmailProcessor(payload.email, encoded)
+          email = await Email.EmailProcessor(payload.email, encoded),
+          existingAccount = await DbQuery.Mysql('../api/sql/select/account.sql', payload)
+
+          if (existingAccount.length === 0) {
+            const newAccount = await DbQuery.Mysql('../api/sql/insert/account.sql', payload)
+            //console.log('newAccount', newAccount)
+          }
 
         await DbQuery.Mysql(
           '../api/sql/insert/login.sql',
@@ -251,6 +258,36 @@ module.exports = {
         } catch(err) {
 
           Bounce.rethrow(err, 'system')
+        }
+      }
+    }
+  },
+  Sdk: {
+    Aws: {
+      Test: {
+        Upload: async (request, h) => {
+
+          try {
+            const data = await AwsSdk.Test.Upload()
+
+            return h.response({ status: 200, data: data })
+
+          } catch(err) {
+
+            Bounce.rethrow(err, 'system')
+          }
+        },
+        Email: async (request, h) => {
+
+          try {
+            const data = await AwsSdk.Test.Email()
+
+            return h.response({ status: 200, data: data })
+
+          } catch(err) {
+
+            Bounce.rethrow(err, 'system')
+          }
         }
       }
     }

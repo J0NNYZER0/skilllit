@@ -32,7 +32,7 @@ class Footer extends React.Component {
           })}
         </div>
         <div className="company_info">
-          <span className="copyright">&copy; {year} {site.site.title}</span>
+          <span className="copyright">&copy; {year} <span className="company_name">{site.site.title}</span></span>
         </div>
       </footer>
     );

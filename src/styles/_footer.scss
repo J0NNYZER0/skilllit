@@ -26,6 +26,11 @@ footer div.menu__social {
 span.copyright {
   display: block;
 }
+span.company_name {
+  font-family: 'kitchen_light';
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}
 
 @media only screen and (min-width : 320px) and (max-width : 700px) {
 footer {

@@ -34,7 +34,7 @@ class App extends React.Component {
             <Route path="/experience" component={Experience} />
             <Route path="/resume" component={Resume} />
             <Route path="/skillset" component={Skillset} />
-            <Route path="/login" component={Login} />
+            <Route path="/login/:token?" component={Login} />
             <Route path="/me" component={Me} />
             <Route component={NotFound}/>
           </Switch>

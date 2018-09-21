@@ -84,7 +84,7 @@ const Path = require('path'),
       },
       {
         method: 'GET',
-        path: '/login'
+        path: '/login/{token?}'
       },
       {
         method: 'GET',

@@ -10,7 +10,7 @@ const Encode = (email,ip) => new Promise((resolve, reject) => {
     `${process.env.SECURITY_TOKEN_SECRET}`,
     (err, token) => {
       if (err) reject(err)
-      else resolve({token: token})
+      else resolve({ token: token })
   })
 })
 

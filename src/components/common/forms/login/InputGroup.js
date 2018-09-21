@@ -27,7 +27,7 @@ class InputGroup extends React.Component {
 }
 const actions = accountActions.login,
   initialState = {
-    email: 'jon.ortiz@me.com'
+    email: ''
   },
   formId = 'loginForm',
   buttonTitle = "Continue"

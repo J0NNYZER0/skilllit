@@ -35,9 +35,9 @@
   "license": "MIT",
   "dependencies": {
     "aws-sdk": "2.316.0",
-    "catbox": "10.0.2",
     "catbox-memory": "3.1.2",
     "hapi": "17.5.4",
+    "hapi-auth-cookie": "9.0.0",
     "inert": "5.1.0",
     "jsonwebtoken": "8.3.0",
     "moment": "2.21.0",

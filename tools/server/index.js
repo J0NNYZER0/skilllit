@@ -2,21 +2,15 @@
 
 const Path = require('path'),
   Hapi = require('hapi'),
-  Catbox = require('catbox'),
+  Inert = require('inert'),
+  HapiAutCookie = require('hapi-auth-cookie'),
+  Utility = require('./utilities'),
+  ApiRoutes = require('./api/routes'),
   Connection = {
     host: '0.0.0.0',
     port: process.env.PORT || 5000
   },
   Server = new Hapi.server({
-    cache: [
-      {
-				name: 'account',
-				engine: require('catbox-memory'),
-				host: Connection.host,
-				port: Connection.port,
-				partition: 'account'
-			}
-    ],
     host: Connection.host,
     port: Connection.port,
     state: { ignoreErrors: true },
@@ -28,69 +22,8 @@ const Path = require('path'),
         }
     }
   }),
-  Utility = require('./utilities'),
   FileHandler = (request, h) => {
-
     return h.file(Path.join(__dirname, '../../dist/index.html'))
-  },
-  ApiRoutes = require('./api/routes'),
-  Routes = {
-    Base: [
-      // /{files*}
-      {
-        method: 'GET',
-        path: '/{files*}',
-        handler: {
-          directory: {
-            path: '.',
-            redirectToSlash: true,
-            index: true
-          }
-        }
-      }
-    ],
-    Static: [
-      {
-        method: 'GET',
-        path: '/'
-      },
-      {
-        method: 'GET',
-        path: '/error'
-      },
-      {
-        method: 'GET',
-        path: '/home'
-      },
-      {
-        method: 'GET',
-        path: '/experience'
-      },
-      {
-        method: 'GET',
-        path: '/skillsets'
-      },
-      {
-        method: 'GET',
-        path: '/education'
-      },
-      {
-        method: 'GET',
-        path: '/resume'
-      },
-      {
-        method: 'GET',
-        path: '/contact'
-      },
-      {
-        method: 'GET',
-        path: '/login/{token?}'
-      },
-      {
-        method: 'GET',
-        path: '/me'
-      }
-    ]
   }
 
 // Start the server
@@ -98,39 +31,69 @@ const start = async () => {
 
   try {
 
-    await Server.register([require('inert')])
+    await Server.register([Inert, HapiAutCookie])
 
-    const add = async (a, b) => {
-      console.log('add function')
-      return Number(a) + Number(b)
-    }
+    const cache = Server.cache({
+      segment: 'sessions',
+      expiresIn: 3 * 24 * 60 * 60 * 1000
+    })
 
-    Server.app.cache = {
-      account: Server.cache({
-        cache: 'account',
-        expiresIn: 10 * 1000,
-        segment: 'accountLogin',
-        generateFunc: async (id) => {
-          console.log('generateFunc')
+    Server.app.cache = cache
 
-          return await add(id.a, id.b)
-        },
-        generateTimeout: 2000
-      })
-    }
+    Server.auth.strategy('session', 'cookie', {
+      password: 'password-should-be-32-characters',
+      cookie: 'sid-example',
+      redirectTo: '/login',
+      isSecure: false,
+      isHttpOnly: true,
+      validateFunc: async (request, session) => {
+        const cached = await cache.get(session.sid),
+          out = { valid: !!cached }
+
+        if (out.valid) {
+            out.credentials = cached.account
+        }
+
+        console.log('out', out)
+
+        return out;
+      }
+    })
+
+    Server.auth.default('session')
+
+    Server.route(
+      [].concat(
+        ApiRoutes.Account,
+        ApiRoutes.Base,
+        ApiRoutes.Contact,
+        ApiRoutes.Dev,
+        ApiRoutes.Lab,
+        ApiRoutes.Profile,
+        ApiRoutes.Sdk,
+        ApiRoutes.Static.map(r => {
+          r.handler = FileHandler
+          return r
+        })
+      )
+    )
 
     const preResponse = (request, h) => {
 
       const response = request.response
+
       if (!response.isBoom) {
           return h.continue
       }
 
       const statusCode = response.output.statusCode
-
+      console.log('statusCode', statusCode)
       switch(statusCode) {
         case 404:
         return h.redirect('/error')
+
+        case 403:
+        return h.redirect('/unauthorized')
 
         default:
         return h.continue
@@ -138,24 +101,6 @@ const start = async () => {
     }
 
     Server.ext('onPreResponse', preResponse)
-
-    Server.route(
-      [].concat(
-        Routes.Base,
-        Routes.Static.map(r => {
-          r.handler = FileHandler
-          return r
-        }),
-        ApiRoutes.Account,
-        ApiRoutes.Contact,
-        ApiRoutes.Lab,
-        ApiRoutes.Profile,
-        ApiRoutes.Sdk
-      ).map(r => {
-        r.config = { auth: false }
-        return r
-      })
-    )
 
     await Server.start()
   }

@@ -8,28 +8,116 @@ const DbQuery = require('../dbs/queries'),
   Email = require('../../email'),
   AwsSdk = require('../../sdk/aws').Sdk.Aws
 
+  let uuid = 1     // Use seq instead of proper unique identifiers for demo only
+
+  const users = {
+      'hello@ludwigui.com': {
+          id: 'john',
+          password: 'password',
+          name: 'John Doe',
+          scope: ['me']
+      }
+  }
+
 module.exports = {
   Account: {
     Login: async (request, h) => {
+      let message = '',
+        account = null,
+        accountId = null,
+        login = null,
+        token = null
+
+      if (request.method === 'post') {
+        const payload = JSON.parse(request.payload),
+          ip = request.info.remoteAddress
+
+        if (request.auth.isAuthenticated) {
+
+          return h.redirect('/')
+        }
+
+        if (!payload.email) {
+
+          message = 'Missing email'
+        } else {
+
+          account = await DbQuery.Mysql('../api/sql/select/account.sql', payload)
+
+          if (account.length === 0) {
+            console.log('test')
+
+            // If account does not exist
+            // Create account
+
+            account = await DbQuery.Mysql('../api/sql/insert/account.sql', payload)
+            // Set account id, just inserted
+            accountId = account.insertId
+          } else {
+
+            // If account exists
+
+            // Set account id
+            accountId = account.id
+          }
+
+          login = await DbQuery.Mysql('../api/sql/select/login.sql', accountId)
+        }
+
+        const shortId = ShortId.generate()
+
+          if (login.length === 0) {
+
+            token = await Security.Token.Encode(payload.email, ip)
+            login = await DbQuery.Mysql('../api/sql/insert/login.sql',
+              { short_id: shortId, ...token, account_id: accountId })
+          }
+
+
+        // Generate an email
+        const email = await Email.EmailProcessor(payload.email, shortId)
+
+        console.log('test', shortId)
+
+        const sid = shortId // const sid = String(+uuid)
+
+        await request.server.app.cache.set(sid, token, 0)
+
+        request.cookieAuth.set({ sid })
+
+        return h.response({ status: 200, data: { sid: sid } })
+      }
+
+      if (request.method === 'get') {
+
+        await request.server.app.cache.get(request.params.shortId)
+      }
+    },
+    Logout: async (request, h) => {
+      request.server.app.cache.drop(request.state['sid-example'].sid)
+      request.cookieAuth.clear()
+      return h.response({ status: 200, data: 'logged out' })
+    },
+    OldLogin: async (request, h) => {
 
       try {
-
         const ip = request.info.remoteAddress,
           shortId = ShortId.generate(),
           payload = JSON.parse(request.payload),
           encoded = await Security.Token.Encode(payload.email, ip),
           decoded = await Security.Token.Decode(encoded),
-          email = await Email.EmailProcessor(payload.email, encoded),
-          existingAccount = await DbQuery.Mysql('../api/sql/select/account.sql', payload)
+          email = await Email.EmailProcessor(payload.email, shortId)
 
-          if (existingAccount.length === 0) {
-            const newAccount = await DbQuery.Mysql('../api/sql/insert/account.sql', { ...payload })
-            //console.log('newAccount', newAccount)
+        let account = await DbQuery.Mysql('../api/sql/select/account.sql', payload)
+
+          if (account.length === 0) {
+            account = await DbQuery.Mysql('../api/sql/insert/account.sql', { ...payload })
+            account = await DbQuery.Mysql('../api/sql/select/account_by_id.sql', account.insertId)
           }
 
         await DbQuery.Mysql(
           '../api/sql/insert/login.sql',
-          { short_id: shortId, ...payload, ...encoded })
+          { short_id: shortId, ...payload, ...encoded, account_id: account[0].id })
 
         return h.response({ status: 200 })
 
@@ -65,15 +153,9 @@ module.exports = {
     },
     Hello: async (request, h) => {
 
-      let data = null
-
       try {
 
-        data = await DbQuery.Mysql(
-          '../api/sql/insert/login.sql',
-          11)
-
-        return h.response({data: data})
+        return h.response({hello: 'world'})
 
       } catch(err) {
 

@@ -3,6 +3,7 @@ import * as server from '../constants/server';
 import * as endpoint from '../constants/endpoint';
 
 class Api {
+
   static load() {
     return new Promise((resolve, reject) => {
       const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.LOAD}`;
@@ -19,9 +20,12 @@ class Api {
   static homeLoad(account_id) {
     return new Promise((resolve, reject) => {
       const url = `${server.HOST}${endpoint.API}${endpoint.PROFILE.HOME.LOAD}` + account_id;
-      fetch(url).then((response) => {
-        if (response.status >= 400) return reject(response.status);
-          resolve(response.json());
+      fetch(url).then(response => {
+
+        if (response.status === 400) return reject(response.status);
+        if (response.status === 403) return reject(response.status);
+
+        resolve(response.json());
       })
       .then(function (data) {
         resolve(data);

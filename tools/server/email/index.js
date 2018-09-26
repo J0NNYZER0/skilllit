@@ -5,17 +5,16 @@ const Bounce = require('bounce'),
 	Path = require('path'),
   Aws = require('aws-sdk')
 
-const ParseEmail = (email,token) => new Promise ((resolve) => {
-	let parsed = Fs.readFileSync(Path.join(__dirname, './login/index.html'), 'utf8'),
-    encodedToken = encodeURIComponent(token.token)
+const ParseEmail = (email,shortId) => new Promise ((resolve) => {
 
-  console.log('encodedToken',encodedToken)
-	 parsed = parsed.replace(/%%TOKEN%%/, encodedToken)
+  let parsed = Fs.readFileSync(Path.join(__dirname, './login/index.html'), 'utf8')
+
+	parsed = parsed.replace(/%%TOKEN%%/, shortId)
 
 	resolve(parsed)
 })
 
-const SesMailOptions = (email, token, parsedEmail) => new Promise(resolve => resolve({
+const SesMailOptions = (email, shortId, parsedEmail) => new Promise(resolve => resolve({
   Destination: {
    ToAddresses: [
       email
@@ -29,7 +28,7 @@ const SesMailOptions = (email, token, parsedEmail) => new Promise(resolve => res
     },
     Text: {
      Charset: "UTF-8",
-     Data: 'Copy and paste this link - http://www.skilllit.com/login/' + token + ' . It can only be used once. It expires in 10 minutes.'
+     Data: 'Copy and paste this link - http://www.skilllit.com/login/' + shortId + ' . It can only be used once. It expires in 10 minutes.'
     }
    },
    Subject: {
@@ -48,11 +47,10 @@ const SendEmail = (mailOptions) => new Promise((resolve, reject) => {
   })
 })
 
-const EmailProcessor = async (email, token) => {
+const EmailProcessor = async (email, shortId) => {
   try {
-
-    const parsedEmail = await ParseEmail(email, token),
-      mailOptions = await SesMailOptions(email, token, parsedEmail),
+    const parsedEmail = await ParseEmail(email, shortId),
+      mailOptions = await SesMailOptions(email, shortId, parsedEmail),
       sentEmail = await SendEmail(mailOptions)
 
     return sentEmail

@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 import * as fetchTypes from '../constants/fetchTypes';
-import api from '../api/accountApi';
+import {AccountApi} from '../api/accountApi';
 import mockApi from '../api/mock/accountApi';
 import {beginAjaxCall} from './ajaxStatusActions';
 
@@ -18,7 +18,23 @@ export const login = data => {
 
     dispatch(beginAjaxCall());
 
-    return api.login(data).then(response => {
+    return AccountApi.login(data).then(response => {
+
+      dispatch(fetchSuccess(response));
+
+    }).catch(error => {
+
+      throw(error);
+    });
+  };
+}
+
+export const logout = () => {
+  return dispatch => {
+
+    dispatch(beginAjaxCall());
+
+    return AccountApi.logout().then(response => {
 
       dispatch(fetchSuccess(response));
 

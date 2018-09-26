@@ -30,7 +30,6 @@ module.exports = {
 
         if (error) reject(error)
         // Handle error after the release.
-
         resolve(results)
 
         // Don't use the connection here, it has been returned to the pool.

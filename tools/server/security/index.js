@@ -1,11 +1,12 @@
 'use strict'
 
-const JsonWebToken = require('jsonwebtoken')
+const JsonWebToken = require('jsonwebtoken'),
+  Utilities = require('../utilities')
 
 const Encode = (email,ip) => new Promise((resolve, reject) => {
 
   JsonWebToken.sign({
-      data: { email: email, ip: ip }
+      data: { email: email, ip: ip, ts: Utilities.CreateTimestamp() }
     },
     `${process.env.SECURITY_TOKEN_SECRET}`,
     (err, token) => {

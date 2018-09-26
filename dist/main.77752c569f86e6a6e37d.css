@@ -901,7 +901,8 @@ nav > div {
 .menu > a {
   cursor: pointer; }
 
-.menu > a {
+.menu > a,
+.menu > .menu_item {
   display: block;
   padding: 10px 0;
   -webkit-user-select: none;
@@ -910,9 +911,12 @@ nav > div {
           user-select: none;
   font-size: 1.75em;
   text-align: center;
-  border-bottom: 1px solid #FFF800; }
+  border-bottom: 1px solid #FFF800;
+  cursor: pointer;
+  color: #FFF800; }
 
-.menu > a:last-child {
+.menu > a:last-child,
+.menu > .menu_item {
   border-bottom: none; }
 
 /*animated menu icon*/
@@ -1901,4 +1905,4 @@ ul.item_menu li {
   .job_location {
     text-align: right; } }
 
-/*# sourceMappingURL=main.f2d2b05f285f23b0306e.css.map*/
+/*# sourceMappingURL=main.77752c569f86e6a6e37d.css.map*/

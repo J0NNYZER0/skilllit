@@ -19,15 +19,19 @@ nav > div {
 .menu > a {
   cursor: pointer;
 }
-.menu > a {
+.menu > a,
+.menu > .menu_item {
   display: block;
   padding: 10px 0;
   user-select: none;
   font-size: 1.75em;
   text-align: center;
   border-bottom: 1px solid #FFF800;
+  cursor: pointer;
+  color: #FFF800;
 }
-.menu > a:last-child {
+.menu > a:last-child,
+.menu > .menu_item {
   border-bottom: none;
 }
 

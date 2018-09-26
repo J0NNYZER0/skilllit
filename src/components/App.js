@@ -12,6 +12,7 @@ import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 import Login from './pages/Login';
 import Me from './pages/profile/Index';
+import Unauthorized from './pages/Unauthorized';
 import NotFound from './pages/NotFound';
 import Footer from './common/Footer';
 
@@ -36,6 +37,7 @@ class App extends React.Component {
             <Route path="/skillset" component={Skillset} />
             <Route path="/login/:token?" component={Login} />
             <Route path="/me" component={Me} />
+            <Route path="/unauthorized" component={Unauthorized} />
             <Route component={NotFound}/>
           </Switch>
         </main>

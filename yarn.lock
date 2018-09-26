@@ -1759,15 +1759,6 @@ catbox-memory@3.1.2, catbox-memory@3.x.x:
     boom "7.x.x"
     hoek "5.x.x"
 
-catbox@10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/catbox/-/catbox-10.0.2.tgz#e6ac1f35102d1a9bd07915b82e508d12b50a8bfa"
-  dependencies:
-    boom "7.x.x"
-    bounce "1.x.x"
-    hoek "5.x.x"
-    joi "13.x.x"
-
 catbox@10.x.x:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/catbox/-/catbox-10.0.3.tgz#1f6f6436dfab30cdd23f753877bcb4afe980414b"
@@ -3595,6 +3586,15 @@ handlebars@^4.0.3:
     source-map "^0.6.1"
   optionalDependencies:
     uglify-js "^3.1.4"
+
+hapi-auth-cookie@9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/hapi-auth-cookie/-/hapi-auth-cookie-9.0.0.tgz#3b0af443334e2bd92490ddb17bed16e3e9edfd01"
+  dependencies:
+    boom "7.x.x"
+    bounce "1.x.x"
+    hoek "5.x.x"
+    joi "13.x.x"
 
 hapi@17.5.4:
   version "17.5.4"

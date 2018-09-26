@@ -7,7 +7,7 @@
 #
 # Host: us-cdbr-iron-east-01.cleardb.net (MySQL 5.5.56-log)
 # Database: heroku_356757ead6b3b38
-# Generation Time: 2018-09-21 17:58:59 +0000
+# Generation Time: 2018-09-21 21:18:02 +0000
 # ************************************************************
 
 
@@ -38,8 +38,7 @@ LOCK TABLES `account` WRITE;
 
 INSERT INTO `account` (`id`, `username`, `email`, `created`)
 VALUES
-	(1,'Jon','jon.ortiz@me.com','2018-09-06 19:35:59'),
-	(41,'','jon.ortiz@me.commm','2018-09-21 17:13:15');
+	(1,'Jon','jon.ortiz@me.com','2018-09-06 19:35:59');
 
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -171,33 +170,14 @@ CREATE TABLE `login` (
   `short_id` varchar(25) NOT NULL,
   `email` varchar(245) NOT NULL DEFAULT '',
   `token` varchar(255) NOT NULL,
+  `account_id` int(11) NOT NULL,
   `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `login_unq_1` (`id`,`email`),
+  KEY `login_ibfk_1` (`account_id`),
+  CONSTRAINT `login_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-LOCK TABLES `login` WRITE;
-/*!40000 ALTER TABLE `login` DISABLE KEYS */;
-
-INSERT INTO `login` (`id`, `short_id`, `email`, `token`, `created`)
-VALUES
-	(51,'','jon.ortiz@me.comm','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbW0iLCJpcCI6IjEyNy4wLjAuMSJ9LCJpYXQiOjE1Mzc1MDY1MzZ9.rIXwDcsezPcFMPF31YfE1CP8ge3exQXH1RC9vaZ2M20','2018-09-21 05:08:58'),
-	(61,'','jon.ortiz@me.comm','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbW0iLCJpcCI6IjEyNy4wLjAuMSJ9LCJpYXQiOjE1Mzc1MDY3NTd9.G9-y4sC5hSa-of5m6tDER0mjfwXKi_eQlINtu9npMAU','2018-09-21 05:12:38'),
-	(71,'','jon.ortiz@me.comm','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbW0iLCJpcCI6IjEyNy4wLjAuMSJ9LCJpYXQiOjE1Mzc1MDgxOTF9.i6oig--rpl7Uo46hu-wDa5vh3GgY_eWxwuEFsGhbJek','2018-09-21 05:36:32'),
-	(81,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzUwODE5Mn0.2UJpfstc3b7DK9MXu-4TsUlkyGpo0BAID3GtHQlb9SQ','2018-09-21 05:36:33'),
-	(91,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTAuMTAxLjI1My4xNDEifSwiaWF0IjoxNTM3NTA5ODQ5fQ.vPO46VVysBYD2IVFoaPktQska7MssYxeQdTZ4g1811s','2018-09-21 06:04:10'),
-	(101,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU0OTA3MH0.18hoCx9d_RS9I7bITajQyOuLwhAnoplNCvuk4Z6OGjA','2018-09-21 16:57:51'),
-	(111,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU0OTEwMX0.TsLAElfgjAKQgbNbJC85DSeQDuzFbfvzEpeJEzOwUS4','2018-09-21 16:58:22'),
-	(121,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU0OTEyNn0.dL_2djXRhHJifefcVlvyvZkXN8bEvxnaOS3ZULJT9sU','2018-09-21 16:58:47'),
-	(131,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU0OTEyNn0.dL_2djXRhHJifefcVlvyvZkXN8bEvxnaOS3ZULJT9sU','2018-09-21 16:58:47'),
-	(141,'','jon.ortiz@me.commm','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbW1tIiwiaXAiOiIxMjcuMC4wLjEifSwiaWF0IjoxNTM3NTQ5MTc2fQ.YQHs_abSEQY8BBCy8P90m2GXLe9cBjEz20WprrfwihA','2018-09-21 16:59:37'),
-	(151,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU0OTM1OX0.yhvvM4KwoSBAxSvTFHyNjEb7gYfZdBauW76SluyrzFQ','2018-09-21 17:02:41'),
-	(161,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU0OTQxMX0.nFtt1CuDz9sN5lWuj_N4WRHQdKdoNV5upNzy6ASWcWk','2018-09-21 17:03:33'),
-	(171,'','jon.ortiz@me.commm','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbW1tIiwiaXAiOiIxMjcuMC4wLjEifSwiaWF0IjoxNTM3NTQ5OTkzfQ.DRu4ASzPlqawl9XKQTuICHXC6OwUra-QbI3wi9X3nCs','2018-09-21 17:13:15'),
-	(181,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU1MDAxMX0.A1_YIzhuX-IRESJz7gMrazuQjTDdA8DaMrO_MZpSwDY','2018-09-21 17:13:32'),
-	(191,'','jon.ortiz@me.com','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoiam9uLm9ydGl6QG1lLmNvbSIsImlwIjoiMTI3LjAuMC4xIn0sImlhdCI6MTUzNzU1MDE0OX0.nRu24ihtG7HmAh-g9Z13Q12mF4EgAK7JWt-40NLk6jA','2018-09-21 17:15:50');
-
-/*!40000 ALTER TABLE `login` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table project

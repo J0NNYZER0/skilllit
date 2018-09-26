@@ -1,5 +1,5 @@
 INSERT INTO `login`
 (`short_id`,
-`email`,
-`token`)
+`token`,
+`account_id`)
 VALUES (?,?,?);

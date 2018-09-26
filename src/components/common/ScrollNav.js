@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { Element } from 'react-scroll';
 import ScrollLink from './ScrollLink';
+import * as accountActions from '../../actions/accountActions.js';
 
 class ScrollNav extends React.Component {
 
@@ -17,6 +19,7 @@ class ScrollNav extends React.Component {
 
     this.toggle = this.toggle.bind(this, this.state.toggle);
     this.toggleMenu = this.toggleMenu.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,6 +35,10 @@ class ScrollNav extends React.Component {
   toggle() {
 
     this.setState({toggle: !this.state.toggle});
+  }
+
+  logout() {
+    this.props.actions.logout();
   }
 
   render() {
@@ -60,21 +67,29 @@ class ScrollNav extends React.Component {
           <ScrollLink scrollLink={{ to:'education', offset: -250, onClick: this.toggleMenu, text: 'Education' }} />
           <ScrollLink scrollLink={{ to:'resume', offset: -250, onClick: this.toggleMenu, text: 'Resume' }} />
           <ScrollLink scrollLink={{ to:'contact', offset: -250, onClick: this.toggleMenu, text: 'Contact' }} />
-          <NavLink to="/login">Log In</NavLink>
+          <NavLink to="/login">Login</NavLink>
           <NavLink to="/me">Me</NavLink>
+          <div className="menu_item" onClick={this.logout}>Logout</div>
         </div>}
       </nav>);
     }
 }
 
 ScrollNav.propTypes = {
-  site: PropTypes.object.isRequired,
+  site: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    site: state.site
+    site: state.site,
+    actions: PropTypes.object.isRequired
+  };
+},
+mapDispatchToProps = dispatch => {
+
+  return {
+    actions: bindActionCreators(accountActions, dispatch)
   };
 }
 
-export default connect(mapStateToProps)(ScrollNav);
+export default connect(mapStateToProps, mapDispatchToProps)(ScrollNav);

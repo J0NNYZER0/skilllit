@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ScrollNav from './ScrollNav';
-
+import * as accountActions from '../../actions/accountActions.js';
 class Nav extends React.Component {
 
   constructor(props) {
@@ -15,6 +16,11 @@ class Nav extends React.Component {
     }
 
     this.toggle = this.toggle.bind(this);
+    this.logout = this.logout.bind(this);
+  }
+
+  logout() {
+    this.props.actions.logout()
   }
 
   componentWillReceiveProps(nextProps) {
@@ -56,8 +62,9 @@ class Nav extends React.Component {
             <NavLink to="/education">Education</NavLink>
             <NavLink to="/resume">Resume</NavLink>
             <NavLink to="/contact">Contact</NavLink>
-            <NavLink to="/login">Log In</NavLink>
+            <NavLink to="/login">Login</NavLink>
             <NavLink to="/me">Me</NavLink>
+            <div className="menu_item" onClick={this.logout}>Logout</div>
           </div>}
         </nav>);
     } else {
@@ -67,13 +74,20 @@ class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-  site: PropTypes.object.isRequired,
+  site: PropTypes.object.isRequired
 };
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    site: state.site
+    site: state.site,
+    actions: PropTypes.object.isRequired
+  };
+},
+mapDispatchToProps = dispatch => {
+
+  return {
+    actions: bindActionCreators(accountActions, dispatch)
   };
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav);
